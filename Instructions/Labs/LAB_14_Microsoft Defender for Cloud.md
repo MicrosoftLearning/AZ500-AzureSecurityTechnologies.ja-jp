@@ -2,12 +2,12 @@
 lab:
   title: 14 - Microsoft Defender for Cloud
   module: Module 04 - Microsoft Defender for Cloud
-ms.openlocfilehash: 6ec274b75692321577c8966e07349211209eaa02
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: 647e2dc79012d6fedca9da9a78f6006f64be093b
+ms.sourcegitcommit: 18d4f5ccc60ae6d43b27e8b7d4d3ef7f68a02e93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703589"
+ms.lasthandoff: 04/06/2022
+ms.locfileid: "141483502"
 ---
 # <a name="lab-14-microsoft-defender-for-cloud"></a>ラボ 14:Microsoft Defender for Cloud
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
@@ -53,52 +53,52 @@ ms.locfileid: "139703589"
 
 2. Azure portal の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、Azure portal ページの上部に「**Microsoft Defender for Cloud**」と入力し、**Enter** キーを押します。
 
-3. まだ完了されていない場合は、 **[Microsoft Defender for Cloud \| 開始]** ブレードで、 **[アップグレード]** をクリックします。
+3. まだ完了されていない場合は、 **[Microsoft Defender for Cloud | 開始]** ブレードで、 **[アップグレード]** をクリックします。
      
-4. まだ完了されていない場合は、 **[Microsoft Defender for Cloud \| 開始]** ブレードの **[エージェントのインストール]** タブで、下にスクロールして **[エージェントのインストール]** をクリックします。
+4. まだ完了されていない場合は、 **[Microsoft Defender for Cloud | 開始]** ブレードの **[エージェントのインストール]** タブで、下にスクロールして **[エージェントのインストール]** をクリックします。
 
-5. **[Microsoft Defender for Cloud \| 開始]** ブレードの **[アップグレード]** タブ >> **[Select workspaces with enhanced security features]\(強化されたセキュリティ機能を含むワークスペースの選択\)** セクション >> お使いの Log Analytics ワークスペースを選択して **[Microsoft Defender plan]\(Microsoft Defender プラン\)** を有効にします。 
+5. **[Microsoft Defender for Cloud | 開始]** ブレードの **[アップグレード]** タブ >> **[強化されたセキュリティ機能を含むワークスペースの選択]** セクション >> お使いの Log Analytics ワークスペースを選択して **[Microsoft Defender プラン]** を有効にします。 
 
     >**注**:Microsoft Defender プランの一部として使用できるすべての機能を確認します。 
 
-6. **[Defender plans]\(Defender プラン\)** タブで、 **[すべての Microsoft Defender for Cloud プランの有効化]** を選択し、 **[保存]** をクリックします。
+6. **[Microsoft Defender for Cloud]** に移動し、左側にある垂直メニュー バーで、[管理] 設定の下にある **[環境の設定]** をクリックします。
 
-7. **[Microsoft Defender for Cloud]** に移動し、左側にある垂直メニュー バーで、[管理] 設定の下にある **[環境の設定]** をクリックします。
+7. **[Microsoft Defender for Cloud | 環境の設定]** ブレードで、関連するサブスクリプションをクリックします。 
 
-8. **[Microsoft Defender for Cloud | 環境の設定]** ブレードで、関連するサブスクリプションをクリックします。 
+8. **[Defender plans]\(Defender プラン\)** タブで、 **[すべての Microsoft Defender for Cloud プランの有効化]** を選択し、 **[保存]** をクリックします。
 
-9. **[設定 | Defender プラン]** ブレードの左側にある垂直方向のメニュー バーで、 **[自動プロビジョニング]** をクリックします。
+9. **[設定 | Defender プラン]** ブレードの左側にある垂直方向のメニュー バーで、 **[自動プロビジョニング]** をクリックします。 
 
 10. **[設定 | 自動プロビジョニング]** ブレードで、最初の項目である **[Azure VM の Log Analytics エージェント]** の自動プロビジョニングが **[オン]** に設定されていることを確認します。
 
-11. **[設定 \| ワークフローの自動化]** ブレードで **[+ ワークフローの自動化の追加]** をクリックします。
-
-12. **[ワークフロー自動化の追加]** ブレードで、使用可能な設定を確認します。 
+11. **[設定 | ワークフローの自動化]** ブレードで、使用可能な設定を確認します。 
 
     >**注**:脅威検出アラートおよび Microsoft Defender for Cloud の推奨事項に基づいてアクションをトリガーできます。 Logic Apps に基づいてアクションを構成することもできます。 
+    
+12. **[ワークフロー自動化の追加]** ブレードで、使用可能な設定を確認します。
+
+    >注:Microsoft Defender for Cloud では、システムの更新状況、OS セキュリティ構成、エンドポイント保護など、仮想マシンに関する多くの分析情報が提供されます。
 
 13. **[ワークフロー自動化の追加]** ブレードで、**[キャンセル]** をクリックします。
 
-    >**注**:Microsoft Defender for Cloud では、システムの更新状況、OS セキュリティ構成、エンドポイント保護など、仮想マシンに関する多くの分析情報が提供されます。
+14. **[Microsoft Defender for Cloud | 環境の設定]** ブレードに戻り、サブスクリプションを展開して、前のラボで作成した Log Analytics ワークスペースを表すエントリをクリックします。
 
-14. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードに戻り、サブスクリプションを展開して、前のラボで作成した Log Analytics ワークスペースを表すエントリをクリックします。
+15. **[設定 | Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** が選択されていることを確認し、 **[保存]** をクリックします。
 
-15. **[設定 \| Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** が選択されていることを確認し、 **[保存]** をクリックします。
-
-16. **[Microsoft Defender for Cloud \| 設定]** ブレードから **[データ コレクション]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順に選択します。
+16. **[Microsoft Defender for Cloud | 設定]** ブレードから **[データ コレクション]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順に選択します。
 
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>タスク 2:Microsoft Defender for Cloud の推奨事項を確認する
 
 このタスクでは、Microsoft Defender for Cloud の推奨事項を確認します。 
 
-1. Azure portal で、 **[Microsoft Defender for Cloud \| 概要]** ブレードに戻ります。 
+1. Azure portal で、 **[Microsoft Defender for Cloud | 概要]** ブレードに戻ります。 
 
-2. **[Microsoft Defender for Cloud \| 概要]** ブレードで、 **[セキュア スコア]** タイルを確認します。
+2. **[Microsoft Defender for Cloud | 概要]** ブレードで、 **[セキュア スコア]** タイルを確認します。
 
     >**注**:あれば、現在のスコアを記録します。
 
-3. **[Microsoft Defender for Cloud \| 概要]** ブレードに戻り、 **[評価済みリソース]** を選択します。
+3. **[Microsoft Defender for Cloud | 概要]** ブレードに戻り、 **[評価済みリソース]** を選択します。
 
 4. **[インベントリ]** ブレードで、**[myVM]** エントリを選択します。
 
@@ -111,7 +111,7 @@ ms.locfileid: "139703589"
 
 このタスクでは、仮想マシンでの Just In Time VM アクセスを有効にする Microsoft Defender for Cloud の推奨事項を実装します。 
 
-1. Azure portal で、 **[Microsoft Defender for Cloud \| 概要]** ブレードに戻り、 **[Cloud Security]\(クラウド セキュリティ\)** タイルの **[ワークロード保護]** を選択します。
+1. Azure portal で、 **[Microsoft Defender for Cloud | 概要]** ブレードに戻り、 **[クラウド セキュリティ]** タイルの **[ワークロード保護]** を選択します。
 
 2. **[ワークロード保護]** ブレードの **[高度な保護]** セクションで **[Just-In-Time VM アクセス]** タイルをクリックし、 **[Just-In-Time VM アクセス] ブレード** で **[Just In Time VM アクセスを試す]** をクリックします。
 

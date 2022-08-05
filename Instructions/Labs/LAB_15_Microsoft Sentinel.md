@@ -3,11 +3,11 @@ lab:
   title: 15 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
 ms.openlocfilehash: 63a24bbc17b846d3587cf3fb83ab46b7235d5fcd
-ms.sourcegitcommit: 18aa464705a8f1e78ccbbb82d5d8f57a830b6cea
+ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2022
-ms.locfileid: "140666114"
+ms.lasthandoff: 04/04/2022
+ms.locfileid: "141368803"
 ---
 # <a name="lab-15-microsoft-sentinel"></a>ラボ 15:Microsoft Sentinel
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル

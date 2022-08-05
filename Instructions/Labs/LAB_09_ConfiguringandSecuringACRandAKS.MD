@@ -2,12 +2,12 @@
 lab:
   title: 09 - ACR と AKS の構成とセキュリティ保護
   module: Module 02 - Implement Platform Protection
-ms.openlocfilehash: f3e03b483065cad12a6206b3ce2106441d05efe0
-ms.sourcegitcommit: a8470295248a6363987bd5ea47154fe39f8535c3
+ms.openlocfilehash: 167dca080d65d97997b3a884015bfa2228c17a23
+ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2022
-ms.locfileid: "139703499"
+ms.lasthandoff: 05/31/2022
+ms.locfileid: "145955420"
 ---
 # <a name="lab-09-configuring-and-securing-acr-and-aks"></a>ラボ 09:ACR と AKS の構成とセキュリティ保護
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
@@ -139,7 +139,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 2. **[Kubernetes サービス]** ブレードで、 **[+ 作成]** をクリックし、ドロップダウン メニューで **[+ Kubernetes クラスターを作成]** をクリックします
 
-3. **[Kubernetes クラスターを作成]** ブレードの **[基本]** タブで、 **[Change preset configurations]\(プリセット構成の変更\)** をクリックし、 **[Dev/Test ($)]** を選択して **[適用]** をクリックします。 ここで、次の設定を指定します (他の設定は既定値のままにしておきます)。
+3. **[Kubernetes クラスターを作成]** ブレードの **[基本]** タブで、 **[クラスターのプリセット構成]** を選び、 **[Dev/Test ($)]** を選びます。 ここで、次の設定を指定します (他の設定は既定値のままにしておきます)。
 
     |設定|値|
     |----|----|
@@ -148,6 +148,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     |Kubernetes クラスター名|**MyKubernetesCluster**|
     |リージョン|**(米国) 米国東部**|
     |可用性ゾーン |**なし**|
+    |スケーリング方法|**[手動]**|
     |ノード数|**1**|
 
 4. **[次へ: ノード プール >]** をクリックし **[Kubernetes クラスターを作成]** ブレードの **[ノード プール]** タブで、次の設定を指定します (他の設定は既定値のままにします)。
@@ -155,9 +156,8 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     |設定|値|
     |----|----|
     |仮想ノードを有効にする|チェックボックスがオフ|
-    |VM スケール セット|チェックボックスがオフ|
     
-5. **[次へ: 認証 >]** をクリックし、 **[Kubernetes クラスターを作成]** ブレードの **[認証]** タブで、既定値を受け入れて、 **[次へ:ネットワーク >]** を選択します。 
+5. **[次へ: アクセス >]** をクリックし、 **[Kubernetes クラスターを作成]** ブレードの **[アクセス]** タブで、既定値を受け入れて、 **[次へ:ネットワーク >]** を選択します。 
 
 6. **[Kubernetes クラスターの作成]** ブレードの **[ネットワーク]** タブで、次の設定を指定します (既定値を他のユーザーのままにします)。
 
@@ -369,7 +369,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 
 
-2. Cloud Shell ペインの左上のドロップダウン メニューで **PowerShell** を選択し、メッセージが表示されたら「**確認**」をクリックします。
+2. [Cloud Shell] ペインの左上のドロップダウン メニューで **[PowerShell]** を選択し、メッセージが表示されたら **[確認]** をクリックします。
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   

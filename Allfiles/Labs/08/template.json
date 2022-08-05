@@ -80,7 +80,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "description": "VNET 内のすべての VM からの受信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -100,7 +100,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow inbound traffic from azure load balancer",
+                            "description": "Azure Load Balancer からの受信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -120,7 +120,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Deny all inbound traffic",
+                            "description": "すべての受信を拒否する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -140,7 +140,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "description": "すべての VM から VNET 内のすべての VM への送信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -160,7 +160,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "description": "すべての VM からインターネットへの送信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -180,7 +180,7 @@
                         "etag": "W/\"ec6f3a73-bf2f-4cca-a1fb-926376f4ab43\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Deny all outbound traffic",
+                            "description": "すべての送信トラフィックを拒否する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -213,7 +213,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "description": "VNET 内のすべての VM からの受信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -233,7 +233,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow inbound traffic from azure load balancer",
+                            "description": "Azure Load Balancer からの受信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -253,7 +253,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Deny all inbound traffic",
+                            "description": "すべての受信を拒否する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -273,7 +273,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "description": "すべての VM から VNET 内のすべての VM への送信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -293,7 +293,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "description": "すべての VM からインターネットへの送信トラフィックを許可する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -313,7 +313,7 @@
                         "etag": "W/\"5e8a035e-d6c8-471f-b5fd-f031ef30ffea\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "description": "Deny all outbound traffic",
+                            "description": "すべての送信トラフィックを拒否する",
                             "protocol": "*",
                             "sourcePortRange": "*",
                             "destinationPortRange": "*",
@@ -425,7 +425,6 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
-                           
                         },
                         "diskSizeGB": 127
                     },
@@ -434,7 +433,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_Srv_Jump_name')]",
                     "adminUsername": "localadmin",
-                    "adminPassword" : "Pa55w.rd1234",
+                    "adminPassword": "Pa55w.rd1234",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
@@ -477,7 +476,6 @@
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
-                         
                         },
                         "diskSizeGB": 127
                     },

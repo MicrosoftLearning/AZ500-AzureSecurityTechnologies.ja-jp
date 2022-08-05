@@ -2,12 +2,12 @@
 lab:
   title: 13 - Azure Monitor
   module: Module 04 - Manage security operations
-ms.openlocfilehash: df6fbcf475fe0a5cefec130ab713f92997dcf206
-ms.sourcegitcommit: 022221e69467f2fdccf2e02bb54e6ec395570668
+ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
+ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2022
-ms.locfileid: "143988959"
+ms.lasthandoff: 07/18/2022
+ms.locfileid: "147168500"
 ---
 # <a name="lab-13-azure-monitor"></a>ラボ 13:Azure Monitor
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
@@ -158,7 +158,7 @@ ms.locfileid: "143988959"
 6. **[Windows パフォーマンス カウンター]** をクリックし、**[+ パフォーマンス カウンターの追加]** をクリックして、使用可能なパフォーマンス カウンターの一覧を確認し、次のものを追加します。
 
     - Memory(\*)\Available Memory Mbytes
-    - Process(\*)\%Processor Time
+    - Process(\*)\\% Processor Time
     - Event Tracing for Windows\Total Memory Usage --- Non-Paged Pool
     - Event Tracing for Windows\Total Memory Usage --- Paged Pool
 

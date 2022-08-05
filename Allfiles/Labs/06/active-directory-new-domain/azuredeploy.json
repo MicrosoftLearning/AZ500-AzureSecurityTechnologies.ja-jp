@@ -5,45 +5,45 @@
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "description": "The name of the administrator account of the new VM and domain"
+                "description": "新しい VM とドメインの管理者アカウントの名前"
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "The password for the administrator account of the new VM and domain"
+                "description": "新しい VM とドメインの管理者アカウントのパスワード"
             }
         },
         "domainName": {
             "type": "string",
             "metadata": {
-                "description": "The FQDN of the Active Directory Domain to be created"
+                "description": "作成する Active Directory ドメインの FQDN"
             }
         },
         "dnsPrefix": {
             "type": "string",
             "metadata": {
-                "description": "The DNS prefix for the public IP address used by the Load Balancer"
+                "description": "Load Balancer によって使用されるパブリック IP アドレスの DNS プレフィックス"
             }
         },
         "vmSize": {
             "type": "string",
             "defaultValue": "Standard_D2s_v3",
             "metadata": {
-                "description": "Size of the VM for the controller"
+                "description": "コントローラーの VM のサイズ"
             }
         },
         "_artifactsLocation": {
             "type": "string",
             "metadata": {
-                "description": "The location of resources, such as templates and DSC modules, that the template depends on"
+                "description": "テンプレートや DSC モジュールなど、テンプレートが依存するリソースの場所"
             },
             "defaultValue": "[deployment().properties.templateLink.uri]"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring",
             "metadata": {
-                "description": "Auto-generated token to access _artifactsLocation. Leave it blank unless you need to provide your own value."
+                "description": "_artifactsLocation にアクセスするための自動生成されたトークン。 独自の値を指定する必要がない限り、空白のままにします。"
             },
             "defaultValue": ""
         },
@@ -51,98 +51,98 @@
             "type": "string",
             "defaultValue": "[resourceGroup().location]",
             "metadata": {
-                "description": "Location for all resources."
+                "description": "すべてのリソースの場所。"
             }
         },
         "virtualMachineName": {
             "type": "string",
             "defaultValue": "adVM",
             "metadata": {
-                "description": "Virtual machine name."
+                "description": "仮想マシン名。"
             }
         },
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "adVNET",
             "metadata": {
-                "description": "Virtual network name."
+                "description": "仮想ネットワーク名。"
             }
         },
         "virtualNetworkAddressRange": {
             "type": "string",
             "defaultValue": "10.0.0.0/16",
             "metadata": {
-                "description": "Virtual network address range."
+                "description": "仮想ネットワークのアドレス空間。"
             }
         },
         "loadBalancerFrontEndIPName": {
             "type": "string",
             "defaultValue": "LBFE",
             "metadata": {
-                "description": "Load balancer front end IP address name."
+                "description": "ロード バランサーのフロントエンド IP アドレス名。"
             }
         },
         "backendAddressPoolName": {
             "type": "string",
             "defaultValue": "LBBE",
             "metadata": {
-                "description": "Backend address pool name."
+                "description": "バックエンド アドレス プール名。"
             }
         },
         "inboundNatRulesName": {
             "type": "string",
             "defaultValue": "adRDP",
             "metadata": {
-                "description": "Inbound NAT rules name."
+                "description": "インバウンド NAT 規則名。"
             }
         },
         "networkInterfaceName": {
             "type": "string",
             "defaultValue": "adNic",
             "metadata": {
-                "description": "Network interface name."
+                "description": "ネットワーク インターフェイス名。"
             }
         },
         "privateIPAddress": {
             "type": "string",
             "defaultValue": "10.0.0.4",
             "metadata": {
-                "description": "Private IP address."
+                "description": "プライベート IP アドレス。"
             }
         },
         "subnetName": {
             "type": "string",
             "defaultValue": "adSubnet",
             "metadata": {
-                "description": "Subnet name."
+                "description": "サブネット名。"
             }
         },
         "subnetRange": {
             "type": "string",
             "defaultValue": "10.0.0.0/24",
             "metadata": {
-                "description": "Subnet IP range."
+                "description": "サブネットの IP 範囲。"
             }
         },
         "publicIPAddressName": {
             "type": "string",
             "defaultValue": "adPublicIP",
             "metadata": {
-                "description": "Subnet IP range."
+                "description": "サブネットの IP 範囲。"
             }
         },
         "availabilitySetName": {
             "type": "string",
             "defaultValue": "adAvailabiltySet",
             "metadata": {
-                "description": "Availability set name."
+                "description": "可用性セットの名前。"
             }
         },
         "loadBalancerName": {
             "type": "string",
             "defaultValue": "adLoadBalancer",
             "metadata": {
-                "description": "Load balancer name."
+                "description": "ロード バランサー名。"
             }
         }
     },
