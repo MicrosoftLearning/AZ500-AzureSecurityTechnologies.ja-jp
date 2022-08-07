@@ -5,45 +5,45 @@
         "vmSize": {
             "type": "string",
             "metadata": {
-                "description": "仮想マシンのサイズ"
+                "description": "Virtual machine size"
             }
         },
-        "vmName": {
-            "type": "string",
-            "defaultValue": "az500-04-vm1",
-            "metadata": {
-                "description": "VM 名"
-            }
-        },
+      "vmName": {
+        "type": "string",
+        "defaultValue": "az500-04-vm1",
+        "metadata": {
+          "description": "VM name"
+        }
+      },
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "description": "管理者ユーザー名"
+                "description": "Admin username"
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "管理者パスワード"
+                "description": "Admin password"
             }
         },
-        "virtualNetworkName": {
+       "virtualNetworkName": {
             "type": "string",
             "defaultValue": "az500-04-vnet1",
             "metadata": {
-                "description": "仮想ネットワーク名"
-            }
+                "description": "Virtual network name"
         }
+      }
     },
-    "variables": {
-        "vmName": "[parameters('vmName')]",
-        "nic1": "az500-04-nic1",
-        "virtualNetworkName": "[parameters('virtualNetworkName')]",
-        "subnet0Name": "subnet0",
-        "publicIPAddressName": "az500-04-pip1",
-        "subnet0Ref": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet0Name'))]",
-        "networkSecurityGroupName": "az500-04-nsg1"
-    },
+  "variables": {
+    "vmName": "[parameters('vmName')]",
+    "nic1": "az500-04-nic1",
+    "virtualNetworkName": "[parameters('virtualNetworkName')]",
+    "subnet0Name": "subnet0",
+    "publicIPAddressName": "az500-04-pip1",
+    "subnet0Ref": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet0Name'))]",
+    "networkSecurityGroupName": "az500-04-nsg1"
+  },
     "resources": [
         {
             "name": "[variables('vmName')]",
@@ -79,7 +79,8 @@
                             "storageAccountType": "Standard_LRS"
                         }
                     },
-                    "dataDisks": []
+                    "dataDisks": [
+                    ]
                 },
                 "networkProfile": {
                     "networkInterfaces": [

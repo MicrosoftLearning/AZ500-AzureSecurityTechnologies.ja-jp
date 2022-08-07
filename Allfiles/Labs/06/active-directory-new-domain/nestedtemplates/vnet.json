@@ -1,59 +1,59 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "virtualNetworkName": {
-            "type": "string",
-            "metadata": {
-                "description": "作成する仮想ネットワークの名前"
-            }
-        },
-        "virtualNetworkAddressRange": {
-            "type": "string",
-            "metadata": {
-                "description": "CIDR 形式の新しい VNET のアドレス範囲"
-            }
-        },
-        "subnetName": {
-            "type": "string",
-            "metadata": {
-                "description": "新しい VNET で作成されるサブネットの名前"
-            }
-        },
-        "subnetRange": {
-            "type": "string",
-            "metadata": {
-                "description": "新しい VNET で作成されるサブネットのアドレス範囲"
-            }
-        },
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "すべてのリソースの場所。"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualNetworkName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Virtual Network to Create"
+      }
     },
-    "resources": [
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworkName')]",
-            "apiVersion": "2019-02-01",
-            "location": "[parameters('location')]",
+    "virtualNetworkAddressRange": {
+      "type": "string",
+      "metadata": {
+        "description": "The address range of the new VNET in CIDR format"
+      }
+    },
+    "subnetName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the subnet created in the new VNET"
+      }
+    },
+    "subnetRange": {
+      "type": "string",
+      "metadata": {
+        "description": "The address range of the subnet created in the new VNET"
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetworkName')]",
+      "apiVersion": "2019-02-01",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('virtualNetworkAddressRange')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
             "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[parameters('virtualNetworkAddressRange')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[parameters('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[parameters('subnetRange')]"
-                        }
-                    }
-                ]
+              "addressPrefix": "[parameters('subnetRange')]"
             }
-        }
-    ]
+          }
+        ]
+      }
+    }
+  ]
 }
