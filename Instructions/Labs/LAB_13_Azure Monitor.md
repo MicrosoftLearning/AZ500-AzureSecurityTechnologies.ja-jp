@@ -2,12 +2,12 @@
 lab:
   title: 13 - Azure Monitor
   module: Module 04 - Manage security operations
-ms.openlocfilehash: e51e88d55193532e3c91c485d0a247b5e686a48f
-ms.sourcegitcommit: 7c5e8e9a86553c6bd9b9a6651b60c6cb9676f0ff
+ms.openlocfilehash: d7418287b895ccb5af66f01b499181b321e2bc36
+ms.sourcegitcommit: 3c178de473f4f986a3a7ea1d03c9f5ce699a05a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168500"
+ms.lasthandoff: 09/09/2022
+ms.locfileid: "147871975"
 ---
 # <a name="lab-13-azure-monitor"></a>ラボ 13:Azure Monitor
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
@@ -88,7 +88,7 @@ ms.locfileid: "147168500"
     |設定|値|
     |---|---|
     |User |**localadmin**|
-    |Password|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
+    |パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
 
     >**注**: デプロイが完了するまで待ちます。 
 
@@ -145,7 +145,7 @@ ms.locfileid: "147168500"
 
 1. Azure portal で、この演習で前に作成した Log Analytics ワークスペースに戻ります。
 
-2. [Log Analytics ワークスペース] ブレードの **[設定]** セクションで、**[エージェント構成]** をクリックします。
+2. [Log Analytics ワークスペース] ブレードの **[設定]** セクションで、 **[レガシ エージェントの管理]** をクリックします。
 
 3. **[エージェント構成]** ブレードで、Windows イベント ログ、Windows パフォーマンス カウンター、Linux パフォーマンス カウンター、IIS ログ、Syslog を含む構成可能な設定を確認します。 
 
