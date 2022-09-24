@@ -2,13 +2,8 @@
 lab:
   title: 15 - Microsoft Sentinel
   module: Module 04 - Manage Security Operations
-ms.openlocfilehash: 63a24bbc17b846d3587cf3fb83ab46b7235d5fcd
-ms.sourcegitcommit: 2f08105eaaf0413d3ec3c12a3b078678151fd211
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2022
-ms.locfileid: "141368803"
 ---
+
 # <a name="lab-15-microsoft-sentinel"></a>ラボ 15:Microsoft Sentinel
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
 
@@ -16,13 +11,13 @@ ms.locfileid: "141368803"
 
 **注:**  **Azure Sentinel** は **Microsoft Sentinel** に名前が変更されました 
 
-あなたは、Microsoft Sentinel ベースの脅威検出と応答の概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
+You have been asked to create a proof of concept of Microsoft Sentinel-based threat detection and response. Specifically, you want to:
 
 - Azure アクティビティと Microsoft Defender for Cloud からのデータ収集を開始する。
 - 組み込みおよびカスタム アラートを追加する 
 - プレイブックを使用してインシデントへの応答を自動化する方法を確認します。
 
-> このラボのすべてのリソースについて、**米国東部** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -34,7 +29,7 @@ ms.locfileid: "141368803"
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>手順
+## <a name="instructions"></a>Instructions
 
 ## <a name="lab-files"></a>ラボ ファイル：
 
@@ -63,13 +58,13 @@ ms.locfileid: "141368803"
 
 2. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**Microsoft Sentinel**」と入力し、**Enter** キーを押します。
 
-    >**注**: Azure ダッシュボードで Microsoft Sentinel を初めて操作する場合は、次の手順を実行します。Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**Microsoft Sentinel**」と入力し、**Enter** キーを押します。 **[サービス]** ビューから **[Microsoft Sentinel]** を選択します。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If this is your first attempt to action Microsoft Sentinel in the Azure dashboard complete the following step(s): In the Azure portal, in the <bpt id="p2">**</bpt>Search resources,  services, and docs<ept id="p2">**</ept> text box at the top of the Azure portal page, type <bpt id="p3">**</bpt>Microsoft Sentinel<ept id="p3">**</ept> and press the <bpt id="p4">**</bpt>Enter<ept id="p4">**</ept> key. Select <bpt id="p1">**</bpt>Microsoft Sentinel<ept id="p1">**</ept> from the <bpt id="p2">**</bpt>Services<ept id="p2">**</ept> view.
   
 3. **[Microsoft Sentinel]** ブレードで、 **[+ 作成]** をクリックします。
 
 4. **[ワークスペースへの Microsoft Sentinel の追加]** ブレードで、Azure Monitor ラボで作成した Log Analytics ワークスペースを選択し、 **[追加]** をクリックします。
 
-    >**注**:Microsoft Sentinel には、ワークスペースに対して非常に具体的な要件があります。 たとえば、Microsoft Defender for Cloud によって作成されたワークスペースは使用できません。 詳細については、次を参照してください: [クイック スタート:Azure Sentinel をオンボードする](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Microsoft Sentinel has very specific requirements for workspaces. For example, workspaces created by Microsoft Defender for Cloud can not be used. Read more at <bpt id="p1">[</bpt>Quickstart: On-board Azure Sentinel<ept id="p1">](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)</ept>
     
 #### <a name="task-2-configure-microsoft-sentinel-to-use-the-azure-activity-data-connector"></a>タスク 2:Azure アクティビティ データ コネクタを使用するように Microsoft Sentinel を構成します。 
 
@@ -79,21 +74,21 @@ ms.locfileid: "141368803"
 
 2. **[Microsoft Sentinel \| データ コネクタ]** ブレードで、使用可能なコネクタのリストを確認し、検索バーに「**Azure**」と入力して、**Azure アクティビティ** コネクタを表すエントリを選択し (必要に応じて \<< を使用して左側のメニュー バーを非表示にします)、説明と状態を確認し、**[コネクタ ページを開く]** をクリックします。
 
-3. **Azure アクティビティ** ブレードで **[手順]** タブを選択し、**前提条件** をメモして、**[構成]** まで下にスクロールします。 コネクタの更新について説明している情報に注意してください。 Azure Pass サブスクリプションは従来の接続方法を使用したことがないため、手順 1 をスキップして (**[すべて切断]** ボタンがグレー表示されます)、手順 2 に進むことができます。
+3. On the <bpt id="p1">**</bpt>Azure Activity<ept id="p1">**</ept> blade the <bpt id="p2">**</bpt>Instructions<ept id="p2">**</ept> tab should be selected, note the <bpt id="p3">**</bpt>Prerequisites<ept id="p3">**</ept> and scroll down to the <bpt id="p4">**</bpt>Configuration<ept id="p4">**</ept>. Take note of the information describing the connector update. Your Azure Pass subscription never used the legacy connection method so you can skip step 1 (the <bpt id="p1">**</bpt>Disconnect All<ept id="p1">**</ept> button will be grayed out) and proceed to step 2.
 
 4. 手順 2 の「**診断設定の新しいパイプラインでサブスクリプションを接続します**」で、「[Azure Policy の割り当て] ウィザードの起動と手順の実行」の手順を確認し、**[Azure ポリシー割り当てウィザードを起動する]\>** をクリックします。
 
-5. **指定した Log Analytics ワークスペースにストリーミングするように Azure アクティビティ ログを構成する** ([ポリシーの割り当て] ページ) **[基本]** タブで、**[スコープの省略形]** ボタンをクリックします。 **[スコープ]** ページで、ドロップダウン サブスクリプション リストから Azure Pass サブスクリプションを選択し、ページの下部にある **[選択]** ボタンをクリックします。
+5. On the <bpt id="p1">**</bpt>Configure Azure Activity logs to stream to specified Log Analytics workspace<ept id="p1">**</ept> (Assign Policy page) <bpt id="p2">**</bpt>Basics<ept id="p2">**</ept> tab, click the <bpt id="p3">**</bpt>Scope elipsis (...)<ept id="p3">**</ept> button. In the <bpt id="p1">**</bpt>Scope<ept id="p1">**</ept> page choose your Azure Pass subscription from the drop-down subscription list and click the <bpt id="p2">**</bpt>Select<ept id="p2">**</ept> button at the bottom of the page.
 
-    >**注**:リソース グループを選択 *しないでください*。
+    >**注**:リソース グループを選択*しないでください*。
 
-6. **[基本]** タブの下部にある **[次へ]** ボタンをクリックして、**[パラメーター]** タブに進みます。**[パラメーター]** タブで、**[プライマリ Log Analytics ワークスペースの省略形]** ボタンをクリックします。 **[プライマリ Log Analytics ワークスペース]** ページで、Azure パス サブスクリプションが選択されていることを確認し、**ワークスペース** ドロップダウンを使用して、Sentinel に使用している Log Analytics ワークスペースを選択します。 完了したら、ページの下部にある **[選択]** ボタンをクリックします。
+6. あなたは、Microsoft Sentinel ベースの脅威検出と応答の概念実証を作成するよう依頼されました。
 
-7. **[パラメーター]** タブの下部にある **[次へ]** ボタンをクリックして、**[修復]** タブに進みます。**[修復]** タブで、**[修復タスクの作成]** チェックボックスを選択します。 これにより、**[修復するポリシー]** ドロップダウンの [指定した Log Analytics ワークスペースにストリーミングするように Azure アクティビティ ログを構成する] が有効になります。 **[システムによって割り当てられた ID の場所]** ドロップダウンで、Log Analytics ワークスペース用に以前に選択した地域 (たとえば、米国東部) を選択します。
+7. 具体的には、次のことを行います。
 
 8. **[パラメーター]** タブの下部にある **[次へ]** ボタンをクリックして、**非準拠メッセージ** タブに進みます。必要に応じて非準拠メッセージを入力し (これはオプションです)、**[非準拠メッセージ]** タブの下部にある **[確認と作成]** ボタンをクリックします。
 
-9. **[作成]** ボタンをクリックします。 次の 3 つの成功した状態メッセージを確認する必要があります。**ポリシー割り当ての作成が成功しました、役割割り当ての作成が成功しました、修復タスクの作成が成功しました**。
+9. Click the <bpt id="p1">**</bpt>Create<ept id="p1">**</ept> button. You should observe three succeeded status messages: <bpt id="p1">**</bpt>Creating policy assignment succeeded, Role Assignments creation succeeded, and Remediation task creation succeeded<ept id="p1">**</ept>.
 
     >**注**:通知、ベル アイコンをチェックして、3 つの成功したタスクを確認できます。
 
@@ -109,9 +104,9 @@ ms.locfileid: "141368803"
 
 2. **[Microsoft Sentinel \| 分析]** ブレードで、 **[ルール テンプレート]** タブをクリックします。 
 
-    >**注**:作成できるルールの種類を確認します。 各ルールは、特定のデータ ソースに関連付けられます。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Review the types of rules you can create. Each rule is associated with a specific Data Source.
 
-3. ルール テンプレートの一覧で、検索バーフォームに「**不審**」と入力し、**Azure アクティビティ** データソースに関連付けられている **[不審なリソースの作成またはデプロイの数]** エントリをクリックします。 次に、ルール テンプレートのプロパティを表示しているペインで、**[ルールの作成]** をクリックします (必要であればページの右側にスクロールする)。
+3. In the listing of rule templates, type <bpt id="p1">**</bpt>Suspicious<ept id="p1">**</ept> into the search bar form and click the <bpt id="p2">**</bpt>Suspicious number of resource creation or deployment<ept id="p2">**</ept> entry associated with the <bpt id="p3">**</bpt>Azure Activity<ept id="p3">**</ept> data source. And then, in the pane displaying the rule template properties, click <bpt id="p1">**</bpt>Create rule<ept id="p1">**</ept> (scroll to the right of the page if needed).
 
     >**注**:このルールの重大度は中程度です。 
 
@@ -131,7 +126,7 @@ ms.locfileid: "141368803"
 
 #### <a name="task-4-create-a-playbook"></a>タスク 4:プレイブックを作成する
 
-このタスクでは、プレイブックを作成します。 セキュリティ プレイブックは、アラートに応答して Microsoft Sentinel によって呼び出すことができるタスクのコレクションです。 
+In this task, you will create a playbook. A security playbook is a collection of tasks that can be invoked by Microsoft Sentinel in response to an alert. 
 
 1. Azure portal で Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**カスタム テンプレートをデプロイする**」と入力し、**Enter** キーを押します。
 
@@ -145,7 +140,7 @@ ms.locfileid: "141368803"
 
 5. **[カスタム デプロイ]** ブレードで、次の設定が構成されていることを確認します (既定値を使用して他の設定を行います)。
 
-    |設定|値|
+    |設定|[値]|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB131415**|
@@ -165,7 +160,7 @@ ms.locfileid: "141368803"
 
 10. **[インシデントの重大度の変更]** ブレードで、**[編集]** をクリックします。
 
-    >**注**: **[Logic Apps デザイナー]** ブレードでは、4 つの接続のそれぞれに警告が表示されます。 これは、それぞれが確認し設定する必要があることを意味します。
+    >このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
 
 11. **[Logic Apps デザイナー]** ブレードで、最初の **[接続]** 手順をクリックします。
 
@@ -191,7 +186,7 @@ ms.locfileid: "141368803"
 
 4. **[分析ルール ウィザード - 新しいルールの作成]** ブレードの **[全般]** タブで、次の設定を指定します (既定値を他のユーザーのままにします)。
 
-    |設定|値|
+    |設定|[値]|
     |---|---|
     |名前|**プレイブック デモ**|
     |方針|**初期アクセス**|
@@ -208,7 +203,7 @@ ms.locfileid: "141368803"
 
     >**注**:このルールは、Just In Time VM アクセス ポリシーの削除を識別します。
 
-    >**注**: 解析エラーが発生した場合、IntelliSense がクエリに値を追加している可能性があります。 クエリが一致していることを確認し、それ以外の場合は、クエリをメモ帳に貼り付け、メモ帳からルール クエリに貼り付けます。 
+    >これがクラスで使用するリージョンであることを講師に確認します。 
 
 
 7. **[分析ルール ウィザード - 新しいルールの作成]** ブレードの **[ルール ロジックの設定]** タブの **[クエリのスケジュール]** セクションで、**[クエリを実行する間隔]** を **[5 分ごとに実行]** に設定します。
@@ -217,23 +212,23 @@ ms.locfileid: "141368803"
 
 9. **[分析ルール ウィザード - 新しいルールの作成]** ブレードの **[インシデント設定]** タブで、既定の設定をそのまま使用し、 **[次へ:自動応答>]** を選択します。 
 
-10. **[分析ルール ウィザード - 新しいルールの作成]** の **[自動応答]** タブで、 **[アラートの自動化]** ドロップダウン リストで **[インシデントの重大度の変更]** エントリの横のチェックボックスをオンにして、 **[次へ:確認>]** を選択します。 
+10. **[分析ルール ウィザード - 新しいルールの作成]** ブレードの **[自動応答]** タブで、 **[Alert automation (classic)]\(アラートのオートメーション (クラシック)\)** ドロップダウン リストで **[インシデントの重大度の変更]** エントリの横にあるチェックボックスをオンにして、 **[次へ:確認>]** をクリックします。 
 
 11. **[分析ルール ウィザード - 新しいルールの作成]** ブレードの **[確認と作成]** タブで、**[作成]** をクリックします。
 
-    >**注**:これで、**プレイブック デモ** と呼ばれる新しいアクティブなルールが作成されます。 rue ロジックによって識別されたイベントが発生すると、中程度の重大度アラートが発生し、対応するインシデントが生成されます。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You now have a new active rule called <bpt id="p2">**</bpt>Playbook Demo<ept id="p2">**</ept>. If an event identified by the rue logic occurs, it will result in a medium severity alert, which will generate a corresponding incident.
 
 #### <a name="task-6-invoke-an-incident-and-review-the-associated-actions"></a>タスク 6:インシデントを発生させ、関連付けられているアクションを確認する。
 
 1. Azure portal で、 **[Microsoft Defender for Cloud \| 概要]** ブレードに移動します。
 
-    >**注**:セキュア スコアを確認してください。 すでに更新されているはずです。 
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Check your secure score. By now it should have updated. 
 
 2. **[Microsoft Defender for Cloud \| ワークロード保護]** ブレードで、 **[高度な保護]** の **[Just-In-Time VM アクセス]** セクションをクリックします。
 
-3. **[Microsoft Defender for Cloud \| Just-In-Time VM アクセス]** ブレードで、**myVM** 仮想マシンを参照する行の右側で、**省略記号** ボタンをクリックし、 **[削除]** をクリックして、 **[はい]** をクリックします。
+3. **[Microsoft Defender for Cloud \| Just-In-Time VM アクセス]** ブレードで、**myVM** 仮想マシンを参照する行の右側で、**省略記号**ボタンをクリックし、 **[削除]** をクリックして、 **[はい]** をクリックします。
 
-    >**注:**  VM が **[Just-in-time VMs]\(Just-In-Time VM\)** に表示されていない場合は、 **[仮想マシン]** ブレードに移動して **[構成]** をクリックし、 **[Just-In-Time VM アクセス]** の下にある **[Enable the Just-in-time VMs]\(Just-In-Time VM を有効にする\)** オプションをクリックします。 上記の手順を繰り返して、 **[Microsoft Defender for Cloud]** に戻り、ページを更新すると、VM が表示されます。
+    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> If the VM is not listed in the <bpt id="p2">**</bpt>Just-in-time VMs<ept id="p2">**</ept>, navigate to <bpt id="p3">**</bpt>Virutal Machine<ept id="p3">**</ept> blade and click the <bpt id="p4">**</bpt>Configuration<ept id="p4">**</ept>, Click the <bpt id="p5">**</bpt>Enable the Just-in-time VMs<ept id="p5">**</ept> option under the <bpt id="p6">**</bpt>Just-in-time Vm's access<ept id="p6">**</ept>. Repeat the above step to navigate back to the <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept> and refresh the page, the VM will appear.
 
 4. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**アクティビティ ログ**」を入力し、**Enter** キーを押します。
 
@@ -245,7 +240,7 @@ ms.locfileid: "141368803"
 
 7. **[Microsoft Sentinel \| 概要]** ブレードでダッシュボードを確認し、Just In Time VM アクセス ポリシーの削除に対応するアラートが表示されることを確認します。
 
-    >**注**:アラートが **[Microsoft Sentinel \| 概要]** ブレードに表示されるまでに、最大 5 分かかる場合があります。 その時点でアラートが表示されない場合は、前のタスクで参照されているクエリ ルールを実行して、Just In Time アクセス ポリシーの削除アクティビティが、Microsoft Sentinel インスタンスに関連付けられた Log Analytics ワークスペースに伝達されていることを確認します。 それ以下の場合は、Just in time VM アクセス ポリシーを再作成し、もう一度削除します。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It can take up to 5 minutes for alerts to appear on the <bpt id="p2">**</bpt>Microsoft Sentinel <ph id="ph1">\|</ph> Overview<ept id="p2">**</ept> blade. If you are not seeing an alert at that point, run the query rule referenced in the previous task to verify that the Just In Time access policy deletion activity has been propagated to the Log Analytics workspace associated with your Microsoft Sentinel instance. If that is not the case, re-create the Just in time VM access policy and delete it again.
 
 8. **[Microsoft Sentinel \| 概要]** ブレードの **[脅威の管理]** セクションで、 **[インシデント]** をクリックします。
 
@@ -253,7 +248,7 @@ ms.locfileid: "141368803"
 
     >**注**:インシデントが **[Microsoft Sentinel \| インシデント]** ブレードに表示されるまでに、最大 5 分かかる場合があります。 
 
-    >**注**: **[Microsoft Sentinel \| プレイブック]** ブレードを確認します。 成功した実行と失敗した実行の数がわかります。
+    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Review the <bpt id="p2">**</bpt>Microsoft Sentinel <ph id="ph1">\|</ph> Playbooks<ept id="p2">**</ept> blade. You will find there the count of succesfull and failed runs.
 
     >**注**:インシデントに別の重大度レベルとステータスを割り当てるオプションがあります。
 
@@ -261,11 +256,11 @@ ms.locfileid: "141368803"
 
 **リソースをクリーンアップする**
 
-> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
+> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
 
-1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
+1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
-2. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
+2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   

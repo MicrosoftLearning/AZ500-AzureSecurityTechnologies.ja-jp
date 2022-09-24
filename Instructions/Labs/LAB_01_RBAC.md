@@ -2,26 +2,21 @@
 lab:
   title: 01 - ロールベースのアクセス制御
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: 9ddbfd416d9897bcdf891c9c9265d8205277c176
-ms.sourcegitcommit: 79ca7b110859fe71a3849a28fdc781cad95d1567
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 06/15/2022
-ms.locfileid: "146381342"
 ---
+
 # <a name="lab-01-role-based-access-control"></a>ラボ 01:ロールベースのアクセス制御
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-Azure ユーザーとグループの作成方法を示す概念実証を作成するように依頼されました。 また、ロールベースのアクセス制御を使用してグループにロールを割り当てる方法も説明します。 具体的には、次の操作が必要です。
+You have been asked to create a proof of concept showing how Azure users and groups are created. Also, how role-based access control is used to assign roles to groups. Specifically, you need to:
 
 - ジョセフ・プライスのユーザー アカウントをメンバーとして含むシニア管理者グループを作成します。
 - メンバーとして、イザベル・ガルシアのユーザー アカウントを含むジュニア管理者グループを作成します。
 - ディラン・ウィリアムズのユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
 - 仮想マシン共同作成者ロールをサービス デスク グループに割り当てます。 
 
-> このラボのすべてのリソースについて、**米国東部** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -68,7 +63,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 5. **[ユーザー名]** の横にあるコピー アイコンをクリックして、完全なユーザーをコピーします。
 
-6. パスワードの **[自動生成]** が選択されていることを確認し、**[パスワードを表示]** チェックボックスを選択して、自動生成されたパスワードを特定します。 このパスワードは、ユーザー名と共に Joseph に提供する必要があります。 
+6. Ensure that the <bpt id="p1">**</bpt>Auto-generate<ept id="p1">**</ept> password is selected, select the <bpt id="p2">**</bpt>Show password<ept id="p2">**</ept> checkbox to identify the automatically generated password. You would need to provide this password, along with the user name to Joseph. 
 
 7. **Create** をクリックしてください。
 
@@ -76,7 +71,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 #### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
 
-このタスクでは、*上級管理者* グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
+このタスクでは、*上級管理者*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
 
 1. Azure portal で、Azure Active Directory テナントを表示しているブレードに戻ります。 
 
@@ -111,11 +106,11 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 このタスクでは、PowerShell を使用して Isabel Garcia のユーザー アカウントを作成します。
 
-1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
 2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
-   >**注**: コピーしたテキストを Cloud Shell に貼り付けるには、ペイン ウィンドウ内で右クリックして、**[貼り付け]** を選択します。 または、**Shift + Insert** キーの組み合わせを使用できます。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To paste copied text into the Cloud Shell, right-click within the pane window and select <bpt id="p2">**</bpt>Paste<ept id="p2">**</ept>. Alternatively, you can use the <bpt id="p1">**</bpt>Shift+Insert<ept id="p1">**</ept> key combination.
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次を実行してパスワード プロファイル オブジェクトを作成します。
 
@@ -210,7 +205,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
     ```
 
-3. Cloud Shell ペイン内の Bash セッションで次を実行して、ユーザーの Dylan Williams を作成します。 *yourdomain* を使用します。
+3. Azure ユーザーとグループの作成方法を示す概念実証を作成するように依頼されました。
  
     ```cli
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
@@ -290,7 +285,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 3. **[確認および作成]** 、 **[作成]** の順にクリックします。
 
-   >**注**:リソース グループがデプロイされるまで待ちます。 **通知** アイコン (右上) を使用して、デプロイの状態の進行状況を追跡します。
+   >また、ロールベースのアクセス制御を使用してグループにロールを割り当てる方法も説明します。
 
 4. **[リソース グループ]** ブレードに戻り、ページを更新して、新しいリソース グループがリソース グループの一覧に表示されることを確認します。
 
@@ -327,7 +322,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 **リソースをクリーンアップする**
 
-> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。
+> 具体的には、次の操作が必要です。
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 
 
