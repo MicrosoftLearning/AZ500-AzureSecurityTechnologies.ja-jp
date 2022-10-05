@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to create a proof of concept demonstrating how to integrate on-premises Active Directory Domain Services (AD DS) environment with an Azure Active Directory (Azure AD) tenant. Specifically, you want to:
+オンプレミスの Active Directory Domain Services (AD DS) 環境を Azure Active Directory (Azure AD) テナントに統合する方法を示す概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
 - AD DS ドメイン コントローラーをホストする Azure VM をデプロイして単一ドメイン AD DS フォレストを導入する
 - Azure AD テナントを作成および構成する
 - AD DS フォレストを Azure AD テナントと同期する
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -48,7 +48,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
     >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
 
-2. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+2. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
 3. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
@@ -58,13 +58,13 @@ You have been asked to create a proof of concept demonstrating how to integrate 
     Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
     ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Replace the <ph id="ph1">`&lt;custom-label&gt;`</ph> placeholder with a valid DNS name that is likely to be globally unique. Replace the <ph id="ph1">`&lt;location&gt;`</ph> placeholder with the name of the region into which you want to deploy the Azure VM that will host the Active Directory domain controller you will use in this lab.
+    >**注**:`<custom-label>` プレースホルダーを、グローバルに一意である可能性が高い有効な DNS 名に置き換えます。 `<location>` プレースホルダーを、このラボで使用する Active Directory ドメイン コントローラーをホストする Azure VM をデプロイするリージョンの名前に置き換えます。
 
     >**注**:Azure VM をプロビジョニングできる Azure リージョンを特定するには、[ **https://azure.microsoft.com/en-us/regions/offers/** ](https://azure.microsoft.com/en-us/regions/offers/) を参照してください
 
-5. Verify that the command returned <bpt id="p1">**</bpt>True<ept id="p1">**</ept>. If not, rerun the same command with a different value of the <ph id="ph1">`&lt;custom-label&gt;`</ph> until the command returns <bpt id="p1">**</bpt>True<ept id="p1">**</ept>.
+5. コマンドが **True** を返したことを確認します。 そうでない場合は、コマンドが **True** を戻すまで、異なる値の `<custom-label>` で同じコマンドを再実行します。
 
-6. オンプレミスの Active Directory Domain Services (AD DS) 環境を Azure Active Directory (Azure AD) テナントに統合する方法を示す概念実証を作成するよう依頼されました。
+6. 成功した結果をもたらした `<custom-label>` の値を記録します。 これは、次のタスクで必要になります。
 
 7. Cloud Shell を閉じます。
 
@@ -74,7 +74,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 1. 同じブラウザー ウィンドウで別のブラウザー タブを開き、 **https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain** に移動します。
 
-2. 具体的には、次のことを行います。
+2. **[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、および DC を作成する]** ページで、**[Azure に配置する]** をクリックします。 これにより、ブラウザーが Azure portal の **[新しい AD フォレストで Azure VM を作成する]** ブレードに自動的にリダイレクトされます。
 
 3. **[新しい AD フォレストで Azure VM を作成する]** ブレードで、**[パラメーターの編集]** をクリックします。
 
@@ -82,7 +82,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 5. **[新しい AD フォレストで Azure VM を作成する]** ブレードで、次の設定を指定します (他の設定は既存の値のままにします)。
 
-   |設定|[値]|
+   |設定|値|
    |---|---|
    |サブスクリプション|Azure サブスクリプションの名前|
    |Resource group|**[新規作成]** をクリックし、「**AZ500LAB06**」という名前を入力します|
@@ -91,11 +91,11 @@ You have been asked to create a proof of concept demonstrating how to integrate 
    |管理パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    |ドメイン名|**adatum.com**|
    |DNS プレフィックス|前のタスクで識別した DNS ホスト名|
-   |VM サイズ|**Standard_D2s_v3**|
+   |[VM サイズ]|**Standard_D2s_v3**|
 
 6. **[新しい AD フォレストで Azure VM を作成する]** ブレードで、**[確認および作成]** をクリックし、**[作成]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but instead proceed to the next exercise. The deployment might take about 15 minutes. You will use the virtual machine deployed in this task in the third exercise of this lab.
+    >**注**:デプロイが完了するのを待たず、代わりに次の演習に進みます。 デプロイには約 15 分間かかります。 このラボの 3 番目の演習では、このタスクでデプロイされた仮想マシンを使用します。
 
 > 結果:この演習を完了した後、Azure Resource Manager テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM のデプロイを開始しました。
 
@@ -128,13 +128,13 @@ You have been asked to create a proof of concept demonstrating how to integrate 
    |初期ドメイン名|文字と数字の組み合わせから成る一意の名前|
    |国または地域|**米国**|
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the initial domain name. You will need it later in this lab.
+    >**注**:初期ドメイン名を記録します。 このラボで後ほど必要になります。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The green check mark in the <bpt id="p2">**</bpt>Initial domain name<ept id="p2">**</ept> text box will indicate whether the domain name you typed in is valid and unique. (Record your initial domain name for later use).
+    >**注**:**[初期ドメイン名]** テキスト ボックスの緑色のチェック マークは、入力したドメイン名が有効で一意であるかどうかを示します。 (後で使用するために、初期ドメイン名を記録してください)。
 
 5. **[Review + create]\(レビュー + 作成\)** をクリックし、 **[作成]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the new tenant to be created. Use the <bpt id="p1">**</bpt>Notification<ept id="p1">**</ept> icon to monitor the deployment status. 
+    >**注**:新しいテナントが作成されるのを待ちます。 **通知** アイコンを使用して、デプロイ ステータスを監視します。 
 
 #### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>タスク 2:新しい Azure AD テナントにカスタム DNS 名を追加する
 
@@ -154,7 +154,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 6. **adatum.com** ブレードで、Azure AD ドメイン名の検証を実行するために必要な情報を確認し、 **[削除]** を 2 回選択します。 
 
-    >このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+    >**注**:**adatum.com** DNS ドメイン名を所有していないため、検証プロセスを完了できません。 これにより **adatum.com** AD DS ドメインと Azure AD テナントとの同期が妨げになるわけではありません。 この目的のために、前のタスクで特定した Azure AD テナントの最初の DNS 名 (**onmicrosoft.com** サフィックスで終わる名前) を使用します。 ただし、その結果、AD DS ドメインの DNS ドメイン名と Azure AD テナントの DNS 名は異なることを覚えておいてください。 つまり、AD DS ドメインにサインインするときと Azure AD テナントにサインインするときに、Adatum ユーザーは異なる名前を使用する必要があります。
 
 #### <a name="task-3-create-an-azure-ad-user-with-the-global-administrator-role"></a>タスク 3:グローバル管理者の役割を持つ Azure AD ユーザーを作成する
 
@@ -170,22 +170,22 @@ You have been asked to create a proof of concept demonstrating how to integrate 
    |---|---|
    |ユーザー名|**syncadmin**|
    |名前|**syncadmin**|
-   |パスワード|**[パスワードの自動生成]** オプションが選択されていることを確認し、 **[パスワードの表示]** をクリックします|
+   |Password|**[パスワードの自動生成]** オプションが選択されていることを確認し、 **[パスワードの表示]** をクリックします|
    |グループ|**0 個のグループが選択されました**|
    |ロール|**[ユーザー]** をクリックし、 **[グローバル管理者]** をクリックし、 **[選択]** をクリックします|
    |利用場所|**米国**|  
 
-    >これがクラスで使用するリージョンであることを講師に確認します。 
+    >**注**:完全なユーザー名を記録します。 ドメイン名が表示されているドロップダウン リストの右側にある **[クリップボードにコピー]** ボタンをクリックすると、値をコピーできます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the user's password. You will need this later in this lab. 
+    >**注**:ユーザーのパスワードを記録します。 これは、このラボの後半で必要になります。 
 
     >**注**:Azure AD Connect を導入するには、グローバル管理者の役割を持つ Azure AD ユーザーが必要です。
 
 4. InPrivate ブラウザー ウィンドウを開きます。
 
-5. Navigate to the Azure portal and sign in using the <bpt id="p1">**</bpt>syncadmin<ept id="p1">**</ept> user account. When prompted, change the password you recorded earlier in this task to <bpt id="p1">**</bpt>Pa55w.rd1234<ept id="p1">**</ept>.
+5. Azure portal に移動し **syncadmin** ユーザー アカウントを使用してサインインします。 プロンプトが表示されたら、このタスクで前に記録したパスワードを **Pa55w.rd1234** に変更します。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To sign in you will need to provide a fully qualified name of the <bpt id="p2">**</bpt>syncadmin<ept id="p2">**</ept> user account, including the Azure AD tenant DNS domain name, which you recorded earlier in this task. This user name is in the format syncadmin@<ph id="ph1">`&lt;your_tenant_name&gt;`</ph>.onmicrosoft.com, where <ph id="ph2">`&lt;your_tenant_name&gt;`</ph> is the placeholder representing your unique Azure AD tenant name. 
+    >**注**:サインインするには、このタスクの前半で記録した Azure AD テナントの DNS ドメイン名を含む、**syncadmin** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、syncadmin@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Azure AD テナント名を表すプレースホルダーです。 
 
 6. **syncadmin** としてサインアウトし、InPrivate ブラウザーの画面を閉じます。
 
@@ -216,7 +216,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 4. **[adVM]** ブレードで **[接続]** をクリックし、ドロップ ダウン メニューの **[RDP]** をクリックします。 
 
-5. In the <bpt id="p1">**</bpt>IP address<ept id="p1">**</ept> parameter, select <bpt id="p2">**</bpt>Load balancer public IP address<ept id="p2">**</ept>, then click <bpt id="p3">**</bpt>Download RDP File<ept id="p3">**</ept> and use it to connect to the <bpt id="p4">**</bpt>adVM<ept id="p4">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+5. **[IP アドレス]** パラメーターで、**[ロード バランサーのパブリック IP アドレス]** を選択し、**[RDP ファイルのダウンロード]** をクリックして、リモート デスクトップ経由で **adVM** Azure VM に接続します。 認証を求められたら、次の資格情報を入力します。
 
    |設定|値|
    |---|---|
@@ -257,13 +257,13 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 このタスクでは、仮想マシンに AD Connect をインストールします。 
 
-1. Within the Remote Desktop session to <bpt id="p1">**</bpt>adVM<ept id="p1">**</ept>, use Microsoft Edge to navigate to the Azure portal at <bpt id="p2">**</bpt><ph id="ph1">https://portal.azure.com</ph><ept id="p2">**</ept>, and sign in by using the <bpt id="p3">**</bpt>syncadmin<ept id="p3">**</ept> user account you created the previous exercise. When prompted, specify the full user name you recorded and the <bpt id="p1">**</bpt>Pa55w.rd1234<ept id="p1">**</ept> password.
+1. **adVM** へのリモート デスクトップ セッション内で、Microsoft Edge を使って Azure portal ( **https://portal.azure.com** ) に移動し、前の演習で作成した **syncadmin** ユーザー アカウントを使ってサインインします。 メッセージが表示されたら、記録した完全なユーザー名と **Pa55w.rd1234** パスワードを指定します。
 
 2. Azure portal の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、Azure portal ページの上部に「**Azure Active Directory**」と入力し、**Enter** キーを押します。
 
 3. Azure portal の **[AdatumSync \| 概要]** ブレードで、 **[Azure AD Connect]** をクリックします。
 
-4. On the <bpt id="p1">**</bpt>AdatumSync <ph id="ph1">\|</ph> Azure AD Connect<ept id="p1">**</ept> blade, click the <bpt id="p2">**</bpt>Download Azure AD Connect<ept id="p2">**</ept> link. You will be redirected to the <bpt id="p1">**</bpt>Microsoft Azure Active Directory Connect<ept id="p1">**</ept> download page.
+4. **[AdatumSync \| Azure AD Connect]** ブレードで、 **[Azure AD Connect のダウンロード]** リンクをクリックします。 **[Microsoft Azure Active Directory Connect]** ダウンロード ページにリダイレクトされます。
 
 5. **[Microsoft Azure Active Directory Connect]** ダウンロード ページで、**[ダウンロード]** をクリックします。
 
@@ -294,7 +294,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
     >**注**:前述したように、カスタムの Azure AD DNS ドメイン **adatum.com** を確認できなかったため、これが予想されます。
 
-16. On the <bpt id="p1">**</bpt>Domain and OU filtering<ept id="p1">**</ept> page, click the option <bpt id="p2">**</bpt>Sync selected domains and OUs<ept id="p2">**</ept>, domain name <bpt id="p3">**</bpt>adatum.com<ept id="p3">**</ept> will be checked, expand the <bpt id="p4">**</bpt>adatum.com<ept id="p4">**</ept> to view the <bpt id="p5">**</bpt>ToSync<ept id="p5">**</ept>. Clear all checkboxes, click only the checkbox next to the <bpt id="p1">**</bpt>ToSync<ept id="p1">**</ept> OU, and click <bpt id="p2">**</bpt>Next<ept id="p2">**</ept>.
+16. **[ドメインと OU のフィルタリング]** ページで、 **[選択したドメインと OU の同期]** オプションをクリックします。ドメイン名 **adatum.com** がオンになり、 **[adatum.com]** を展開して **[ToSync]** を表示します。 すべてのチェックボックスをオフにし、 **[ToSync]** OU の横にあるチェックボックスのみをクリックして、 **[次へ]** をクリックします。
 
 17. **[ユーザーを一意に識別]** ページで、既定の設定を受け入れ、**[次へ]** をクリックします。
 
@@ -375,7 +375,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
     ```powershell
     (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
     ```
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The result should be <ph id="ph1">`False`</ph>. If that is not the case, wait a minute and re-run the command.
+    >**注**:結果は `False` となるはずです。 そうでない場合は、少し待ってからコマンドを再実行してください。
 
     >**注**:次に、Azure リソースを削除します
 6. リモート デスクトップ セッションを終了します。
@@ -395,7 +395,7 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
     >**注**:最後に、Azure AD テナントを削除します。
     
-    ><bpt id="p1">**</bpt>Note 2<ept id="p1">**</ept>: Deleting a tenant is meant to be a very hard process, so it can never accidentally or maliciously be done.  That means that removing the tenant as part of this lab often does not work.  While we have the steps here to delete the tenant, it is not required to consider yourself as completing this lab. If you ever have a need to remove a tenant in the real world, there are articles on DOCS.Microsoft.com to help you.
+    >**注 2**:テナントの削除は非常に難しいプロセスであるため、誤ってまたは悪意を持って削除されることはありません。  つまり、このラボの一部としてテナントを削除しても、うまくいかないことがよくあります。  ここにはテナントを削除する手順がありますが、このラボを完了したと考える必要はありません。 現実の世界でテナントを削除する必要がある場合は、DOCS.Microsoft.com に役立つ記事があります。
 
 12. Azure portal に戻り、**Directory + Subscription** フィルターを使用して **AdatumSync** Azure Active Directory テナントに切り替えます。
 

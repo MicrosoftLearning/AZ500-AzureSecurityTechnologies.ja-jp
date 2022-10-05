@@ -9,14 +9,14 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to create a proof of concept of Microsoft Defender for Cloud-based environment. Specifically, you want to:
+あなたは、Microsoft Defender for Cloud ベースの環境の概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
 - 仮想マシンを監視するように Microsoft Defender for Cloud を構成します。
 - 仮想マシンに関する Microsoft Defender for Cloud の推奨事項を確認します。
 - ゲスト構成と Just In Time VM アクセスの推奨事項を実装します。 
 - セキュア スコアを使用して、より安全なインフラストラクチャの作成に向けた進捗状況を判断する方法を確認します。
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -68,7 +68,7 @@ You have been asked to create a proof of concept of Microsoft Defender for Cloud
 
 11. **[設定 | ワークフローの自動化]** ブレードで、使用可能な設定を確認します。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You can trigger actions based threat detection alerts and Microsoft Defender for Cloud recommendations. You can also configure an action based on Logic apps. 
+    >**注**:脅威検出アラートおよび Microsoft Defender for Cloud の推奨事項に基づいてアクションをトリガーできます。 Logic Apps に基づいてアクションを構成することもできます。 
     
 12. **[ワークフロー自動化の追加]** ブレードで、使用可能な設定を確認します。
 
@@ -80,7 +80,7 @@ You have been asked to create a proof of concept of Microsoft Defender for Cloud
 
 15. **[設定 | Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** が選択されていることを確認し、 **[保存]** をクリックします。
 
-16. Select <bpt id="p1">**</bpt>Data collection<ept id="p1">**</ept> from the <bpt id="p2">**</bpt>Microsoft Defender for Cloud | Settings<ept id="p2">**</ept> blade. Select <bpt id="p1">**</bpt>All Events<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>.
+16. **[Microsoft Defender for Cloud | 設定]** ブレードから **[データ コレクション]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順に選択します。
 
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>タスク 2:Microsoft Defender for Cloud の推奨事項を確認する
@@ -110,7 +110,7 @@ You have been asked to create a proof of concept of Microsoft Defender for Cloud
 
 2. **[ワークロード保護]** ブレードの **[高度な保護]** セクションで **[Just-In-Time VM アクセス]** タイルをクリックし、 **[Just-In-Time VM アクセス] ブレード**で **[Just In Time VM アクセスを試す]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the VMs are not listed, navigate to <bpt id="p2">**</bpt>Virtual Machine<ept id="p2">**</ept> blade and click the <bpt id="p3">**</bpt>Configuration<ept id="p3">**</ept>, Click the <bpt id="p4">**</bpt>Enable the Just-in-time VMs<ept id="p4">**</ept> option under the <bpt id="p5">**</bpt>Just-in-time Vm's access<ept id="p5">**</ept>. Repeat the above step to navigate back to the <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept> and refresh the page, the VM will appear.
+    >**注**:VM が一覧に表示されていない場合は、 **[仮想マシン]** ブレードに移動して **[構成]** をクリックし、 **[Just-In-Time VM アクセス]** の下にある **[Enable the Just-in-time VMs]\(Just-In-Time VM を有効にする\)** オプションをクリックします。 上記の手順を繰り返して、 **[Microsoft Defender for Cloud]** に戻り、ページを更新すると、VM が表示されます。
 
 3. **[Just In Time VM アクセス]** で、**[未構成]** を選択し、**myVM** エントリをクリックします。
 
@@ -124,8 +124,8 @@ You have been asked to create a proof of concept of Microsoft Defender for Cloud
 
     >**注**: ツールバーの **[通知]** アイコンをクリックして、**[通知]** ブレードを表示して、構成の進行状況を監視します。 
 
-    >あなたは、Microsoft Defender for Cloud ベースの環境の概念実証を作成するよう依頼されました。 
+    >**注**:このラボでの推奨事項の実装がセキュア スコアに反映されるまでに時間がかかる場合があります。 セキュア スコアを定期的にチェックして、これらの機能の実装による影響を判断します。 
 
 > 結果:Microsoft Defender for Cloud にオンボードし、仮想マシンの推奨事項を実装しています。 
 
-    >**Note**: Do not remove the resources from this lab as they are needed for the Azure Sentinel lab.
+    >**Note**: Do not remove the resources from this lab as they are needed for the Microsoft Sentinel lab.
