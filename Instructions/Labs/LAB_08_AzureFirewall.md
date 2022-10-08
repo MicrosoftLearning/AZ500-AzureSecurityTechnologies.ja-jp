@@ -9,7 +9,7 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to install Azure Firewall. This will help your organization control inbound and outbound network access which is an important part of an overall network security plan. Specifically, you would like to create and test the following infrastructure components:
+Azure Firewall のインストールを求められました。 これは、組織が全体的なネットワーク セキュリティ計画の重要な部分である受信および送信ネットワーク アクセスを制御するのに役立ちます。 具体的には、次のインフラストラクチャ コンポーネントを作成してテストします。
 
 - ワークロード サブネットとジャンプ ホスト サブネットを持つ仮想ネットワーク。
 - 仮想マシンは各サブネットです。 
@@ -17,7 +17,7 @@ You have been asked to install Azure Firewall. This will help your organization 
 - www.bing.com への送信トラフィックのみを許可するファイアウォール アプリケーション ルール。 
 - 外部 DNS サーバーのルックアップを許可するファイアウォール ネットワーク ルール。
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -39,7 +39,7 @@ You have been asked to install Azure Firewall. This will help your organization 
 
 ### <a name="estimated-timing-40-minutes"></a>推定時間:40 分
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
+> このラボのすべてのリソースに対して、**東部 (米国)** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 この演習では、次のタスクを実行します。
 
@@ -55,7 +55,7 @@ You have been asked to install Azure Firewall. This will help your organization 
 
 このタスクでは、ラボ環境を確認してデプロイします。 
 
-In this task, you will create a virtual machine by using an ARM template. This virtual machine will be used in the last exercise for this lab. 
+このタスクでは、ARM テンプレートを使用して仮想マシンを作成します。 この仮想マシンは、このラボの最後の演習で使用されます。 
 
 1. Azure portal **`https://portal.azure.com/`** にサインインします。
 
@@ -83,7 +83,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 7. **[確認と作成]** をクリックし、**[作成]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This should take about 2 minutes. 
+    >**注**: デプロイが完了するまで待ちます。 これには 2 分ほどかかります。 
 
 #### <a name="task-2-deploy-the-azure-firewall"></a>タスク 2:Azure Firewall をデプロイする
 
@@ -107,13 +107,13 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 4. **[Review + create]\(レビュー + 作成\)** をクリックし、 **[作成]** をクリックします。 
 
-    >Azure Firewall のインストールを求められました。 
+    >**注**: デプロイが完了するまで待ちます。 これには 5 分ほどかかります。 
 
 5. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
 6. **[リソース グループ]** ブレードのリソース グループの一覧で、**[AZ500LAB08]** エントリをクリックします。
 
-    >これは、組織が全体的なネットワーク セキュリティ計画の重要な部分である受信および送信ネットワーク アクセスを制御するのに役立ちます。
+    >**注**: **AZ500LAB08** リソース グループのブレードで、リソースのリストを確認します。 **[種類]** で並べ替えることができます。
 
 7. リソースの一覧で、**Test-FW01** ファイアウォールを表すエントリをクリックします。
 
@@ -124,7 +124,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 #### <a name="task-3-create-a-default-route"></a>タスク 3:既定のルートを作成する
 
-具体的には、次のインフラストラクチャ コンポーネントを作成してテストします。
+このタスクでは、**Workload-SN** サブネットの既定のルートを作成します。 このルートは、ファイアウォールを経由する送信トラフィックを構成します。
 
 1. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**ルート テーブル**」と入力し、**Enter** キーを押します。
 
@@ -162,8 +162,8 @@ In this task, you will create a virtual machine by using an ARM template. This v
    |設定|値|
    |---|---|
    |ルート名|**FW-DG**|
-   |アドレス プレフィックス ソース|**IP アドレス**|
-   |ソース IP アドレス/CIDR 範囲|**0.0.0.0/0**
+   |アドレス プレフィックス送信先|**IP アドレス**|
+   |宛先 IP アドレス/CIDR 範囲|**0.0.0.0/0**
    |ネクストホップの種類|**仮想アプライアンス**|
    |次ホップ アドレス|前のタスクで特定したファイアウォールのプライベート IP アドレス|
 
@@ -202,7 +202,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 6. **[追加]** をクリックして、ターゲット FQDN ベースのアプリケーション ルールを追加します。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. 
+    >**注**:Azure Firewall には、既定で許可されているインフラストラクチャ FQDN 用の組み込みのルール コレクションが含まれています。 これらの FQDN はプラットフォームに固有であり、他の目的には使用できません。 
 
 #### <a name="task-5-configure-a-network-rule"></a>タスク 5:ネットワーク ルールを構成する
 
@@ -238,7 +238,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 #### <a name="task-6-configure-the-virtual-machine-dns-servers"></a>タスク 6:仮想マシンの DNS サーバーを構成する
 
-In this task, you will configure the primary and secondary DNS addresses for the virtual machine. This is not a firewall requirement. 
+このタスクでは、仮想マシンのプライマリおよびセカンダリ DNS アドレスを構成します。 これはファイアウォール要件ではありません。 
 
 1. Azure portal で、**AZ500LAB08** リソース グループに戻ります。
 
@@ -266,7 +266,7 @@ In this task, you will configure the primary and secondary DNS addresses for the
 
 3. **[Srv-Jump]** ブレードで **[接続]** をクリックし、ドロップダウン メニューの **[RDP]** をクリックします。 
 
-4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>Srv-Jump<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+4. **[RDP ファイルのダウンロード]** をクリックし、それを使用してリモートデスクトップ経由で **Srv-Jump** Azure VM に接続します。 認証を求められたら、次の資格情報を入力します。
 
    |設定|値|
    |---|---|
@@ -275,7 +275,7 @@ In this task, you will configure the primary and secondary DNS addresses for the
 
     >**注**:次の手順は、**Srv-Jump** Azure VM へのリモート デスクトップ セッションで実行されます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will connect to the <bpt id="p2">**</bpt>Srv-Work<ept id="p2">**</ept> virtual machine. This is being done so we can test the ability to access the bing.com website.  
+    >**注**:**Srv-Work** 仮想マシンに接続します。 これは、bing.com の Web サイトにアクセスする機能をテストできるように行われています。  
 
 5. **Srv-Jump** へのリモート デスクトップ セッション内で **[スタート]** を右クリックし、右クリック メニューで **[実行]** をクリックし、**[実行]** ダイアログ ボックスで次のコマンドを実行して、**Srv-Work** に接続します。 
 
@@ -298,7 +298,7 @@ In this task, you will configure the primary and secondary DNS addresses for the
 
 9. **Srv-Work** へのリモート デスクトップ セッション内で、Internet Explorer を起動し、 **`https://www.bing.com`** を参照します。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The website should successfully display. The firewall allows you access.
+    >**注**:Web サイトが正常に表示されます。 ファイアウォールでは、アクセスできます。
 
 10. **`http://www.microsoft.com/`** に移動します。
 
@@ -310,9 +310,9 @@ In this task, you will configure the primary and secondary DNS addresses for the
 
 **リソースをクリーンアップする**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
 
-1. このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
 2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 

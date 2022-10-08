@@ -2,24 +2,19 @@
 lab:
   title: 02 - Azure Policy
   module: Module 01 - Manage Identity and Access
-ms.openlocfilehash: d49ce05e4620310d45317fe582bddb3aa511430b
-ms.sourcegitcommit: 967cb50981ef07d731dd7548845a38385b3fb7fb
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2022
-ms.locfileid: "145955392"
 ---
+
 # <a name="lab-02-azure-policy"></a>ラボ 02:Azure Policy
 # <a name="student-lab-manual"></a>受講生用ラボ マニュアル
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-Azure Policy の使用方法を示す概念実証を作成するように依頼されました。 具体的には、次の操作が必要です。
+You have been asked to create a proof of concept showing how Azure policy can be used. Specifically, you need to:
 
 - 特定のリージョンでのみリソースを作成を許可する場所ポリシーを作成します。
 - リソースが許可された場所にのみ作成されることを確認するテスト
 
-> このラボのすべてのリソースについて、**米国東部** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
+> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -51,9 +46,9 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
     >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
 
-1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
+1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
 
-1. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確実にします。
+1. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
 1. [Cloud Shell] ウィンドウ内の PowerShell セッションで、次のコマンドを実行してリソース グループを作成します (場所のパラメーターの値について講師に確認します)。
 
@@ -67,7 +62,7 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
     Get-AzResourceGroup | format-table
     ```
 
-1. **Cloud Shell** を閉じます。
+1. **Cloud Shell**を閉じます。
 
 #### <a name="task-2-create-an-allowed-locations-policy-assignment"></a>タスク 2:許可されている場所ポリシーの割り当てを作成する。
 
@@ -75,23 +70,23 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
 1. Azure portal で、ページ上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**ポリシー**」と入力し、**Enter** キーを押します。
 
-1. **[ポリシー]** ブレードの **[作成]** セクションで、 **[定義]** を選択します。
+1. **[ポリシー]** ブレードの **[作成]** セクションで、 **[定義]** を選択します。
 
-1. 組み込みの定義を参照するには、しばらく時間がかかります。 **[カテゴリ]** ドロップダウンを使用して、ポリシーのリストをフィルターします。
+1. Take a minute to browse the built-in definitions. Use the <bpt id="p1">**</bpt>Category<ept id="p1">**</ept> drop-down to filter the list of policies.
 
 1. **[検索]** テキスト ボックスに「**許可されている場所**」と入力します。 
 
-   >**注**: **[許可されている場所]** ポリシーでは、リソース グループではなく、リソースの場所を制限できます。 リソース グループの場所を制限するには、 **リソース グループの許可されている場所** ポリシーを使用できます。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The <bpt id="p2">**</bpt>Allowed locations<ept id="p2">**</ept> policy allows you to restrict location of resources, not resource groups. To restrict locations of resource groups, you can use the <bpt id="p1">**</bpt>Allowed locations for resource groups<ept id="p1">**</ept> policy.
 
-1. **[許可されている場所]** ポリシー定義をクリックして、その詳細を表示します。 
+1.  **[許可されている場所]**   ポリシー定義をクリックして、その詳細を表示します。 
 
-   >**注**:このポリシー定義は、パラメーターとして場所の配列を受け取ります。 ポリシー ルールは 'if-then' ステートメントです。 'if' 句は、リソースの場所がパラメーター リストに含まれているかどうかをチェックし、含まれていない場合は、'then' 句によりリソースの作成を拒否するか、既存のリソースの場合は非対応としてマークします。
+   >Azure Policy の使用方法を示す概念実証を作成するように依頼されました。
 
 1. **[許可されている場所]** ブレードで、 **[割り当て]** をクリックします。
 
 1. **[許可されている場所]** ブレードの **[基本]** タブで 、 **[スコープ]** テキスト ボックスの横にある省略記号 (...) ボタンをクリックし、[**スコープ]** ブレードで次の設定を指定します。
 
-   |設定|値|
+   |設定|[値]|
    |---|---|
    |サブスクリプション|Azure サブスクリプションの名前|
    |Resource group|**AZ500LAB02**|
@@ -100,23 +95,23 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
 1. **[許可されている場所]** ブレードの **[基本]** タブで、次の設定を指定します (その他の設定は既定値のままにします)。
 
-   |設定|値|
+   |設定|[値]|
    |---|---|
    |割り当て名|**AZ500LAB02 に英国南部を許可**|
    |説明|**AZ500LAB02 では英国南部のみでリソースを作成できるようにする**|
    |ポリシーの適用|**有効**|
 
-1. **[次へ]** をクリックします。
+1.  **[次へ]** をクリックします。
 
-1. **[許可されている場所]** ブレードの **[パラメーター]** タブで、 **[許可されている場所]** ドロップダウン リストから、 **[英国南部]** を唯一の許可されている場所として選択します。 
+1. **[許可されている場所]** ブレードの **[パラメーター]** タブで、 **[許可されている場所]** ドロップダウン リストから、 **[英国南部]**   を唯一の許可されている場所として選択します。 
 
-   >**注**:1 か所以上追加できます。 ポリシーで別のパラメーター セットが必要な場合は、このタブでその選択肢が表示されます。 
+   >具体的には、次の操作が必要です。 
 
-1. **[確認および作成]** をクリックしてから **[作成]** をクリックし、ポリシーの割り当てを作成します。 
+1.  **[Review + create]** をクリックしてから  **[作成]**   をクリックし、ポリシーの割り当てを作成します。 
 
    >**注**:割り当てが成功し、割り当てが完了するまでに約 30 分かかる場合があるという通知が表示されます。
 
-   >**注**:Azure Policy の割り当てが有効化するのに最大 30 分かかる理由は、グローバルにレプリケートする必要があるためです。 通常では、この処理は数分で完了します。  次のタスクが失敗する場合は、数分待ってからもう一度手順を試みます。
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The reason the Azure policy assignment might take up to 30 minutes to take effect is that is has to replicate globally. Typically this takes only a few minutes.  If the next task fails, simply wait a few minutes and attempt its steps again.
 
 #### <a name="task-3-test-the-allowed-locations-policy-assignment"></a>タスク 3:許可されている場所ポリシーの割り当てをテストする
 
@@ -124,11 +119,11 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
 1. Azure portal で、ページ上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**仮想ネットワーク**」と入力し、**Enter** キーを押します。
 
-1. **[仮想ネットワーク]** ブレードで、 **[+ 作成]** をクリックします。
+1. **[Virtual Networks]** ブレードで、 **[+ 作成]** をクリックします。
 
-   >**注**:まず、米国東部で仮想ネットワークの作成を試みます。 これは許可された場所ではないため、要求はブロックされます。 
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: First, you will try to create a virtual network in East US. Since this is not an allowed location, the request should be blocked. 
 
-1. **[仮想ネットワークの作成]** ブレードの **[基本]** タブで、次の設定を指定します (他の設定は既定値のままにします)。
+1. **[仮想ネットワークの作成]**   ブレードの **[基本]** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
     |設定|値|
     |---|---|
@@ -136,25 +131,25 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
     |名前|**myVnet**|
     |リージョン|**(米国) 米国東部**|
 
-1. **[Review + create](レビュー + 作成)** をクリックします。 
+1.  **[確認と作成]** をクリックします。 
 
-1. **[仮想ネットワークの作成]** ブレードの **[確認および作成]** タブで、**検証に失敗しました** というメッセージを確認します。 
+1. **[仮想ネットワークの作成]**   ブレードの **[確認と作成]** タブで、**検証に失敗しました** というメッセージを確認します。 
 
     > **注**: "**検証に失敗しました**" という警告が表示されない場合は、**[前へ]** をクリックして、さらに数分待ちます。
 
-1. **[基本]** タブで、エラー メッセージ リンクをクリックして、 **[ポリシーの割り当て]** ブレードを開 きます。 その場所を制限するポリシーの割り当てが表示されます。
+1. On the <bpt id="p1">**</bpt>Basics<ept id="p1">**</ept> tab, click the error message link to open the <bpt id="p2">**</bpt>Policy Assignment<ept id="p2">**</ept> blade. You will see the policy assignment that restricts the location.
 
 1. **[ポリシーの割り当て]** ブレードを閉じ、 **[仮想ネットワークの作成]** ブレードの **[基本]** タブをクリックし、 **[地域]** ドロップダウン リストから **[(ヨーロッパ) 英国南部]** を選択します。
 
-1. **[確認および作成]** をクリックして検証が成功したことを確認し、 **[作成]** をクリックして、仮想ネットワークが正常に作成されたことを確認します。 
+1.  **[確認と作成]** をクリックして検証が成功したことを確認し、 **[作成]** をクリックして、仮想ネットワークが正常に作成されたことを確認します。 
 
 > 演習結果:この演習では、組み込みのポリシー定義を選択し、それをリソース グループに割り当てることで、Azure ポリシーを適用する方法について学習しました。
 
 **リソースをクリーンアップする**
 
-> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
 
-1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、 **[再接続]** をクリックします。
+1. これがクラスで使用するリージョンであることを講師に確認します。
 
 1. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   

@@ -9,7 +9,7 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to implement your organization's virtual networking infrastructure and test to ensure it is working correctly. In particular:
+組織の仮想ネットワーク インフラストラクチャを実装し、正しく動作していることを確認するためのテストを依頼されました。 特に次の点に違いがあります。
 
 - 組織には、次の 2 つのサーバー グループがあります。Web サーバーと管理サーバー。
 - サーバーの各グループは、独自のアプリケーション セキュリティ グループに含める必要があります。 
@@ -17,7 +17,7 @@ You have been asked to implement your organization's virtual networking infrastr
 - インターネットからアクセスすると、Web サーバーに IIS Web ページが表示されます。 
 - ネットワーク セキュリティ グループの規則を使用して、ネットワーク アクセスを制御する必要があります。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -36,7 +36,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
 ### <a name="estimated-timing-20-minutes"></a>推定時間:20 分
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
+> このラボのすべてのリソースに対して、**東部 (米国)** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 この演習では、次のタスクを実行します。
 
@@ -59,7 +59,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
 4. **[仮想ネットワークの作成]** ブレードの **[基本]** タブで、次の設定を指定し (他の設定は既定値のままにします)、 **[次へ:IP アドレス]** をクリックします。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**[新規作成]** をクリックし、「**AZ500LAB07**」という名前を入力する|
@@ -89,7 +89,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
     |設定|値|
     |---|---|
-    |リソース グループ|**AZ500LAB07**|
+    |Resource group|**AZ500LAB07**|
     |名前|**myAsgWebServers**|
     |リージョン|**米国東部**|
 
@@ -103,7 +103,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
     |設定|値|
     |---|---|
-    |リソース グループ|**AZ500LAB07**|
+    |Resource group|**AZ500LAB07**|
     |名前|**myAsgMgmtServers**|
     |リージョン|**米国東部**|
 
@@ -121,7 +121,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
 3. **[ネットワーク セキュリティ グループの作成]** ブレードの **[基本]** タブで、次の設定を指定します。 
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB07**|
@@ -141,7 +141,7 @@ You have been asked to implement your organization's virtual networking infrastr
     |仮想ネットワーク|**myVirtualNetwork**|
     |Subnet|**default**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-management-servers"></a>タスク 4:Web サーバーへのすべてのトラフィックと管理サーバーへの RDP に対するインバウンド NSG セキュリティ ルールを作成します。 
+#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>タスク 4:Web サーバーへのすべてのトラフィックと管理サーバーへの RDP に対するインバウンド NSG セキュリティ ルールを作成します。 
 
 1. **[myNsg]** ブレードの **[設定]** セクションで、**[受信セキュリティ規則]** をクリックします。
 
@@ -255,7 +255,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
 5. **[NIC ネットワーク セキュリティ グループ]** で **[なし]** を選択します。
 
-6. **[次へ: 管理 >]** をクリックし、 **[仮想マシンの作成]** ブレードの **[管理]** タブで、次の設定を指定します。
+6. **[次へ: 管理 >]** をクリックし、 **[仮想マシンの作成]** ブレードの **[管理]** タブで、次の設定を確認します。
 
    |設定|値|
    |---|---|
@@ -267,7 +267,7 @@ You have been asked to implement your organization's virtual networking infrastr
 
 #### <a name="task-3-associate-each-virtual-machines-network-interface-to-its-application-security-group"></a>タスク 3:各仮想マシンのネットワーク インターフェイスをアプリケーション セキュリティ グループに関連付けます。
 
-In this task, you will associate each virtual machines network interface with the corresponding application security group. The myVMWeb virtual machine interface will be associated to the myAsgWebServers ASG. The myVMMgmt virtual machine interface will be associated to the myAsgMgmtServers ASG. 
+このタスクでは、各仮想マシンのネットワーク インターフェイスを対応するアプリケーション セキュリティ グループに関連付けます。 myVMWeb 仮想マシン インターフェイスは、myAsgWebServers ASG に関連付けられます。 myVMMgmt 仮想マシン インターフェイスは、myAsgMgmtServers ASG に関連付けられます。 
 
 1. Azure portal で、**[仮想マシン]** ブレードに戻り、両方の仮想マシンが **[実行中]** 状態で一覧表示されていることを確認します。
 
@@ -285,20 +285,20 @@ In this task, you will associate each virtual machines network interface with th
 
 #### <a name="task-4-test-the-network-traffic-filtering"></a>タスク 4:ネットワーク トラフィックのフィルタリングをテストする
 
-In this task, you will test the network traffic filters. You should be able to RDP into the myVMMgmnt virtual machine. You should be able to connect from the internet to the myVMWeb virtual machine and view the default IIS web page.  
+このタスクでは、ネット-ワーク トラフィック フィルターをテストします。 myVMMgmnt 仮想マシンに RDP できるはずです。 インターネットから myVMWeb 仮想マシンに接続し、既定の IIS Web ページを表示できるはずです。  
 
 1. **[myVMMgmt]** 仮想マシン ブレードに戻ります。
 
 2. **[myVMMgmt]** ブレードで **[接続]** をクリックし、ドロップダウン メニューで **[RDP]** をクリックします。 
 
-3. 組織の仮想ネットワーク インフラストラクチャを実装し、正しく動作していることを確認するためのテストを依頼されました。
+3. **[RDP ファイルのダウンロード]** をクリックし、リモート デスクトップ経由で **myVMMgmt** Azure VM に接続するためにそれを使用します。 認証を求められたら、次の資格情報を入力します。
 
    |設定|値|
    |---|---|
    |ユーザー名|**学生**|
    |パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
 
-    >特に次の点に違いがあります。
+    >**注**:リモート デスクトップ接続が正常に完了したことを確認します。 この時点で、リモート デスクトップから myVMMgmt に接続できることを確認しました。
 
 4. Azure portal で、**[myVMWeb]** 仮想マシン ブレードに移動します。
 
@@ -310,7 +310,7 @@ In this task, you will test the network traffic filters. You should be able to R
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the installation to complete. This might take a couple of minutes. At that point, you can verify that myVMWeb can be accessed via HTTP/HTTPS.
+    >**注**: インストールが完了するまで待ちます。 これには数分間かかることがあります。 その時点で、HTTP/HTTPS 経由で myVMWeb にアクセスできることを確認できます。
 
 7. Azure portal で、**[myVMWeb]** ブレードに戻ります。
 
@@ -318,15 +318,15 @@ In this task, you will test the network traffic filters. You should be able to R
 
 9. 別のブラウザー タブを開き、前の手順で特定した IP アドレスに移動します。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The browser page should display the default IIS welcome page because port 80 is allowed inbound from the internet based on the setting of the <bpt id="p2">**</bpt>myAsgWebServers<ept id="p2">**</ept> application security group. The network interface of the myVMWeb Azure VM is associated with that application security group. 
+    >**注**:ポート 80 が、**myAsgWebServers** アプリケーション セキュリティ グループの設定に基づいてインターネットからの受信を許可されるため、ブラウザー ページには既定の IIS ウェルカム ページが表示されるはずです。 myVMWeb Azure VM のネットワーク インターフェイスは、そのアプリケーション セキュリティ グループに関連付けられます。 
 
 > 結果:NSG および ASG の設定が機能しており、トラフィックが正しく管理されていることを確認しました。 
 
 **リソースをクリーンアップする**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
 
-1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
 
 2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
