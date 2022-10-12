@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ 
 
-You have been asked to create a proof of concept showing how resource locks can be used to prevent accidental deletion or changes. Specifically, you need to:
+誤った削除や変更を防ぐために、リソース ロックの使用方法を示す概念実証を作成するように依頼されました。 具体的には、次の操作が必要です。
 
 - 読み取り専用ロックを作成する
 
 - 削除ロックを作成する
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
  
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -49,7 +49,7 @@ You have been asked to create a proof of concept showing how resource locks can 
 
     >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
 
-1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
 
 1. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
@@ -65,13 +65,13 @@ You have been asked to create a proof of concept showing how resource locks can 
     New-AzStorageAccount -ResourceGroupName AZ500LAB03 -Name (Get-Random -Maximum 999999999999999) -Location  EastUS -SkuName Standard_LRS -Kind StorageV2 
     ```
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>:  Wait until the storage account is created. This might take a couple of minutes. 
+   >**注**:ストレージ アカウントが作成されるまで待ちます。 これには数分間かかることがあります。 
 
 1. [Cloud Shell] ペインを閉じます。
 
 #### <a name="task-2-add-a-readonly-lock-on-the-storage-account"></a>タスク 2:ストレージ アカウントに読み取り専用ロックを追加します。 
 
-In this task, you will add a read only lock to the storage account. This will protect the resource from accidental deletion or modification. 
+このタスクでは、読み取り専用ロックをストレージ アカウントに追加します。 リソースが誤って削除されたり変更されたりすることから保護します。 
 
 1. Azure portal の、Azure portal ページの上部にある **[ソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
@@ -137,7 +137,7 @@ In this task, you will add a read only lock to the storage account. This will pr
 
 #### <a name="task-5-test-the-delete-lock"></a>タスク 5:削除ロックをテストします。
 
-誤った削除や変更を防ぐために、リソース ロックの使用方法を示す概念実証を作成するように依頼されました。 
+このタスクでは削除ロックをテストします。 ストレージ アカウントは変更できますが、削除することはできません。 
 
 1. ストレージ アカウント ブレードの **設定** セクションで、**構成** をクリックします。
 
@@ -155,15 +155,15 @@ In this task, you will add a read only lock to the storage account. This will pr
 
    >**注**:**削除**ロックによって構成の変更が許可され、誤って削除されないことが確認されました。
 
-   >具体的には、次の操作が必要です。 
+   >**注**:リソース ロックを使用することにより、最も重要なリソースの偶発的または悪意のある変更や削除に対する追加の防御ラインを実装できます。 **所有者**ロールを持つユーザーは、リソース ロックを削除できますが、その場合は意識的な作業が必要です。 ロックはロール ベースの Access Control を補足します。 
 
 > 結果:この演習では、Resource Manager のロックを使用して、リソースを変更や誤って削除しないようにする方法について学習しました。
 
 **リソースをクリーンアップする**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。
 
-1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>Reconnect<ept id="p1">**</ept>.
+1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、 **[再接続]** をクリックします。
 
 1. [Cloud Shell] ウィンドウ内の PowerShell セッションで、次の操作を実行して削除ロックを削除します。
 

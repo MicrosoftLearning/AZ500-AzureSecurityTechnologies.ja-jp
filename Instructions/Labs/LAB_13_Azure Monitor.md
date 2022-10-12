@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to create a proof of concept of monitoring virtual machine performance. Specifically, you want to:
+仮想マシンのパフォーマンスを監視するという概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
 - テレメトリとログを収集できるように仮想マシンを構成します。
 - 収集できるテレメトリとログを表示します。
 - データの使用方法とクエリ方法を示します。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -47,7 +47,7 @@ You have been asked to create a proof of concept of monitoring virtual machine p
 
     >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
 
-2. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+2. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
 
 3. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
@@ -61,7 +61,7 @@ You have been asked to create a proof of concept of monitoring virtual machine p
 
 5. [Cloud Shell] ペイン内の PowerShell セッションで、次の手順を実行して、新しい Azure 仮想マシンを作成します。 
 
-    ><bpt id="p1">**</bpt>Attention<ept id="p1">**</ept>: The New-AzVm command doesn't work in the Azure CLI version 4.24 and Microsoft is currently investigating for resolution.  The work around in this lab is to install and revert back to Az.Compute version 4.23.0, which is unaffected by this issue.
+    >**注意**:Azure CLI バージョン 4.24 では New-AzVm コマンドは機能しません。現在、Microsoft で解決策を調査中です。  このラボでの回避策は、この問題の影響を受けない Az.Compute バージョン 4.23.0 をインストールし、これに戻す方法です。
    
     >**手順**:Az.Compute バージョン 4.23.0 に戻す 
   
@@ -118,7 +118,7 @@ You have been asked to create a proof of concept of monitoring virtual machine p
 
 #### <a name="task-3-enable-the-log-analytics-virtual-machine-extension"></a>タスク 3:Log Analytics 仮想マシン拡張機能を有効にする
 
-In this task, you will enable the Log Analytics virtual machine extension. This extension installs the Log Analytics agent on Windows and Linux virtual machines. This agent collects data from the virtual machine and transfers it to the Log Analytics workspace that you designate. Once the agent is installed it will be automatically upgraded ensuring you always have the latest features and fixes. 
+このタスクでは、Log Analytics 仮想マシン拡張機能を有効にします。 この拡張機能は、Windows および Linux Virtual Machines に Log Analytics エージェントをインストールします。 このエージェントは、仮想マシンからデータを収集し、指定した Log Analytics ワークスペースに転送します。 エージェントがインストールされると、自動的にアップグレードされ、常に最新の機能と修正プログラムが提供されます。 
 
 1. Azure portal で、**[Log Analytics ワークスペース]** ブレードに戻り、ワークスペースの一覧で、前のタスクで作成したワークスペースを表すエントリをクリックします。
 
@@ -132,11 +132,11 @@ In this task, you will enable the Log Analytics virtual machine extension. This 
 
 5. 仮想マシンが Log Analytics ワークスペースに接続するまで待ちます。
 
-    >仮想マシンのパフォーマンスを監視するという概念実証を作成するよう依頼されました。 
+    >**注**:これには数分かかることがあります。 **[myVM]** ブレードに表示される **[状態]** は、**[接続中]** から **[このワークスペース]** に変わります。 
 
 #### <a name="task-4-collect-virtual-machine-event-and-performance-data"></a>タスク 4:仮想マシン イベントおよびパフォーマンス データを収集する
 
-具体的には、次のことを行います。
+このタスクでは、Windows システム ログのコレクションといくつかの一般的なパフォーマンス カウンターを構成します。 また、使用可能な他のソースも確認します。
 
 1. Azure portal で、この演習で前に作成した Log Analytics ワークスペースに戻ります。
 
@@ -146,7 +146,7 @@ In this task, you will enable the Log Analytics virtual machine extension. This 
 
 4. **[Windows イベント ログ]** が選択されていることを確認し、**[+ Windows イベント ログの追加]** をクリックして、イベント ログの種類の一覧で **[システム]** を選択します。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is how you add event logs to the workspace. Other choices include, for example, <bpt id="p1">**</bpt>Hardware events<ept id="p1">**</ept> or <bpt id="p2">**</bpt>Key Management Service<ept id="p2">**</ept>.  
+    >**注**:これは、ワークスペースにイベント ログを追加する方法です。 その他の選択肢としては、**ハードウェア イベント** や **キー管理サービス** などがあります。  
 
 5. **[情報]** チェックボックスの選択を解除し、**[エラー]** チェックボックスと **[警告]** チェックボックスは選択したままにします。
 
@@ -175,17 +175,17 @@ In this task, you will enable the Log Analytics virtual machine extension. This 
     
 5. 定義済みクエリの一覧を確認し、**[メモリと CPU 使用率]** を選択し、対応する **[実行]** ボタンをクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You can start with the query <bpt id="p2">**</bpt>Virtual machine available memory<ept id="p2">**</ept>. If you don't get any results check the scope is set to virtual machine
+    >**注**:**仮想マシンで使用可能なメモリ** というクエリから始めることができます。 結果が出ない場合は、スコープが仮想マシンに設定されていることを確認してください
 
 6. クエリは、[新しいクエリ] タブで自動的に開きます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Log Analytics uses the Kusto query language. You can customize the existing queries or create your own. 
+    >**注**:Log Analytics では、Kusto クエリ言語が使用されます。 既存のクエリをカスタマイズすることも、独自のクエリを作成することもできます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The results of the query you selected are automatically displayed below the query pane. To re-run the query, click <bpt id="p1">**</bpt>Run<ept id="p1">**</ept>.
+    >**注**:選択したクエリの結果は、クエリ ペインの下に自動的に表示されます。 クエリを再実行するには、**[実行]** をクリックします。
 
     >**注**:この仮想マシンは作成されたばかりなので、まだデータが存在しない可能性があります。 
 
-    >このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+    >**注**:データを異なる形式で表示するオプションがあります。 また、クエリの結果に基づいてアラート ルールを作成することもできます。
 
     >**注**:以下の手順で、このラボで前にデプロイした Azure VM に追加の負荷を生成することができます。
 
@@ -199,7 +199,7 @@ In this task, you will enable the Log Analytics virtual machine extension. This 
        goto loop
        ```
        
-    4. これがクラスで使用するリージョンであることを講師に確認します。
+    4. Log Analytics ブレードに切り替えて、クエリを再実行します。 データが収集されるまで数分待って、再度クエリを実行する必要があるかもしれません。
 
 > 結果:Log Analytics ワークスペースを使用して、データ ソースとクエリ ログを構成しました。 
 

@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to create a proof of concept to demonstrate securing Azure file shares. Specifically, you want to:
+Azure ファイル共有のセキュリティ保護を実証するための概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
     
 - Azure Storage に向かうトラフィックが常に Azure バックボーン ネットワーク内にとどまるように、ストレージ エンドポイントを作成します。
 - 特定のサブネットのリソースのみがストレージにアクセスできるように、ストレージ エンドポイントを構成します。
 - 特定のサブネット外のリソースがストレージにアクセスできないことを確認します。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -58,7 +58,7 @@ You have been asked to create a proof of concept to demonstrate securing Azure f
 
 4. **[仮想ネットワークの作成]** ブレードの **[基本]** タブで、次の設定を指定し (他の設定は既定値のままにします)、 **[次へ:IP アドレス]** をクリックします。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**[新規作成]** をクリックし、「**AZ500LAB12**」という名前を入力します|
@@ -78,7 +78,7 @@ You have been asked to create a proof of concept to demonstrate securing Azure f
 
 #### <a name="task-2-add-a-subnet-to-the-virtual-network-and-configure-a-storage-endpoint"></a>タスク 2:Virtual Network にサブネットを追加し、ストレージ エンドポイントを構成する
 
-In this task, you will create another subnet and enable a service endpoint on that subnet. Service endpoints are enabled per service, per subnet. 
+このタスクでは、別のサブネットを作成し、そのサブネット上のサービス エンドポイントを有効にします。 サービス エンドポイントはサービスごと、サブネットごとに有効にします。 
 
 1. Azure portal で、**リソース グループ**ブレードに戻ります。
 
@@ -102,7 +102,7 @@ In this task, you will create another subnet and enable a service endpoint on th
     
 #### <a name="task-3-configure-a-network-security-group-to-restrict-access-to-the-subnet"></a>タスク 3:サブネットへのアクセスを制限するようにネットワーク セキュリティ グループを構成する
 
-In this task, you will create a network security group with two outbound security rules (Storage and internet) and one inbound security rule (RDP). You will also associate the network security group with the Private subnet. This will restrict outbound traffic from Azure VMs connected to that subnet.
+このタスクでは、2 つの送信セキュリティ規則（ストレージとインターネット）と1つの受信セキュリティ規則（RDP）を持つネットワーク セキュリティ グループを作成します。 また、ネットワーク セキュリティ グループをプライベート サブネットに関連付けます。 これにより、そのサブネットに接続されている Azure VM からの送信トラフィックが制限されます。
 
 1. Azure portal で、Azure portal の上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**ネットワーク セキュリティ グループ**」と入力し、**Enter** キーを押します。
 
@@ -110,14 +110,14 @@ In this task, you will create a network security group with two outbound securit
 
 3. **[ネットワーク セキュリティ グループの作成]** ブレードの **[基本]** タブで、次の設定を指定します。 
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB12**|
     |名前|**myNsgPrivate**|
     |リージョン|**米国東部**|
 
-4. **[Review + create](レビュー + 作成)** をクリックし、 **[作成]** をクリックします。
+4. **[Review + create]\(レビュー + 作成\)** をクリックし、 **[作成]** をクリックします。
 
     >**注**:次の手順では、Azure Storage サービスとの通信を許可する送信セキュリティ規則を作成します。 
 
@@ -163,7 +163,7 @@ In this task, you will create a network security group with two outbound securit
 
     >**注**:この規則は、送信インターネット通信を許可するすべてのネットワーク セキュリティ グループの既定の規則を上書きします。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In the next steps, you will create an inbound security rule that allows Remote Desktop Protocol (RDP) traffic to the subnet. The rule overrides a default security rule that denies all inbound traffic from the internet. Remote Desktop connections are allowed to the subnet so that connectivity can be tested in a later step.
+    >**注**:次の手順では、サブネットへのリモート デスクトップ プロトコル (RDP) トラフィックを許可する受信セキュリティ規則を作成します。 この規則は、インターネットからのすべての受信トラフィックを拒否する既定のセキュリティ規則をオーバーライドします。 サブネットへのリモート デスクトップ接続が許可されているため、後の手順で接続をテストできます。
 
 12. **[myNsgPrivate]** ブレードの **[設定]** セクションで、 **[送信セキュリティ規則]** をクリックし、 **[+ 追加]** をクリックします。
 
@@ -194,7 +194,7 @@ In this task, you will create a network security group with two outbound securit
 
 #### <a name="task-4-configure-a-network-security-group-to-allow-rdp-on-the-public-subnet"></a>タスク 4: パブリック サブネットで rdp を許可するようにネットワーク セキュリティ グループを構成する
 
-Azure ファイル共有のセキュリティ保護を実証するための概念実証を作成するよう依頼されました。
+このタスクでは、受信セキュリティ規則 (RDP) なしでネットワーク セキュリティ グループを作成します。 また、ネットワーク セキュリティ グループをパブリック サブネットに関連付けます。 これにより、パブリック VM への RDP アクセスが許可されます。
 
 1. Azure portal で、Azure portal の上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**ネットワーク セキュリティ グループ**」と入力し、**Enter** キーを押します。
 
@@ -202,14 +202,14 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 3. **[ネットワーク セキュリティ グループの作成]** ブレードの **[基本]** タブで、次の設定を指定します。 
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB12**|
     |名前|**myNsgPublic**|
     |リージョン|**米国東部**|
 
-4. **[Review + create](レビュー + 作成)** をクリックし、 **[作成]** をクリックします。
+4. **[Review + create]\(レビュー + 作成\)** をクリックし、 **[作成]** をクリックします。
 
     >**注**:次の手順では、Azure Storage サービスとの通信を許可する送信セキュリティ規則を作成します。 
 
@@ -252,7 +252,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 3. 「**ストレージ アカウントの作成**」ブレードの「**基本**」タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB12**|
@@ -263,7 +263,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 4. 「**ストレージ アカウントの作成**」ブレードの「**基本**」タブで、「**Review + Create**」をクリックし、検証プロセスが完了するのを待ってから、「**作成**」をクリックします。
 
-    >具体的には、次のことを行います。
+    >**注**:ストレージ アカウントが作成されるのを待ちます。 これには 2 分ほどかかります。
 
 5. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
@@ -275,7 +275,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 9. 「**新しいファイルの共有**」ブレードで、次の設定を指定します。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |名前|**my-file-share**|
 
@@ -289,7 +289,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 13. 「**接続**」ブレードの「**Windows**」タブで、ファイル共有への Z ドライブのマッピングを作成する PowerShell スクリプトをコピーします。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this script. You will need this in a later in this lab in order to map the file share from the Azure virtual machine on the <bpt id="p1">**</bpt>Private<ept id="p1">**</ept> subnet.
+    >**注**:このスクリプトを記録します。 このラボの後半で、**Private** サブネット上の Azure Virtual Machine からファイル共有をマッピングするために、これが必要になります。
 
 14. ストレージ アカウント ブレードに戻り、**[セキュリティ + ネットワーク]** セクションで、**[ネットワーク]** をクリックします。
 
@@ -297,7 +297,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 16. **[ネットワークの追加]** ブレードで、次の設定を指定します。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |仮想ネットワーク|**myVirtualNetwork**|
@@ -321,7 +321,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 3. **[仮想マシンの作成]** ブレードの **[基本]** タブで、以下の設定を指定します (他の設定は既定値のまま)。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB12**|
@@ -356,7 +356,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 9. **[仮想マシンの作成]** ブレードの **[基本]** タブで、以下の設定を指定します (他の設定は既定値のまま)。
 
-    |設定|[値]|
+    |設定|値|
     |---|---|
     |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB12**|
@@ -397,7 +397,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 3. 「**myVMPrivate**」ブレードで「**接続**」をクリックし、ドロップ ダウン メニューの 「**RDP**」をクリックします。 
 
-4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>myVMPrivate<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+4. 「**RDP ファイルのダウンロード**」をクリックし、リモート デスクトップ経由で **myVMPrivate** Azure VM に接続するために使用します。 認証を求められたら、次の資格情報を入力します。
 
     |設定|値|
     |---|---|
@@ -410,7 +410,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 5. **myVMPrivate** へのリモート デスクトップ セッション内で、「**起動する**」をクリックし、「**Windows PowerShell ISE**」をクリックします。
 
-6. Within the <bpt id="p1">**</bpt>Windows PowerShell ISE<ept id="p1">**</ept> window, open the <bpt id="p2">**</bpt>Script<ept id="p2">**</ept> pane, then paste and run the PowerShell script that you recorded earlier in this lab. The script has the following format:
+6. **Windows PowerShell ISE** ウィンドウで、 **スクリプト**ウィンドウを開き、このラボで前に記録した PowerShell スクリプトを貼り付けて実行します。 スクリプトの形式は次のとおりです
 
     ```powershell
     $connectTestResult = Test-NetConnection -ComputerName <storage_account_name>.file.core.windows.net -Port 445
@@ -447,7 +447,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 3. **myVMPublic** ブレードで「**接続**」をクリックし、ドロップ ダウン メニューの「**RDP**」をクリックします。 
 
-4. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>myVMPublic<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+4. 「**RDP ファイルのダウンロード**」をクリックし、リモート デスクトップ経由で **myVMPublic** Azure VM に接続するために使用 します。 認証を求められたら、次の資格情報を入力します。
 
     |設定|値|
     |---|---|
@@ -464,7 +464,7 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
     >**注**:今回は、"**New-PSDrive :アクセスが拒否されました**" というエラーを受け取ります。 
 
-    >このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+    >**注**:仮想マシン *myVmPublic* がパブリック サブネットにデプロイされているため、アクセスが拒否されています。 パブリック サブネットには、Azure Storage に対応したサービス エンドポイントがありません。 ストレージ アカウントは、プライベート サブネットからのネットワーク アクセスのみ許可します。
 
 7. 次に、**Windows PowerShell ISE** のコンソール画面から以下を実行して、仮想マシンがインターネットへの外向きの送信ができるように接続されていることを確認します。 
 
@@ -481,9 +481,9 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 **リソースをクリーンアップする**
 
-> これがクラスで使用するリージョンであることを講師に確認します。 
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
 
-1. Open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, select <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
 
 2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 

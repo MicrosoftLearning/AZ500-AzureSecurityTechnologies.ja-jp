@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to create a proof of concept of features that enhance Azure Active Directory (Azure AD) authentication. Specifically, you want to evaluate:
+Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を作成するように求められました。 具体的には、以下を評価する必要があります。
 
 - Azure AD Multi-Factor Authentication
 - Azure AD 条件付きアクセス
 - Azure AD Identity Protection
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -47,7 +47,7 @@ You have been asked to create a proof of concept of features that enhance Azure 
 
 #### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>タスク 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします
 
-In this task, you will create a virtual machine by using an ARM template. This virtual machine will be used in the last exercise for this lab. 
+このタスクでは、ARM テンプレートを使用して仮想マシンを作成します。 この仮想マシンは、このラボの最後の演習で使用されます。 
 
 1. Azure portal **`https://portal.azure.com/`** にサインインします。
 
@@ -75,7 +75,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 9. **[カスタム デプロイ]** ブレードで、次の設定が構成されていることを確認します (既定値を使用して他の設定を行います)。
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will need to create a unique password that will be used for creating VMs (virtual machines) for the rest of the course. The password must be at least 12 characters long and meet the defined complexity requirements (Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character). <bpt id="p1">[</bpt>VM password requirements<ept id="p1">](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)</ept>. Please make a note of the password.
+>**注**:このコースの残りの部分で VM (仮想マシン) の作成に使用される一意のパスワードを作成する必要があります。 パスワードは 12 文字以上で、定義された複雑さの要件を満たす必要があります (パスワードには次のうち 3 つを含める必要があります:小文字 1 個、大文字 1 個、数字 1 個、特殊文字 1 個)。 [VM パスワードの要件](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)。 パスワードをメモしておいてください。
 
    |設定|値|
    |---|---|
@@ -92,7 +92,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 10. **[レビューと作成]** をクリックし、**[作成]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine included in this deployment in the last exercise of this lab.
+    >**注**:デプロイメントが完了するのを待たず、次のエクササイズに進みます。 このラボの最後の演習では、このデプロイに含まれる仮想マシンを使用します。
 
 > 結果:このラボの最後の演習で使用する Azure VM **az500-04-vm1** のテンプレートのデプロイを開始しました。
 
@@ -128,12 +128,12 @@ In this task, you will create a virtual machine by using an ARM template. This v
    |初期ドメイン名|文字と数字の組み合わせから成る一意の名前|
    |国または地域|**米国**|
 
-    >Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を作成するように求められました。
+    >**注**:初期ドメイン名を記録します。 このラボで後ほど必要になります。
 
 5. **[確認と作成]** をクリックしてから、**[作成]** をクリックします。
 6. **[ロボットではないことを証明します]** ブレードにキャプチャ コードを追加し、**[送信]** ボタンをクリックします。 
 
-    >具体的には、以下を評価する必要があります。 
+    >**注**:新しいテナントが作成されるのを待ちます。 **通知** アイコンを使用して、デプロイ ステータスを監視します。 
 
 
 #### <a name="task-2-activate-azure-ad-premium-p2-trial"></a>タスク 2:Azure AD Premium P2 試用版のアクティブ化
@@ -146,7 +146,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
     >**注**:**AdatumLab500-04** エントリが **Directory + Subscription** のフィルター リストに表示されない場合は、ブラウザーの画面を更新する必要があります。
 
-3. In the Azure portal, in the <bpt id="p1">**</bpt>Search resources, services, and docs<ept id="p1">**</ept> text box at the top of the Azure portal page, type <bpt id="p2">**</bpt>Azure Active Directory<ept id="p2">**</ept> and press the <bpt id="p3">**</bpt>Enter<ept id="p3">**</ept> key. On the <bpt id="p1">**</bpt>AdatumLab500-04<ept id="p1">**</ept> blade, in the <bpt id="p2">**</bpt>Manage<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Licenses<ept id="p3">**</ept>.
+3. Azure portal の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、Azure portal ページの上部に「**Azure Active Directory**」と入力し、**Enter** キーを押します。 **[AdatumLab500-04]** ブレードの **[管理]** セクションで、**[ライセンス]** をクリックします。
 
 4. **[ライセンス \| 概要]** ブレードの **[管理]** セクションで、**[すべての製品]** をクリックし、**[+ 試す/購入]** をクリックします。
 
@@ -155,7 +155,7 @@ In this task, you will create a virtual machine by using an ARM template. This v
 
 #### <a name="task-3-create-azure-ad-users-and-groups"></a>タスク 3:Azure AD ユーザーとグループを作成します。
 
-In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (user), and aaduser3 (user). You will need each user's principal name and password for later tasks. 
+このタスクでは、aaduser1 (グローバル管理者)、aaduser2 (ユーザー)、および aaduser3 (ユーザー) の 3 つのユーザーを作成します。 後のタスクには、各ユーザーのプリンシパル名とパスワードが必要です。 
 
 1. **[AdatumLab500-04** Azure Active Directory] ブレードに戻り、**[管理]** セクションで **[ユーザー]** をクリックします。
 
@@ -172,9 +172,9 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
    |ロール|**[ユーザー]** をクリックし、 **[グローバル管理者]** をクリックし、 **[選択]** をクリックします|
    |利用場所|**米国**|  
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the full user name. You can copy its value by clicking the <bpt id="p1">**</bpt>Copy to clipboard<ept id="p1">**</ept> button on the right hand side of the drop-down list displaying the domain name. 
+    >**注**:完全なユーザー名を記録します。 ドメイン名が表示されているドロップダウン リストの右側にある **[クリップボードにコピー]** ボタンをクリックすると、値をコピーできます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the user's password. You will need this later in this lab. 
+    >**注**:ユーザーのパスワードを記録します。 これは、このラボの後半で必要になります。 
 
 4. **[ユーザー \| すべてのユーザー]** ブレードに戻り、**[+ 新しいユーザー]** をクリックします。 
 
@@ -214,7 +214,7 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
 1. **[ユーザー \| すべてのユーザー]** ブレードで、ユーザー アカウントを表すエントリをクリックします。 
 
-2. このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+2. ユーザー アカウントのプロパティを表示するブレードで、**[編集]** をクリックします。  使用場所を設定しない場合は、使用場所が **[米国]** に設定されていることを確認し、**[保存]** をクリックします。
 
 3. **[AdatumLab500-04** Azure Active Directory] ブレードに戻り、**[管理]** セクションで **[ライセンス]** をクリックします。
 
@@ -226,9 +226,9 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
 7. **[ライセンスの割り当て]** ブレードに戻り、**[割り当てオプション]** をクリックし、すべてのオプションが有効になっていることを確認して、**[レビューと割り当て]**、**[割り当て]** の順にクリックします。
 
-8. これがクラスで使用するリージョンであることを講師に確認します。
+8. Azure portal からサインアウトし、同じアカウントを使用して再びサインインします。 ライセンスの割り当てを有効にするためには、この手順が必要です。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: At this point, you assigned Azure Active Directory Premium P2 licenses to all user accounts you will be using in this lab. Be sure to sign out and then sign back in. 
+    >**注**:この時点で、このラボで使用するすべてのユーザー アカウントに Azure Active Directory Premium P2 ライセンスを割り当ててください。 必ずサインアウトしてから、再度サインインしてください。 
 
 #### <a name="task-5-configure-azure-mfa-settings"></a>タスク 5:Azure MFA 設定を構成します。
 
@@ -246,7 +246,7 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
     >**注**:新しいブラウザー タブに、**多要素認証**ページが表示されます。
 
-5. On the <bpt id="p1">**</bpt>multi-factor authentication<ept id="p1">**</ept> page, click the <bpt id="p2">**</bpt>service settings<ept id="p2">**</ept> tab. Review <bpt id="p3">**</bpt>verification options<ept id="p3">**</ept>. Note that <bpt id="p1">**</bpt>Text message to phone<ept id="p1">**</ept>, <bpt id="p2">**</bpt>Notification through mobile app<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>Verification code from mobile app or hardware token<ept id="p3">**</ept> are enabled. Click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept> and then click <bpt id="p2">**</bpt>close<ept id="p2">**</ept>.
+5. **多要素認証**ページで、**[サービス設定]** タブをクリックします。**検証オプション**を確認します。 **[電話へのテキスト メッセージ]**、**[モバイル アプリによる通知]**、**[モバイル アプリまたはハードウェア トークンからの確認コード]** が有効になっていることに注意してください。 **[保存]** をクリックしてから、**[閉じる]** をクリックします。
 
 6. **[ユーザー]** タブに切り替えて、**[aaduser1]** エントリをクリックし、**[有効]** リンクをクリックします。プロンプトが表示されたら、**[多要素認証を有効にする]** をクリックします。
 
@@ -280,9 +280,9 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
     >**注**:この時点で、aaduser1 の MFA を有効にし、不正アクセスのアラートの設定を構成しました。 
 
-14. Navigate back to the <bpt id="p1">**</bpt>AdatumLab500-04<ept id="p1">**</ept> Azure Active Directory tenant blade, in the <bpt id="p2">**</bpt>Manage<ept id="p2">**</ept> section, click <bpt id="p3">**</bpt>Properties<ept id="p3">**</ept>, next click the <bpt id="p4">**</bpt>Manage Security defaults<ept id="p4">**</ept> link at the bottom of the blade, on the <bpt id="p5">**</bpt>Enable Security Defaults<ept id="p5">**</ept> blade, click <bpt id="p6">**</bpt>No<ept id="p6">**</ept>. Select <bpt id="p1">**</bpt>My Organization is using Conditonal Access<ept id="p1">**</ept> as the reason and and then click <bpt id="p2">**</bpt>Save<ept id="p2">**</ept>.
+14. **AdatumLab500-04** Azure Active Directory テナント ブレードに戻り、**[管理]** セクションで **[プロパティ]** をクリックし、次にブレードの下部にある **[セキュリティのデフォルトの管理]** リンクをクリックします。 **[セキュリティの既定値の有効化]** ブレードで **[いいえ]** をクリックします。 理由に **[組織が条件付きアクセスを使用している]** を選択してから、**[保存]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role in the Azure AD tenant.
+    >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 Azure AD テナントでグローバル管理者の役割を持つユーザーとしてサインインしていることを確認します。
 
 #### <a name="task-6-validate-mfa-configuration"></a>タスク 6:MFA 構成を検証する
 
@@ -292,7 +292,7 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
 2. Azure portal に移動し、**aaduser1** ユーザー アカウントを使用してサインインします。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: To sign in you will need to provide a fully qualified name of the <bpt id="p2">**</bpt>aaduser1<ept id="p2">**</ept> user account, including the Azure AD tenant DNS domain name, which you recorded earlier in this lab. This user name is in the format aaduser1@<ph id="ph1">`&lt;your_tenant_name&gt;`</ph>.onmicrosoft.com, where <ph id="ph2">`&lt;your_tenant_name&gt;`</ph> is the placeholder representing your unique Azure AD tenant name. 
+    >**注**:サインインするには、このラボで前に記録した Azure AD テナントの DNS ドメイン名を含む、**aaduser1** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、aaduser1@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Azure AD テナント名を表すプレースホルダーです。 
 
 3. メッセージが表示されたら、**[詳細情報が必要]** ダイアログ ボックスで **[次へ]** をクリックします。
 
@@ -306,9 +306,9 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
 7. **[アカウントを安全に保つ]** ページで、確認が成功したことを確認し、**[次へ]** をクリックします。
 
-8. On the <bpt id="p1">**</bpt>Keep your account secure<ept id="p1">**</ept> page, click <bpt id="p2">**</bpt>I want to use a different method<ept id="p2">**</ept>, select <bpt id="p3">**</bpt>Email<ept id="p3">**</ept> from the drop down list, click <bpt id="p4">**</bpt>Confirm<ept id="p4">**</ept>, provide the  email address you intend to use, and click <bpt id="p5">**</bpt>Next<ept id="p5">**</ept>. Once you receive the corresponding email, identify the code in the email body, provide it, and then click <bpt id="p1">**</bpt>Done<ept id="p1">**</ept>.
+8. **[アカウントのセキュリティ保護]** ページで、**[別の方法を設定します]** をクリックし、ドロップ ダウン リストから **[メール]** を選択します。**[確定]** をクリックし、使用するメール アドレスを入力して **[次へ]** をクリックします。 メールが届いたら、メール本文に記載されているコードを確認して入力し、**[完了]** をクリックします。
 
-9. When prompted, change your password. Make sure to record the new password.
+9. パスワードの変更を求められたら、変更します。 新しいパスワードを必ず記録してください。
 
 10. Azure portal に正常にサインインしたことを確認します。
 
@@ -342,7 +342,7 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
    - **[名前]** テキスト ボックスに「**AZ500Policy1**」と入力します
     
-   - Click <bpt id="p1">**</bpt>Users or workload identities selected<ept id="p1">**</ept>. On the right side under the What does this policy apply to &gt;&gt; Users and groups &gt;&gt; Include &gt;&gt; Enable <bpt id="p1">**</bpt>Select users and groups<ept id="p1">**</ept> &gt;&gt; select the <bpt id="p2">**</bpt>Users and Groups<ept id="p2">**</ept> checkbox, on the <bpt id="p3">**</bpt>Select<ept id="p3">**</ept> blade, click <bpt id="p4">**</bpt>aaduser2<ept id="p4">**</ept>, and click <bpt id="p5">**</bpt>Select<ept id="p5">**</ept>.
+   - **[Users or workload identities selected]\(選択されているユーザーまたはワークロード ID\)** をクリックします。 [What does this policy apply to]\(このポリシーは何に適用されますか\) の右側で >> [ユーザーとグループ] >> [含める] >> **[ユーザーとグループの選択]** を有効にします >> **[ユーザーとグループ]** チェックボックスをオンにして、**[選択]** ブレードで、**[aaduser2]** をクリックし、**[選択]** をクリックします。
     
    - **[クラウド アプリまたはアクション]** をクリックし、**[アプリを選択]** をクリックし、**[選択]** ブレードで **[Microsoft Azure 管理]** をクリックして、**[選択]** をクリックします。 
 
@@ -364,7 +364,7 @@ In this task, you will create three users: aaduser1 (Global Admin), aaduser2 (us
 
 #### <a name="task-2---test-the-conditional-access-policy"></a>タスク 2 - 条件付きアクセス ポリシーをテストします。
 
-In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aaduser2<ept id="p1">**</ept> and verify MFA is required. You will also delete the policy before continuing on to the next exercise. 
+このタスクでは、Azure portal に **aaduser2** としてサインインし、MFA が必要であることを確認します。 また、次の演習に進む前に、ポリシーを削除します。 
 
 1. InPrivate Microsoft Edge ウィンドウを開きます。
 
@@ -384,7 +384,7 @@ In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aadus
 
 8. **[アカウントのセキュリティ保護]** ページで、**[完了]** をクリックします。
 
-9. When prompted, change your password. Make sure to record the new password.
+9. パスワードの変更を求められたら、変更します。 新しいパスワードを必ず記録してください。
 
 10. Azure portal に正常にサインインしたことを確認します。
 
@@ -422,7 +422,7 @@ In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aadus
 
 1. 必要に応じて、Azure portal **`https://portal.azure.com/`** にサインインします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Ensure that you are signed-in to the <bpt id="p2">**</bpt>AdatumLab500-04<ept id="p2">**</ept> Azure AD tenant. You can use the <bpt id="p1">**</bpt>Directory + subscription<ept id="p1">**</ept> filter to switch between Azure AD tenants. Ensure you are signed in as a user with the Global Administrator role in the Azure AD tenant.
+    >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 Azure AD テナントでグローバル管理者の役割を持つユーザーとしてサインインしていることを確認します。
 
 2. **[AdatumLab500-04]** ブレードの **[管理]** セクションで、**[セキュリティ]** をクリックします。
 
@@ -466,7 +466,7 @@ In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aadus
 
 #### <a name="task-4-simulate-risk-events-against-the-azure-ad-identity-protection-policies"></a>タスク 4:Azure AD Identity Protection ポリシーに対するリスク イベントのシミュレーション 
 
-> Before you start this task, ensure that the template deployment you started in Exercise 1 has completed. The deployment includes an Azure VM named <bpt id="p1">**</bpt>az500-04-vm1<ept id="p1">**</ept>. 
+> このタスクを開始する前に、演習 1 で開始したテンプレートのデプロイが完了していることを確認してください。 デプロイには、**az500-04-vm1** という名前の Azure VM が含まれます。 
 
 1. Azure portal で、**Directory + Subscription** フィルターを、**az500-04-vm1** Azure VM をデプロイした Azure サブスクリプションに関連付けられている Azure AD テナントに設定します。
 
@@ -476,7 +476,7 @@ In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aadus
 
 4. **[az500-04-vm1]** ブレードで **[接続]** をクリックし、ドロップ ダウン メニューの **[RDP]** をクリックします。 
 
-5. Click <bpt id="p1">**</bpt>Download RDP File<ept id="p1">**</ept> and use it to connect to the <bpt id="p2">**</bpt>az500-04-vm1<ept id="p2">**</ept> Azure VM via Remote Desktop. When prompted to authenticate, provide the following credntials:
+5. **[RDP ファイルのダウンロード]** をクリックし、これを使用して、リモート デスクトップ経由で **az500-04-vm1** Azure VM に接続します。 認証を求められたら、次の資格情報を入力します。
 
    |設定|値|
    |---|---|
@@ -501,11 +501,11 @@ In this task, you will sign in to the Azure portal as <bpt id="p1">**</bpt>aadus
 
 12. プロンプトが表示されたら、**aaduser3** アカウントでサインインを試みます。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You will be presented with the message <bpt id="p2">**</bpt>Your sign-in was blocked<ept id="p2">**</ept>. This is expected, since this account is not configured with multi-factor authentication, which is required due to increased sign-in risk associated with the use of ToR Browser.
+    >**注**:**サインインがブロックされました**というメッセージが表示されます。 このアカウントは多要素認証で構成されていないので、ToR ブラウザーの使用に伴うサインイン リスクの増大により、このアカウントが必要とされるため、この方法が予期されます。
 
 13. **[サインアウトして別のアカウントでサインインする]** オプションを使うか戻る矢印を選択して、このラボで前に作成し、多要素認証用に構成した **aaduser1** アカウントとしてサインインします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This time, you will be presented with the <bpt id="p2">**</bpt>Suspicious activity detected<ept id="p2">**</ept> message. Again, this is expected, since this account is configured with multi-factor authentiation. Considering the increased sign-in risk associated with the use of ToR Browser, you will have to use multi-factor authentication.
+    >**注**:今回は、**不審なアクティビティが検出されました**というメッセージが表示されます。 このアカウントは多要素認証で構成されているため、この方法も想定されます。 ToR ブラウザーの使用に伴うサインイン リスクの増加を考慮すると、多要素認証を使用する必要があります。
 
 14. **[確認]** オプションを使用して、テキスト メッセージまたは電話を使用して本人確認を行うかどうかを指定します。
 
