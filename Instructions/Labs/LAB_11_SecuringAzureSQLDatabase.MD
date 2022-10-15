@@ -9,13 +9,13 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to review security features for Azure SQL database. Specifically, you are interested in:
+Azure SQL データベースのセキュリティ機能を確認するように依頼されました。 具体的には、次のことに関心があります。
 
 - SQL インジェクションやデータ流出などの攻撃に対する保護。 
 - データベース情報を検出し、機密などのカテゴリに分類する機能。 
 - データベース サーバーとデータベース クエリを監査し、イベントをログに記録する機能。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -64,7 +64,7 @@ You have been asked to review security features for Azure SQL database. Specific
 
 6. **[カスタム デプロイ]** ブレードで、次の設定が構成されていることを確認します (既定値を使用して他の設定を行います)。
 
-   |設定|[値]|
+   |設定|値|
    |---|---|
    |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
    |リソース グループ|**[新規作成]** をクリックし、「**AZ500LAB11**」という名前を入力する|
@@ -82,7 +82,7 @@ You have been asked to review security features for Azure SQL database. Specific
 
 3. **[AZ500LAB11]** ブレードで、新しく作成された SQL サーバーを表すエントリをクリックします。
 
-4. On the SQL server blade, in the <bpt id="p1">**</bpt>Security<ept id="p1">**</ept> section, click <bpt id="p2">**</bpt>Microsoft Defender for Cloud<ept id="p2">**</ept>. Scroll to the bottom of the <bpt id="p1">**</bpt>Getting started<ept id="p1">**</ept> page and select <bpt id="p2">**</bpt>Upgrade<ept id="p2">**</ept>. On the <bpt id="p1">**</bpt>Install agents<ept id="p1">**</ept> tab select <bpt id="p2">**</bpt>Install agents<ept id="p2">**</ept>.
+4. [SQL サーバー] ブレードの **[セキュリティ]** セクションで、 **[Microsoft Defender for Cloud]** をクリックします。 **[はじめに]** ページの一番下までスクロールし、 **[アップグレード]** を選択します。 **[エージェントのインストール]** タブで、 **[エージェントのインストール]** を選択します。
 
 5. [SQL サーバー] ブレードの **[セキュリティ]** セクションで、 **[Microsoft Defender for Cloud]** をクリックし、 **[Microsoft Defender for SQL を有効にする]** を選択します。
 
@@ -96,7 +96,7 @@ You have been asked to review security features for Azure SQL database. Specific
 
 8. **[Microsoft Defender for Cloud]** ブレードに戻り、 **[推奨事項]** と **[セキュリティ アラート]** を確認します。
 
-      ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It may take 10-15 minutes for recommendations to appear on the <bpt id="p2">**</bpt>Microsoft Defender for Cloud<ept id="p2">**</ept> blade. Rather than waiting, proceed to the next task but consider returning to this blade once you complete all the remaining tasks.
+      >**注**:推奨事項が **[Microsoft Defender for Cloud]** ブレードに表示されるまでに、10 分から 15 分かかる場合があります。 完了を待たずに、次のタスクに進み、残りのすべてのタスクを完了してから、このブレードに戻ることも可能です。
 
 
 #### <a name="task-3-configure-data-classification"></a>タスク 3:データ分類を構成する
@@ -137,7 +137,7 @@ You have been asked to review security features for Azure SQL database. Specific
 
 2. [SQL Server] ブレードの **[セキュリティ]** セクションで、 **[監査]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This is server level auditing. The default auditing settings include all the queries and stored procedures executed against the database, as well as successful and failed logins.
+    >**注**:これはサーバー レベルの監査です。 既定の監査設定には、データベースに対して実行されたすべてのクエリとストアド プロシージャ、およびログインの成功と失敗が含まれます。
 
 3. **[Azure SQL 監査を有効にする]** スイッチを**オン**に設定して、監査を有効にします。 
 
@@ -155,7 +155,7 @@ You have been asked to review security features for Azure SQL database. Specific
 
 9. [監査] ブレードで、 **[保存]** をクリックして監査の設定を保存します。 
 
-    >Azure SQL データベースのセキュリティ機能を確認するように依頼されました。
+    >**注**:ストレージ コンテナーのパスが無効な場合、ストレージ アカウントがまだプロビジョニングされていない可能性があります。 数分待ってから、 **[ストレージ アカウント]** をクリックし、 **[ストレージ アカウントの選択]** ブレードで新しく作成したストレージ アカウントを選択し、[監査] ブレードで **[保存]** をクリックします。
 
 10. サーバー ブレードの **[設定]** セクションで、 **[SQL データベース]** をクリックします。
 
@@ -163,9 +163,9 @@ You have been asked to review security features for Azure SQL database. Specific
 
 12. **[AZ500LabDb** SQL データベース] ブレードの **[セキュリティ]** セクションで、 **[監査]** をクリックします。 
 
-    >具体的には、次のことに関心があります。 
+    >**注**:これはデータベース レベルの監査です。 サーバー レベルの監査は既に有効になっています。 
   
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Audits can be written to an Azure storage account, to a Log Analytics workspace, or to the Event Hub. You can configure any combination of these options.
+    >**注**:監査は、Azure ストレージ アカウント、Log Analytics ワークスペース、またはイベント ハブに書き込むことができます。 これらのオプションは、任意に組み合わせて構成できます。
 
     >**注**:サーバーでストレージベースの監査が有効になっている場合、データベースの設定に関係なく、常にデータベースに適用されます。
 
@@ -180,9 +180,9 @@ You have been asked to review security features for Azure SQL database. Specific
 
 **リソースをクリーンアップする**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs. 
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
 
-1. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
 2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 

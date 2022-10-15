@@ -9,14 +9,14 @@ lab:
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-You have been asked to deploy a proof of concept with Azure Container Registry and Azure Kubernetes Service. Specifically, the proof of concept should demonstrate:
+Azure Container Registry と Azure Kubernetes Service を使用して概念実証をデプロイするよう依頼されました。 具体的には、概念実証は次の例を示す必要があります。
 
 - Dockerfile を使用してイメージをビルドします。
 - Azure Container Registry を使用してイメージを格納します。
 - Azure Kubernetes Service を構成します。
 - コンテナー アプリケーションのセキュリティ保護とアクセスを社内外で行います。 
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East US<ept id="p1">**</ept> region. Verify with your instructor this is the region to use for class. 
+> このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 ## <a name="lab-objectives"></a>ラボの目的
 
@@ -39,7 +39,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 ### <a name="estimated-timing-45-minutes"></a>推定時間:45 分
 
-> For all the resources in this lab, we are using the <bpt id="p1">**</bpt>East (US)<ept id="p1">**</ept> region. Verify with your instructor this is region to use for you class. 
+> このラボのすべてのリソースに対して、**東部 (米国)** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
 この演習では、次のタスクを実行します。
 
@@ -60,7 +60,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
     >**注**:このラボで使用している Azure サブスクリプションの所有者または共同作成者のロールと、そのサブスクリプションに関連付けられている Azure AD テナントのグローバル管理者の役割を持つアカウントを使用して、Azure portal にサインインします。
 
-2. In the Azure portal, open the Cloud Shell by clicking the first icon in the top right of the Azure Portal. If prompted, click <bpt id="p1">**</bpt>Bash<ept id="p1">**</ept> and <bpt id="p2">**</bpt>Create storage<ept id="p2">**</ept>.
+2. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、 **[Bash]** と **[ストレージの作成]** をクリックします。
 
 3. Cloud Shell ウィンドウの左上隅にあるドロップダウン メニューで **Bash** が選択されていることを確認します。
 
@@ -88,7 +88,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     az acr list --resource-group AZ500LAB09
     ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the name of the ACR. You will need it in the next task.
+    >**注**:ACR の名前を記録します。 これは、次のタスクで必要になります。
 
 #### <a name="task-2-create-a-dockerfile-build-a-container-and-push-it-to-azure-container-registry"></a>タスク 2:Dockerfile を作成し、コンテナーを構築して、Azure Container Registry にプッシュする
 
@@ -102,7 +102,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 2. [Cloud Shell] ウィンドウ内の Bash セッションで、次の手順を実行して Dockerfile からイメージを構築し、新しい ACR にイメージをプッシュします。 
 
-    >Azure Container Registry と Azure Kubernetes Service を使用して概念実証をデプロイするよう依頼されました。 
+    >**注**:コマンド ラインの末尾の後続ピリオドが必要です。 現在のディレクトリを Dockerfile の場所として指定します。 
 
     ```sh
     ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --output tsv)
@@ -110,7 +110,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     az acr build --resource-group AZ500LAB09 --image sample/nginx:v1 --registry $ACRNAME --file Dockerfile .
     ```
 
-    >具体的には、概念実証は次の例を示す必要があります。
+    >**注**:コマンドが正常に完了するのを待ってください。 これには 2 分ほどかかる場合があります。
 
 3. [Cloud Shell] ペインを閉じます。
 
@@ -134,9 +134,9 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 2. **[Kubernetes サービス]** ブレードで、 **[+ 作成]** をクリックし、ドロップダウン メニューで **[+ Kubernetes クラスターを作成]** をクリックします
 
-3. On the <bpt id="p1">**</bpt>Basics<ept id="p1">**</ept> tab of the <bpt id="p2">**</bpt>Create Kubernetes cluster<ept id="p2">**</ept> blade, select <bpt id="p3">**</bpt>Cluster preset configuration<ept id="p3">**</ept>, select <bpt id="p4">**</bpt>Dev/Test ($)<ept id="p4">**</ept>. Now specify the following settings (leave others with their default values):
+3. **[Kubernetes クラスターを作成]** ブレードの **[基本]** タブで、 **[クラスターのプリセット構成]** を選び、 **[Dev/Test ($)]** を選びます。 ここで、次の設定を指定します (他の設定は既定値のままにしておきます)。
 
-    |設定|[値]|
+    |設定|値|
     |----|----|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB09**|
@@ -161,19 +161,19 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     |ネットワーク構成|**Azure CNI**|
     |DNS 名プレフィックス|**既定値のままにします**|
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: AKS can be configured as a private cluster. This assigns a private IP to the API server to ensure network traffic between your API server and your node pools remains on the private network only. For more information, visit <bpt id="p1">[</bpt>Create a private Azure Kubernetes Service cluster<ept id="p1">](https://docs.microsoft.com/en-us/azure/aks/private-clusters)</ept> page.
+    >**注**:AKS はプライベート クラスターとして設定できます。 これにより、API サーバーにプライベート IP が割り当てられるため、API サーバーとノード プール間のネットワーク トラフィックがプライベート ネットワーク上にのみ残ります。 詳細については、[Azure Kubernetes Service のプライベート クラスター の作成](https://docs.microsoft.com/en-us/azure/aks/private-clusters)に関するページを参照してください。
 
 7. **[次へ: 統合 >]** をクリックし、 **[Kubernetes クラスターを作成]** ブレードの **[統合]** タブで、 **[コンテナーの監視]** を **[無効]** に設定します。 
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: In production scenarios, you would want to enable monitoring. Monitoring is disabled in this case since it is not covered in the lab. 
+    >**注**:運用シナリオでは、監視を有効にします。 この場合、監視はラボでカバーされていないので無効になります。 
 
 8. **[確認と作成]** をクリックしてから、**[作成]** をクリックします。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete. This might take about 10 minutes.
+    >**注**: デプロイが完了するまで待ちます。 これには 10 分ほどかかる場合があります。
 
 9. デプロイが完了したら、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**リソース グループ**と入力し、**Enter** キーを押します。
 
-10. On the <bpt id="p1">**</bpt>Resource groups<ept id="p1">**</ept> blade, in the listing of resource groups, note a new resource group named <bpt id="p2">**</bpt>MC_AZ500LAB09_MyKubernetesCluster_eastus<ept id="p2">**</ept> that holds components of the AKS Nodes. Review resources in this resource group. 
+10. **[リソース グループ]** ブレードのリソース グループの一覧で、AKS ノードのコンポーネントを保持する **MC_AZ500LAB09_MyKubernetesCluster_eastus** という名前の新しいリソース グループをメモします。 このリソース グループのリソースを確認します。 
     
 11. **[リソース グループ]** ブレードに戻り、**AZ500LAB09** エントリをクリックします。 
 
@@ -233,7 +233,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 このタスクでは、マニフェスト ファイルをダウンロードし、YAML ファイルを編集し、変更をクラスターに適用します。 
 
-1. このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。
+1. [Cloud Shell] ペイン内の Bash セッションで、 **[ファイルのアップロード/ダウンロード]** アイコンをクリックし、ドロップダウン メニューの **[アップロード]** をクリックして、 **[開く]** ダイアログ ボックスでラボ ファイルをダウンロードした場所に移動します。および **\\Allfiles\\Labs\\09\\nginxexternal.yaml** を選択し、 **[開く]** をクリックします。 次に、 **\\Allfiles\\Labs\\09\\nginxinternal.yaml** を選択し、 **[開く]** をクリックします。
 
 2. [Cloud Shell] ウィンドウ内の Bash セッションで、次のコマンドを実行して、Azure Container Registry インスタンスの名前を識別します。
 
@@ -241,7 +241,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     echo $ACRNAME
     ```
 
-    >これがクラスで使用するリージョンであることを講師に確認します。
+    >**注**:Azure Container Registry インスタンス名を記録します。 このタスクの後半で必要になります。
 
 3. [Cloud Shell] ウィンドウ内の Bash セッションで、次の手順を実行して nginxexternal.yaml ファイルを開き、その内容を編集できるようにします。 
 
@@ -278,11 +278,11 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     kubectl get service nginxexternal
     ```
 
-2. In the Bash session within the Cloud Shell pane, review the output and record the value in the External-IP column. You will need it in the next step. 
+2. [Cloud Shell] ウィンドウ内の Bash セッションで、出力を確認し、[外部 IP] 列に値を記録します。 これは、次のステップで必要になります。 
 
 3. 新しいブラウザー タブを開き、前の手順で特定した IP アドレスを参照します。
 
-4. Ensure the <bpt id="p1">**</bpt>Welcome to nginx!<ept id="p1">**</ept> page displays. 
+4. **Welcome to nginx!** ページが 表示されることを確認します。 
 
 #### <a name="task-7-deploy-an-internal-service-to-aks"></a>タスク 7:AKS への内部サービスの展開
 
@@ -319,9 +319,9 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
     kubectl get service nginxinternal
     ```
 
-7. In the Bash session within the Cloud Shell pane, review the output. The External-IP is, in this case, a private IP address. If it is in a <bpt id="p1">**</bpt>Pending<ept id="p1">**</ept> state then run the previous command again.
+7. [Cloud Shell] ウィンドウ内の Bash セッションで、出力を確認します。 外部 IP は、この場合はプライベート IP アドレスです。 **保留中**の状態の場合は、前のコマンドを再度実行します。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record this IP address. You will need it in the next task. 
+    >**注**:この IP アドレスを記録します。 これは、次のタスクで必要になります。 
 
     >**注**:内部サービス エンドポイントにアクセスするには、クラスターで実行されているポッドのいずれかに対話式で接続します。 
 
@@ -360,7 +360,7 @@ You have been asked to deploy a proof of concept with Azure Container Registry a
 
 **リソースをクリーンアップする**
 
-> Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
+> 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 
 
