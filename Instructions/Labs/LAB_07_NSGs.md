@@ -141,7 +141,7 @@ lab:
     |仮想ネットワーク|**myVirtualNetwork**|
     |Subnet|**default**|
 
-#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-management-servers"></a>タスク 4: Web サーバーへのすべてのトラフィックとサーバーへの RDP に対するインバウンド NSG セキュリティ ルールを作成します。 
+#### <a name="task-4-create-inbound-nsg-security-rules-to-all-traffic-to-web-servers-and-rdp-to-the-servers"></a>タスク 4: Web サーバーへのすべてのトラフィックとサーバーへの RDP に対するインバウンド NSG セキュリティ ルールを作成します。 
 
 1. **[myNsg]** ブレードの **[設定]** セクションで、**[受信セキュリティ規則]** をクリックします。
 
