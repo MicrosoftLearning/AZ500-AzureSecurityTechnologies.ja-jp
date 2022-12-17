@@ -60,28 +60,13 @@ lab:
 
 7. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードで、関連するサブスクリプションをクリックします。 
 
-8. **[Defender plans](Defender プラン)** タブで、 **[すべての Microsoft Defender for Cloud プランの有効化]** を選択し、 **[保存]** をクリックします。
+8. **[Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** を選択します。
 
-9. **[設定 \| Defender プラン]** ブレードの左側にある垂直方向のメニュー バーで、 **[自動プロビジョニング]** をクリックします。 
+9. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードに戻り、サブスクリプションを展開して、前のラボで作成した Log Analytics ワークスペースを表すエントリをクリックします。
 
-10. **[設定 \| 自動プロビジョニング]** ブレードで、最初の項目である **[Azure VM の Log Analytics エージェント]** の自動プロビジョニングが **[オン]** に設定されていることを確認します。
+10. **[設定 \| Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** を選択します。
 
-11. **[設定 \| ワークフローの自動化]** ブレードで、使用可能な設定を確認します。 
-
-    >**注**:脅威検出アラートおよび Microsoft Defender for Cloud の推奨事項に基づいてアクションをトリガーできます。 Logic Apps に基づいてアクションを構成することもできます。 
-    
-12. **[ワークフロー自動化の追加]** ブレードで、使用可能な設定を確認します。
-
-    >注:Microsoft Defender for Cloud では、システムの更新状況、OS セキュリティ構成、エンドポイント保護など、仮想マシンに関する多くの分析情報が提供されます。
-
-13. **[ワークフロー自動化の追加]** ブレードで、**[キャンセル]** をクリックします。
-
-14. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードに戻り、サブスクリプションを展開して、前のラボで作成した Log Analytics ワークスペースを表すエントリをクリックします。
-
-15. **[設定 \| Defender プラン]** ブレードで、 **[すべての Microsoft Defender for Cloud プランの有効化]** が選択されていることを確認し、 **[保存]** をクリックします。
-
-16. **[Microsoft Defender for Cloud \| 設定]** ブレードから **[データ コレクション]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順に選択します。
-
+11. **[Microsoft Defender for Cloud \| 設定]** ブレードから **[データ コレクション]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順に選択します。
 
 #### <a name="task-2-review-the-microsoft-defender-for-cloud-recommendation"></a>タスク 2:Microsoft Defender for Cloud の推奨事項を確認する
 
@@ -101,22 +86,19 @@ lab:
     
 5. **[リソース正常性]** ブレードの **[推奨事項]** タブで、**myVM** の推奨事項のリストを確認します。
 
-
 #### <a name="task-3-implement-the-microsoft-defender-for-cloud-recommendation-to-enable-just-in-time-vm-access"></a>タスク 3:Just In Time VM アクセスを有効にするために Microsoft Defender for Cloud の推奨事項を実装する
 
 このタスクでは、仮想マシンでの Just In Time VM アクセスを有効にする Microsoft Defender for Cloud の推奨事項を実装します。 
 
-1. Azure portal で、 **[Microsoft Defender for Cloud \| 概要]** ブレードに戻り、 **[Cloud Security](クラウド セキュリティ)** タイルの **[ワークロード保護]** を選択します。
+1. Azure portal で、 **[Microsoft Defender for Cloud | 概要]** ブレードに戻り、 **[クラウド セキュリティ]** タイルの **[ワークロード保護]** を選択します。
 
-2. **[ワークロード保護]** ブレードの **[高度な保護]** セクションで **[Just-In-Time VM アクセス]** タイルをクリックし、 **[Just-In-Time VM アクセス] ブレード**で **[Just In Time VM アクセスを試す]** をクリックします。
+2. **[ワークロード保護]** ブレードの **[高度な保護]** セクションで **[Just-In-Time VM アクセス]** タイルをクリックし、 **[Just-In-Time VM アクセス]** ブレードに移動します。
 
-    >**注**:VM が一覧に表示されていない場合は、 **[仮想マシン]** ブレードに移動して **[構成]** をクリックし、 **[Just-In-Time VM アクセス]** の下にある **[Enable the Just-in-time VMs](Just-In-Time VM を有効にする)** オプションをクリックします。 上記の手順を繰り返して、 **[Microsoft Defender for Cloud]** に戻り、ページを更新すると、VM が表示されます。
+3. **[Just In Time VM アクセス]** ブレードの **[仮想マシン]** セクションで、 **[未構成]** を選択し、**myVM** エントリをクリックします。
 
-3. **[Just In Time VM アクセス]** で、**[未構成]** を選択し、**myVM** エントリをクリックします。
+4. **[仮想マシン]** セクションの右端にある **[1 つの VM で JIT を有効にする]** オプションをクリックします。
 
     >**注**:**myVM** エントリが利用可能になるまで、数分待つ必要があるかもしれません。
-
-4. **[1 つの VM で JIT を有効にする]** を選択します。
 
 5. **[JIT VM アクセス構成]** ブレードの、ポート **22** を参照する行の右端で、省略記号ボタンをクリックしてから、**[削除]** をクリックします。
 

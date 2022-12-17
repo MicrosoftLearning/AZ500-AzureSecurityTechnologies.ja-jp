@@ -61,29 +61,16 @@ lab:
 
 5. [Cloud Shell] ペイン内の PowerShell セッションで、次の手順を実行して、新しい Azure 仮想マシンを作成します。 
 
-    >**注意**:Azure CLI バージョン 4.24 では New-AzVm コマンドは機能しません。現在、Microsoft で解決策を調査中です。  このラボでの回避策は、この問題の影響を受けない Az.Compute バージョン 4.23.0 をインストールし、これに戻す方法です。
-   
-    >**手順**:Az.Compute バージョン 4.23.0 に戻す 
-  
-   #### <a name="step-1-download-the-working-version-of-the-module-4230-into-your-cloud-shell-session"></a>ステップ 1: モジュールの動作バージョン (4.23.0) を Cloud Shell セッションにダウンロードする 
-   **種類**: Install-Module -Name Az.Compute -Force -RequiredVersion 4.23.0
-
-   #### <a name="step-2-start-a-new-powershell-session-that-will-allow-the-azcompute-assembly-version-to-be-loaded"></a>ステップ 2: Az.Compute アセンブリ バージョンの読み込みを可能にする新しい PowerShell セッションを開始する 
-   **種類**: pwsh
-
-   #### <a name="step-3-verify-that-version-4230-is-loaded"></a>ステップ 3: バージョン 4.23.0 が読み込まれていることを確認する
-   **種類**: Get-Module -Name Az.Compute
-   
     ```powershell
-    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -OpenPorts 80,3389
+    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_DS1_v2 
     ```
-
+    
 6.  資格情報の入力を求められた場合:
 
     |設定|値|
     |---|---|
     |User |**localadmin**|
-    |パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
+    |Password|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
 
     >**注**: デプロイが完了するまで待ちます。 
 
@@ -110,7 +97,7 @@ lab:
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB131415**|
     |名前|グローバルにユニークな任意の名前|
-    |リージョン|**(米国) 米国東部**|
+    |リージョン|**米国東部**|
 
 4. **[Review + create](レビュー + 作成)** を選択します。
 
