@@ -31,7 +31,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>手順
 
 ## <a name="lab-files"></a>ラボ ファイル：
 
