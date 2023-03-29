@@ -69,9 +69,9 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 8. **[ユーザー \| すべてのユーザー]** ブレードを更新し、新しいユーザーが Azure AD テナントに作成されたことを確認します。
 
-#### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
+#### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>タスク 2:Azure portal を使用して Senior Admins グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
 
-このタスクでは、*上級管理者*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
+このタスクでは、*Senior Admins*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
 
 1. Azure portal で、Azure Active Directory テナントを表示しているブレードに戻ります。 
 
@@ -227,7 +227,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     az ad group create --display-name "Service Desk" --mail-nickname "ServiceDesk"
     ```
  
-2. Cloud Shell ペイン内の Bash セッションで次を実行して、Azure AD グループを一覧表示します (一覧にはサービス デスク、シニア管理者、およびジュニア管理者グループが含まれます)。
+2. Cloud Shell ペイン内の Bash セッションで次を実行して、Azure AD グループを一覧表示します (一覧には Service Desk 、Senior Admins 、および Junior Admins29852317 グループが含まれます)。
 
     ```cli
     az ad group list -o table
@@ -281,7 +281,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
    |---|---|
    |サブスクリプション名|お使いの Azure サブスクリプションの名前|
    |リソース グループ名|**AZ500Lab01**|
-   |Location|**米国東部**|
+   |Location|**East US**|
 
 3. **[確認および作成]** 、 **[作成]** の順にクリックします。
 
@@ -302,9 +302,9 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
    |設定|値|
    |---|---|
-   |検索タブのロール|**Virtual Machine Contributor**|
+   |検索タブのロール|**仮想マシン共同作成者**|
    |アクセスの割り当て先 ([メンバー] ペインの下)|**ユーザー、グループ、またはサービス プリンシパル**|
-   |選択 ([+ メンバーの選択])|**サービス デスク**|
+   |選択 ([+ メンバーの選択])|**Service Desk**|
 
 5. **[レビューと割り当て]** を 2 回クリックして、ロールの割り当てを作成します。
 
