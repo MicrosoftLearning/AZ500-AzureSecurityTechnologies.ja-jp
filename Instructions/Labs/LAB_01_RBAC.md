@@ -82,7 +82,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
    |設定|値|
    |---|---|
    |グループの種類|**Security**|
-   |グループ名|**上級管理者**|
+   |グループ名|**Senior Admins**|
    |メンバーシップの種類|**割り当て済み**|
     
 4. **[所有者が選択されていません]** リンクをクリックし、**[所有者を追加]** ブレードで **[Joseph Price]** を選択して、**[選択]** をクリックします。
@@ -184,7 +184,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 > 結果:PowerShell を使用してユーザーとグループ アカウントを作成し、ユーザー アカウントをグループ アカウントに追加しました。 
 
 
-### <a name="exercise-3-create-a-service-desk-group-containing-the-user-account-of-dylan-williams-as-its-member"></a>演習 3:ディラン・ウィリアムズのユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
+### <a name="exercise-3-create-a-service-desk-group-containing-the-user-account-of-dylan-williams-as-its-member"></a>演習 3:Dylan Williams のユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
 
 #### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
 
