@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-04-mfa-conditional-access-and-aad-identity-protection"></a>ラボ 04:MFA、条件付きアクセス、AAD ID 保護
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 04:MFA、条件付きアクセス、AAD ID 保護
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を作成するように求められました。 具体的には、以下を評価する必要があります。
 
@@ -17,7 +17,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
@@ -26,26 +26,26 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 - 演習 3:Azure AD 条件付きアクセス ポリシーを実装する 
 - 演習 4:Azure AD Identity Protection を実装する
 
-## <a name="mfa---conditional-access---identity-protection-diagram"></a>MFA - 条件付きアクセス - Identity Protection の図
+## MFA - 条件付きアクセス - Identity Protection の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157518628-8b4a9efe-0086-4ec0-825e-3d062748fa63.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>ラボ ファイル：
+## ラボ ファイル：
 
 - **\\Allfiles\\Labs\\04\\az-500-04_azuredeploy.json**
 - **\\Allfiles\\Labs\\04\\az-500-04_azuredeploy.parameters.json** 
 
-### <a name="exercise-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>演習 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします
+### 演習 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします
 
-### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします。
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>タスク 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします
+#### タスク 1:Azure Resource Manager テンプレートを使用して Azure VM をデプロイします
 
 このタスクでは、ARM テンプレートを使用して仮想マシンを作成します。 この仮想マシンは、このラボの最後の演習で使用されます。 
 
@@ -97,9 +97,9 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 > 結果:このラボの最後の演習で使用する Azure VM **az500-04-vm1** のテンプレートのデプロイを開始しました。
 
 
-### <a name="exercise-2-implement-azure-mfa"></a>演習 2:Azure MFA を実装する
+### 演習 2:Azure MFA を実装する
 
-### <a name="estimated-timing-30-minutes"></a>推定時間:30 分
+### 推定時間:30 分
 
 この演習では、次のタスクを行います
 
@@ -110,7 +110,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 - タスク 5:Azure MFA 設定を構成します。
 - タスク 6:MFA 構成を検証する
 
-#### <a name="task-1-create-a-new-azure-ad-tenant"></a>タスク 1:新しい Azure AD テナントを作成
+#### タスク 1:新しい Azure AD テナントを作成
 
 このタスクでは、新しい Azure AD テナントを作成します。 
 
@@ -136,7 +136,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
     >**注**:新しいテナントが作成されるのを待ちます。 **通知** アイコンを使用して、デプロイ ステータスを監視します。 
 
 
-#### <a name="task-2-activate-azure-ad-premium-p2-trial"></a>タスク 2:Azure AD Premium P2 試用版のアクティブ化
+#### タスク 2:Azure AD Premium P2 試用版のアクティブ化
 
 このタスクでは、Azure AD Premium P2 無料試用版にサインアップします。 
 
@@ -153,7 +153,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 5. **[アクティブ化]** ブレードの [Azure AD Premium P2] セクションで、**[無料試用版]** をクリックし、**[アクティブ化]** をクリックします。
 
 
-#### <a name="task-3-create-azure-ad-users-and-groups"></a>タスク 3:Azure AD ユーザーとグループを作成します。
+#### タスク 3:Azure AD ユーザーとグループを作成します。
 
 このタスクでは、aaduser1 (グローバル管理者)、aaduser2 (ユーザー)、および aaduser3 (ユーザー) の 3 つのユーザーを作成します。 後のタスクには、各ユーザーのプリンシパル名とパスワードが必要です。 
 
@@ -208,7 +208,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**: この時点で、**[ユーザー]** ページに 3 人の新しいユーザーが表示されます。 
     
-#### <a name="task-4-assign-azure-ad-premium-p2-licenses-to-azure-ad-users"></a>タスク 4:Azure AD ユーザーに Azure AD Premium P2 ライセンスを割り当てる
+#### タスク 4:Azure AD ユーザーに Azure AD Premium P2 ライセンスを割り当てる
 
 このタスクでは、各ユーザーを Azure Active Directory Premium P2 ライセンスに割り当てます。
 
@@ -230,7 +230,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**:この時点で、このラボで使用するすべてのユーザー アカウントに Azure Active Directory Premium P2 ライセンスを割り当ててください。 必ずサインアウトしてから、再度サインインしてください。 
 
-#### <a name="task-5-configure-azure-mfa-settings"></a>タスク 5:Azure MFA 設定を構成します。
+#### タスク 5:Azure MFA 設定を構成します。
 
 このタスクでは、MFA を構成し、aaduser1 の MFA を有効にします。 
 
@@ -284,7 +284,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 Azure AD テナントでグローバル管理者の役割を持つユーザーとしてサインインしていることを確認します。
 
-#### <a name="task-6-validate-mfa-configuration"></a>タスク 6:MFA 構成を検証する
+#### タスク 6:MFA 構成を検証する
 
 このタスクでは、aaduser1 ユーザー アカウントのサインインをテストして MFA 構成を検証します。 
 
@@ -317,16 +317,16 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 > 結果:新しい AD テナントを作成し、AD ユーザーを構成し、MFA を構成し、ユーザーの MFA エクスペリエンスをテストしました。 
 
 
-### <a name="exercise-3-implement-azure-ad-conditional-access-policies"></a>演習 3:Azure AD 条件付きアクセス ポリシーを実装する 
+### 演習 3:Azure AD 条件付きアクセス ポリシーを実装する 
 
-### <a name="estimated-timing-15-minutes"></a>推定時間:15 分
+### 推定時間:15 分
 
 この演習では、次のタスクを行います 
 
 - タスク 1:条件付きアクセス ポリシーを構成します。
 - タスク 2:条件付きアクセス ポリシーをテストします。
 
-#### <a name="task-1---configure-a-conditional-access-policy"></a>タスク 1 - 条件付きアクセス ポリシーを構成します。 
+#### タスク 1 - 条件付きアクセス ポリシーを構成します。 
 
 このタスクでは、条件付きアクセス ポリシー設定を確認し、Azure portal にサインインするときに MFA を必要とするポリシーを作成します。 
 
@@ -342,7 +342,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
    - **[名前]** テキスト ボックスに「**AZ500Policy1**」と入力します
     
-   - **[Users or workload identities selected](選択されているユーザーまたはワークロード ID)** をクリックします。 [What does this policy apply to](このポリシーは何に適用されますか) の右側で >> [ユーザーとグループ] >> [含める] >> **[ユーザーとグループの選択]** を有効にします >> **[ユーザーとグループ]** チェックボックスをオンにして、**[選択]** ブレードで、**[aaduser2]** をクリックし、**[選択]** をクリックします。
+   - **[Users or workload identities selected](ユーザーとグループの選択)** を選択します。 [What does this policy apply to](このポリシーは何に適用されますか) の右側で >> [ユーザーとグループ] >> [含める] >> **[ユーザーとグループの選択]** を有効にします >> **[ユーザーとグループ]** チェックボックスをオンにして、**[選択]** ブレードで、**[aaduser2]** をクリックし、**[選択]** をクリックします。
     
    - **[クラウド アプリまたはアクション]** をクリックし、**[アプリを選択]** をクリックし、**[選択]** ブレードで **[Microsoft Azure 管理]** をクリックして、**[選択]** をクリックします。 
 
@@ -362,7 +362,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**:この時点で、条件付きアクセス ポリシーを使用して、MFA が Azure portal にサインインする必要があります。 
 
-#### <a name="task-2---test-the-conditional-access-policy"></a>タスク 2 - 条件付きアクセス ポリシーをテストします。
+#### タスク 2 - 条件付きアクセス ポリシーをテストします。
 
 このタスクでは、Azure portal に **aaduser2** としてサインインし、MFA が必要であることを確認します。 また、次の演習に進む前に、ポリシーを削除します。 
 
@@ -404,9 +404,9 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
 >結果:Azure AD の条件付きアクセスを構成してテストしました。
 
-### <a name="exercise-4-implement-azure-ad-identity-protection"></a>演習 4:Azure AD Identity Protection を実装する
+### 演習 4:Azure AD Identity Protection を実装する
 
-### <a name="estimated-timing-30-minutes"></a>推定時間:30 分
+### 推定時間:30 分
 
 この演習では、次のタスクを行います 
 
@@ -416,7 +416,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 - タスク 4:Azure AD Identity Protection ポリシーに対するリスク イベントのシミュレーション 
 - タスク 5:Azure AD Identity Protection レポートを確認する
 
-#### <a name="task-1-enable-azure-ad-identity-protection"></a>タスク 1:Azure AD Identity Protection を有効化する
+#### タスク 1:Azure AD Identity Protection を有効化する
 
 このタスクでは、Azure portal で Azure AD Identity Protection オプションを表示します。 
 
@@ -424,91 +424,47 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 Azure AD テナントでグローバル管理者の役割を持つユーザーとしてサインインしていることを確認します。
 
-#### <a name="task-2-configure-a-user-risk-policy"></a>タスク 2:ユーザー リスク ポリシーを構成する
+2. **[AdatumLab500-04]** ブレードの **[管理]** セクションで、**[セキュリティ]** をクリックします。
+
+3. **[セキュリティ \| はじめに]** ブレードの **[保護]** セクションで、**[Identity Protection]** をクリックします。
+
+4. **[Identity Protection \| 概要]** ブレードで、**新しい危険なユーザーが検出された** および **新しい危険なサインインが検出された**グラフと、危険なユーザーに関するその他の情報を確認します。 
+
+#### タスク 2:ユーザー リスク ポリシーを構成する
 
 このタスクでは、ユーザー リスク ポリシーを作成します。 
 
-2. **[AdatumLab500-04]** Azure AD テナント > **[セキュリティ]**  >  **[条件付きアクセス]** に移動します。
+1. **[Identity Protection \| 概要]** ブレードで、**[保護]** セクションの **[ユーザー リスク ポリシー]** をクリックします
 
-3. **[新しいポリシー]** をクリックします。
+2. 次の設定を使用して、**ユーザー リスクの修復ポリシー**を構成します。 
 
-4. **[名前]** テキスト ボックスにポリシー名「**AZ500Policy2**」を入力します。
+   - **[ユーザー]** をクリックし、**[ユーザー]** ブレードの **[含める]** タブで、**[すべてのユーザー]** オプションを選択します。
 
-5. **[割り当て]** で、 **[ユーザー]** を選択します。
+   - **[ユーザー]** ブレードで **[除外]** タブに切り替え、**[除外されたユーザーを選択]** をクリックします。受講者のユーザー アカウントを選択して **[選択]** をクリックします。 
 
-6. **[含む]** で、 **[ユーザーとグループの選択]** をクリックし、 **[aaduser2]** と **[aaduser3]** を選択します。
+   - **[ユーザーのリスク]** をクリックし、**[ユーザーのリスク]** ブレードで、**[低以上]** を選択し、**[完了]** をクリックします。 
 
-7. **[除外]** で、 **[ユーザーとグループ]** をクリックし、 **[aaduser1]** を選択します。 
+   - **[アクセス]** をクリックし、**[アクセス]** ブレードで **[アクセスを許可]** オプションと **[パスワードの変更を要求]** チェックボックスがオンになっていることを確認し、**[完了]** をクリックします。
 
-8. **[Cloud apps or actions](クラウド アプリまたはアクション)** > **[Include](含める)** で、 **[すべてのクラウド アプリ]** を選択します。
+   - **[ポリシーの適用]** を **[オン]** に設定し、**[保存]** をクリックします。
 
-9. **[条件]** > **[ユーザー リスク]** で、 **[構成]** を **[はい]** に設定します。
+#### タスク 3:サインイン リスク ポリシーを構成する
 
-10. **[ポリシーを適用するために必要なユーザー リスク レベルを構成する]** で、**[高]** を選びます。
+このタスクでは、サインイン リスク ポリシーを構成します。 
 
-11. **[Done]** をクリックします。
+1. **[Identity Protection \| ユーザー リスク ポリシー]** ブレードの **[保護]** セクションで、**[サインイン リスク ポリシー]** をクリックします
 
-12. **[アクセス制御]** で、 **[許可]** が有効になっていることを確認します。    
+2. **サインイン リスク是正ポリシー**を次の設定で構成します。 
 
-13. **[多要素認証を要求する]** と **[パスワードの変更を必須とする]** を選択します。
+   - **[ユーザー]** をクリックし、**[ユーザー]** ブレードの **[含める]** タブで、**[すべてのユーザー]** オプションを選択します。
 
-14. **[選択]** をクリックします。
+   - **[サインイン リスク]** をクリックし、**[サインイン リスク]** ブレードで、**[中以上]** を選択し、**[完了]** をクリックします。 
 
-15. **[セッション]** で、 **[サインインの頻度]** をクリックし、 **[毎回]** が有効になっていることを確認します。
+   - **[アクセス]** をクリックし、**[アクセス]** ブレードで **[アクセスを許可する]** オプションと **[多要素認証を要求する]** チェックボックスがオンになっていることを確認し、**[完了]** をクリックします。
 
-16. **[選択]** をクリックします。
+   - **[ポリシーの適用]** を **[オン]** に設定し、**[保存]** をクリックします。
 
-17. 設定を確認し、 **[ポリシーの有効化]** を **[レポート専用]** に設定します。
-
-    >**注**: 「**組織のセキュリティ構成を管理しようとしているようです。条件付きアクセス ポリシーを有効にする前に、まずセキュリティの既定値群を無効にする必要があります**」というメッセージがページの下部に表示されます。
-
-18. メッセージの、**セキュリティの既定値群を無効にする**という部分をクリックします。
-
-19. **[セキュリティの既定値群を有効にする]** を [はい] から **[いいえ]** に変更します。
-
-20. **[その他]** をクリックし、フィールドに「**AZ500 lab use**」と入力します。
-
-21. **[保存]** をクリックします。
-
-22. **[作成]** をクリックして、ポリシーを有効化します。
-
-#### <a name="task-3-configure-a-sign-in-risk-policy"></a>タスク 3:サインイン リスク ポリシーを構成する
-
-1. **[AdatumLab500-04]** Azure AD テナント > **[セキュリティ]**  >  **[条件付きアクセス]** に移動します。
-
-2. **[新しいポリシー]** を選択します。
-
-3. **[名前]** テキスト ボックスにポリシー名「**AZ500Policy3**」を入力します。
-
-4. **[割り当て]** で、 **[ユーザー]** を選択します。
-
-5. **[含む]** で、 **[ユーザーとグループの選択]** をクリックし、 **[aaduser2]** と **[aaduser3]** を選択します。
-
-6. **[除外]** で、 **[ユーザーとグループ]** をクリックし、 **[aaduser1]** を選択します。 
-
-7. **[Cloud apps or actions](クラウド アプリまたはアクション)** > **[Include](含める)** で、 **[すべてのクラウド アプリ]** を選択します。
-
-8. **[条件]** > **[サインイン リスク]** で、 **[構成]** を **[はい]** に設定します。
-
-9. **[このポリシーを適用するサインイン リスク レベルを選択します]** で、 **[高]** と **[中]** を選択します。
-
-10. **[Done]** をクリックします。
-
-11. **[アクセス制御]** > **[付与]** で  
-
-12. **[アクセス権の付与] **、**[多要素認証を要求する]** を選択します。
-
-13. **[選択]** をクリックします。
-
-13. **[セッション]** で、 **[サインインの頻度]** を選択し、 **[毎回]** が有効になっていることを確認します。
-
-14. **[選択]** をクリックします。
-
-15. 設定を確認し、 **[ポリシーの有効化]** を **[レポート専用]** に設定します。
-
-16. **[作成]** をクリックして、ポリシーを有効化します。
-
-#### <a name="task-4-simulate-risk-events-against-the-azure-ad-identity-protection-policies"></a>タスク 4:Azure AD Identity Protection ポリシーに対するリスク イベントのシミュレーション 
+#### タスク 4:Azure AD Identity Protection ポリシーに対するリスク イベントのシミュレーション 
 
 > このタスクを開始する前に、演習 1 で開始したテンプレートのデプロイが完了していることを確認してください。 デプロイには、**az500-04-vm1** という名前の Azure VM が含まれます。 
 
@@ -559,7 +515,7 @@ Azure Active Directory (Azure AD) 認証を強化する機能の概念実証を�
 
     >**注**:この時点で、2 つの異なるサインインを試みました。次に、Azure ID 保護レポートを確認します。
 
-#### <a name="task-5-review-the-azure-ad-identity-protection-reports"></a>タスク 5:Azure AD Identity Protection レポートを確認する
+#### タスク 5:Azure AD Identity Protection レポートを確認する
 
 このタスクでは、ToR ブラウザーのログインから生成された Azure AD Identity Protection レポートを確認します。
 
