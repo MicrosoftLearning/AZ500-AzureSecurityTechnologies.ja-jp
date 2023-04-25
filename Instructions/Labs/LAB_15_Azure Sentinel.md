@@ -1,7 +1,7 @@
 ---
 lab:
     title: '15 - Microsoft Sentinel'
-    module: 'モジュール 04 - セキュリティ操作の管理'
+    module: 'Module 04 - Manage Security Operations'
 ---
 
 # ラボ 15: Microsoft Sentinel
