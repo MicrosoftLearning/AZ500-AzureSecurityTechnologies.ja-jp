@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-02-azure-policy"></a>ラボ 02:Azure Policy
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 02:Azure Policy
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure Policy の使用方法を示す概念実証を作成するように依頼されました。 具体的には、次の操作が必要です。
 
@@ -16,21 +16,21 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次に挙げる演習を完了させます。
 
 - 演習 1:Azure Policy を実装します。 
 
-## <a name="azure-policy-diagram"></a>Azure Policy の図
+## Azure Policy の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157511920-19c1f06c-86bd-440d-80ac-d96aa27aefff.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-### <a name="exercise-1-implement-azure-policy"></a>演習 1:Azure Policy の実装
+### 演習 1:Azure Policy の実装
 
-#### <a name="estimated-timing-20-minutes"></a>推定時間:20 分
+#### 推定時間:20 分
 
 この演習では、次のタスクを実行します。
 
@@ -38,7 +38,7 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 - タスク 2:許可されている場所ポリシーの割り当てを作成する。
 - タスク 3:許可されている場所ポリシーの割り当てが機能していることを確認します。 
 
-#### <a name="task-1-create-a-resource-group-for-the-lab"></a>タスク 1:ラボ用のリソース グループを作成する。 
+#### タスク 1:ラボ用のリソース グループを作成する。 
 
 このタスクでは、このラボ用のリソース グループを作成します。 
 
@@ -69,13 +69,13 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
 1. **Cloud Shell**を閉じます。
 
-#### <a name="task-2-create-an-allowed-locations-policy-assignment"></a>タスク 2:許可されている場所ポリシーの割り当てを作成する。
+#### タスク 2:許可されている場所ポリシーの割り当てを作成する。
 
 このタスクでは、許可されている場所ポリシーの割り当てを作成し、ポリシーを使用できる Azure リージョンを指定します。 
 
 1. Azure portal で、ページ上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**ポリシー**」と入力し、**Enter** キーを押します。
 
-1. **[ポリシー]** ブレードの **[作成]** セクションで、 **[定義]** を選択します。
+1. **[ポリシー]** ブレードの **[概要]** セクションで、 **[定義]** を選択します。
 
 1. 組み込みの定義を参照するには、しばらく時間がかかります。 **[カテゴリ]** ドロップダウンを使用して、ポリシーのリストをフィルターします。
 
@@ -118,7 +118,7 @@ Azure Policy の使用方法を示す概念実証を作成するように依頼�
 
    >**注**:Azure Policy の割り当てが有効化するのに最大 30 分かかる理由は、グローバルにレプリケートする必要があるためです。 通常では、この処理は数分で完了します。  次のタスクが失敗する場合は、数分待ってからもう一度手順を試みます。
 
-#### <a name="task-3-test-the-allowed-locations-policy-assignment"></a>タスク 3:許可されている場所ポリシーの割り当てをテストする
+#### タスク 3:許可されている場所ポリシーの割り当てをテストする
 
 このタスクでは、許可されている場所ポリシーのテストをします。 
 

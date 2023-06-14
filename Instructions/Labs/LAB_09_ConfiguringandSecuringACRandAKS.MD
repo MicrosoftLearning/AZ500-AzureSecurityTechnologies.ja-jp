@@ -4,10 +4,10 @@ lab:
   module: Module 02 - Implement Platform Protection
 ---
 
-# <a name="lab-09-configuring-and-securing-acr-and-aks"></a>ラボ 09:ACR と AKS の構成とセキュリティ保護
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 09:ACR と AKS の構成とセキュリティ保護
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure Container Registry と Azure Kubernetes Service を使用して概念実証をデプロイするよう依頼されました。 具体的には、概念実証は次の例を示す必要があります。
 
@@ -18,26 +18,26 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
 - 演習 1:ACR と AKS の構成とセキュリティ保護
 
-## <a name="configuring-and-securing-acr-and-aks-diagram"></a>ACR と AKS の構成とセキュリティ保護の図
+## ACR と AKS の構成とセキュリティ保護の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157532250-1104a829-792a-4b6d-beff-fe976e2d5d4b.png)
 
-## <a name="intructions"></a>指示
+## 指示
 
-## <a name="lab-files"></a>ラボ ファイル：
+## ラボ ファイル：
 
 - **\\Allfiles\\Labs\\09\\nginxexternal.yaml**
 - **\\Allfiles\\Labs\\09\\nginxinternal.yaml**
 
-### <a name="exercise-1-configuring-and-securing-acr-and-aks"></a>演習 1:ACR と AKS の構成とセキュリティ保護
+### 演習 1:ACR と AKS の構成とセキュリティ保護
 
-### <a name="estimated-timing-45-minutes"></a>推定時間:45 分
+### 推定時間:45 分
 
 > このラボのすべてのリソースに対して、**東部 (米国)** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
@@ -52,7 +52,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 - タスク 7:AKS への内部サービスの展開
 - タスク 8:内部 AKS ホスト サービスにアクセスできることを確認する
 
-#### <a name="task-1-create-an-azure-container-registry"></a>タスク 1:Azure コンテナー レジストリを作成する
+#### タスク 1:Azure コンテナー レジストリを作成する
 
 このタスクでは、ラボ用リソース グループと Azure Container Registry を作成します。
 
@@ -90,7 +90,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     >**注**:ACR の名前を記録します。 これは、次のタスクで必要になります。
 
-#### <a name="task-2-create-a-dockerfile-build-a-container-and-push-it-to-azure-container-registry"></a>タスク 2:Dockerfile を作成し、コンテナーを構築して、Azure Container Registry にプッシュする
+#### タスク 2:Dockerfile を作成し、コンテナーを構築して、Azure Container Registry にプッシュする
 
 このタスクでは、Dockerfile を作成し、Dockerfile からイメージをビルドして、ACR にイメージをデプロイします。 
 
@@ -126,7 +126,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     >**注**:マニフェストには、sha256 ダイジェスト、マニフェスト作成日、およびプラットフォーム エントリが含まれます。 
 
-#### <a name="task-3-create-an-azure-kubernetes-service-cluster"></a>タスク 3:Azure Kubernetes Service クラスターを作成する
+#### タスク 3:Azure Kubernetes Service クラスターを作成する
 
 このタスクでは、Azure Kubernetes Service を作成し、デプロイされたリソースを確認します。 
 
@@ -197,7 +197,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     >**注**:クラスタ ノードの**ステータス**が**準備完了**としてリストされていることを確認します。
 
-#### <a name="task-4-grant-the-aks-cluster-permissions-to-access-the-acr-and-manage-its-virtual-network"></a>タスク 4:ACRにアクセスし、その仮想ネットワークを管理するためのアクセス許可を AKS クラスターに付与する
+#### タスク 4:ACRにアクセスし、その仮想ネットワークを管理するためのアクセス許可を AKS クラスターに付与する
 
 このタスクでは、AKS クラスターに ACR にアクセスし、その仮想ネットワークを管理するためのアクセス許可を付与します。 
 
@@ -229,7 +229,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     az role assignment create --assignee $AKS_MANAGED_ID --role "Contributor" --scope $AKS_VNET_ID
     ```
 
-#### <a name="task-5-deploy-an-external-service-to-aks"></a>タスク 5:AKS への外部サービスのデプロイ
+#### タスク 5:AKS への外部サービスのデプロイ
 
 このタスクでは、マニフェスト ファイルをダウンロードし、YAML ファイルを編集し、変更をクラスターに適用します。 
 
@@ -268,7 +268,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     service/nginxexternal created
     ```
 
-#### <a name="task-6-verify-the-you-can-access-an-external-aks-hosted-service"></a>タスク 6:外部 AKS ホスト サービスにアクセスできることを確認する
+#### タスク 6:外部 AKS ホスト サービスにアクセスできることを確認する
 
 このタスクでは、パブリック IP アドレスを使用して、コンテナーに外部からアクセスできることを確認します。
 
@@ -284,7 +284,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 4. **Welcome to nginx!** ページが 表示されることを確認します。 
 
-#### <a name="task-7-deploy-an-internal-service-to-aks"></a>タスク 7:AKS への内部サービスの展開
+#### タスク 7:AKS への内部サービスの展開
 
 このタスクでは、AKS に内部向けサービスをデプロイします。 
 
@@ -327,7 +327,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     >**注**:または、CLUSTER-IP アドレスを使用することもできます。
 
-#### <a name="task-8-verify-the-you-can-access-an-internal-aks-hosted-service"></a>タスク 8:内部 AKS ホスト サービスにアクセスできることを確認する
+#### タスク 8:内部 AKS ホスト サービスにアクセスできることを確認する
 
 このタスクでは、AKS クラスターで実行されているポッドの 1 つを使用して内部サービスにアクセスします。 
 

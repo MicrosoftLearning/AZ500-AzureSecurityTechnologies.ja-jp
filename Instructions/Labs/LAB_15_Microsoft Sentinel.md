@@ -4,10 +4,10 @@ lab:
   module: Module 04 - Manage Security Operations
 ---
 
-# <a name="lab-15-microsoft-sentinel"></a>ラボ 15:Microsoft Sentinel
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 15:Microsoft Sentinel
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 **注:**  **Azure Sentinel** は **Microsoft Sentinel** に名前が変更されました 
 
@@ -19,25 +19,25 @@ lab:
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
 - 演習 1:Microsoft Sentinel を実装する
 
-## <a name="microsoft-sentinel-diagram"></a>Microsoft Sentinel の図
+## Microsoft Sentinel の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157538440-4953be73-90be-4edd-bd23-b678326ba637.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>ラボ ファイル：
+## ラボ ファイル：
 
 - **\\Allfiles\\Labs\\15\\changeincidentseverity.json**
 
-### <a name="exercise-1-implement-microsoft-sentinel"></a>演習 1:Microsoft Sentinel を実装する
+### 演習 1:Microsoft Sentinel を実装する
 
-### <a name="estimated-timing-30-minutes"></a>推定時間:30 分
+### 推定時間:30 分
 
 この演習では、次のタスクを実行します。
 
@@ -48,7 +48,7 @@ lab:
 - タスク 5:カスタム アラートを作成し、自動化された応答としてプレイブックを構成します。
 - タスク 6:インシデントを発生させ、関連付けられているアクションを確認する。
 
-#### <a name="task-1-on-board-azure-sentinel"></a>タスク 1:Azure Sentinel をオンボードにする
+#### タスク 1:Azure Sentinel をオンボードにする
 
 このタスクでは、Microsoft Sentinel にオンボードし、Log Analytics ワークスペースを接続します。 
 
@@ -66,7 +66,7 @@ lab:
 
     >**注**:Microsoft Sentinel には、ワークスペースに対して非常に具体的な要件があります。 たとえば、Microsoft Defender for Cloud によって作成されたワークスペースは使用できません。 詳細については、次を参照してください: [クイック スタート:Azure Sentinel をオンボードする](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
     
-#### <a name="task-2-configure-microsoft-sentinel-to-use-the-azure-activity-data-connector"></a>タスク 2:Azure アクティビティ データ コネクタを使用するように Microsoft Sentinel を構成します。 
+#### タスク 2:Azure アクティビティ データ コネクタを使用するように Microsoft Sentinel を構成します。 
 
 このタスクでは、Azure アクティビティ データ コネクタを使用するように Sentinel を構成します。  
 
@@ -96,7 +96,7 @@ lab:
 
     >**注**: 状態に "接続済み" と表示され、グラフに受信したデータが表示されるまで、15 分以上かかる場合があります。
 
-#### <a name="task-3-create-a-rule-that-uses-the-azure-activity-data-connector"></a>タスク 3:Azure アクティビティ データ コネクタを使用するルールを作成します。 
+#### タスク 3:Azure アクティビティ データ コネクタを使用するルールを作成します。 
 
 このタスクでは、Azure アクティビティ データ コネクタを使用するルールを確認し、作成します。 
 
@@ -124,7 +124,7 @@ lab:
 
     >**注**:これで、アクティブなルールが作成されました。
 
-#### <a name="task-4-create-a-playbook"></a>タスク 4:プレイブックを作成する
+#### タスク 4:プレイブックを作成する
 
 このタスクでは、プレイブックを作成します。 セキュリティ プレイブックは、アラートに応答して Microsoft Sentinel によって呼び出すことができるタスクのコレクションです。 
 
@@ -176,7 +176,7 @@ lab:
 
 16. **[Logic Apps デザイナー]** ブレードで、**[保存]** をクリックして変更を保存します。
 
-#### <a name="task-5-create-a-custom-alert-and-configure-a-playbook-as-an-automated-response"></a>タスク 5:カスタム アラートを作成し、自動化された応答としてプレイブックを構成する
+#### タスク 5:カスタム アラートを作成し、自動化された応答としてプレイブックを構成する
 
 1. Azure portal で、 **[Microsoft Sentinel \| 概要]** ブレードに戻ります。
 
@@ -218,7 +218,7 @@ lab:
 
     >**注**:これで、**プレイブック デモ**と呼ばれる新しいアクティブなルールが作成されます。 rue ロジックによって識別されたイベントが発生すると、中程度の重大度アラートが発生し、対応するインシデントが生成されます。
 
-#### <a name="task-6-invoke-an-incident-and-review-the-associated-actions"></a>タスク 6:インシデントを発生させ、関連付けられているアクションを確認する。
+#### タスク 6:インシデントを発生させ、関連付けられているアクションを確認する。
 
 1. Azure portal で、 **[Microsoft Defender for Cloud \| 概要]** ブレードに移動します。
 
@@ -260,7 +260,7 @@ lab:
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
-2. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
+2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   

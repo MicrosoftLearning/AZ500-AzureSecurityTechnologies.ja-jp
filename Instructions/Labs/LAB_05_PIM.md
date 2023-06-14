@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-05-azure-ad-privileged-identity-management"></a>ラボ 05:Azure AD Privileged Identity Management
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 05:Azure AD Privileged Identity Management
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure Privileged Identity Management (PIM) を使用してジャストインタイム管理を有効にし、特権操作を実行できるユーザー数を制御する概念実証を作成するように依頼されました。 具体的な要件は次のとおりです。
 
@@ -20,7 +20,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 > 先に進む前に、「ラボ 04: MFA、条件付きアクセス、および AAD ID 保護」を完了していることをご確認ください。 Azure AD テナント、AdatumLab500-04、および aaduser1、aaduser2、および aaduser3 ユーザー アカウントが必要です。
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
@@ -28,15 +28,15 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 - 演習 2:承認の有無にかかわらず、PIM ロールをアクティブ化します。
 - 演習 3:アクセス レビューを作成し、PIM 監査機能を確認します。
 
-## <a name="azure-ad-privileged-identity-management-diagram"></a>Azure AD Privileged Identity Management の図
+## Azure AD Privileged Identity Management の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-### <a name="exercise-1---configure-pim-users-and-roles"></a>演習 1: PIM ユーザーとロールを構成する
+### 演習 1: PIM ユーザーとロールを構成する
 
-#### <a name="estimated-timing-15-minutes"></a>推定時間:15 分
+#### 推定時間:15 分
 
 この演習では、次のタスクを実行します。
 
@@ -44,7 +44,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 - タスク 2:有資格メンバーをアクティブ化して追加する承認を要求するようにロールを構成します。
 - タスク 3:ユーザーに永続的なロールを割り当てます。 
 
-#### <a name="task-1-make-a-user-eligible-for-a-role"></a>タスク 1:ユーザーをロールの対象にする
+#### タスク 1:ユーザーをロールの対象にする
 
 このタスクでは、ユーザーに Azure AD ディレクトリ ロールの資格を与えます。
 
@@ -78,7 +78,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:サインイン時に、aaduser2 は課金管理者ロールを使用する資格があります。 
 
-#### <a name="task-2-configure-a-role-to-require-approval-to-activate-and-add-an-eligible-member"></a>タスク 2:有資格メンバーをアクティブ化して追加する承認を要求するようにロールを構成する
+#### タスク 2:有資格メンバーをアクティブ化して追加する承認を要求するようにロールを構成する
 
 1. Azure portal で、 **[Privileged Identity Management]** ブレードに戻り、 **[Azure AD ロール]** をクリックします。
 
@@ -116,7 +116,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:ユーザー aaduser2 はグローバル閲覧者ロールの対象となります。 
  
-#### <a name="task-3-give-a-user-permanent-assignment-to-a-role"></a>タスク 3:ユーザーに永続的なロールを割り当てます。
+#### タスク 3:ユーザーに永続的なロールを割り当てます。
 
 1. Azure portal で、 **[Privileged Identity Management]** ブレードに戻り、 **[Azure AD ロール]** をクリックします。
 
@@ -136,16 +136,16 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:これで、ユーザー aaduser2 は、永久的にセキュリティ管理者ロールの資格を持つようになりました。
     
-### <a name="exercise-2---activate-pim-roles-with-and-without-approval"></a>演習 2 - 承認の有無にかかわらず PIM ロールをアクティブ化する
+### 演習 2 - 承認の有無にかかわらず PIM ロールをアクティブ化する
 
-#### <a name="estimated-timing-15-minutes"></a>推定時間:15 分
+#### 推定時間:15 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:承認を必要としないロールをアクティブ化します。 
 - タスク 2:承認が必要なロールをアクティブ化します。 
 
-#### <a name="task-1-activate-a-role-that-does-not-require-approval"></a>タスク 1:承認を必要としないロールをアクティブ化します。
+#### タスク 1:承認を必要としないロールをアクティブ化します。
 
 このタスクでは、承認を必要としないロールをアクティブ化します。
 
@@ -184,7 +184,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 12.  **[非アクティブ化 - 課金管理者]** ブレードで、再度 **[非アクティブ化]** をクリックして確定します。
 
 
-#### <a name="task-2-activate-a-role-that-requires-approval"></a>タスク 2:承認が必要なロールをアクティブ化します。 
+#### タスク 2:承認が必要なロールをアクティブ化します。 
 
 このタスクでは、承認が必要なロールをアクティブ化します。
 
@@ -222,7 +222,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:いずれかのユーザー アカウントを使用した認証で問題が発生した場合は、自身のユーザー アカウントを使用してAzure AD テナントにサインインし、パスワードをリセットするか、サインイン オプションを再構成できます。
 
-13. Azure portal で、**[Azure AD Privileged Identity Management]** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Azure AD Privileged Identity Management」と入力し、Enter キーを押します)。
+13. Azure portal で、**Azure AD Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Azure AD Privileged Identity Management」と入力し、Enter キーを押します)。
 
 14. **[Privileged Identity Management \| クイック スタート]** ブレードの **[タスク]** セクションで、 **[申請の承認]** をクリックします。
 
@@ -248,16 +248,16 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 > 結果:承認有りと無しで、PIM ロールの有効化を練習しました。 
 
-### <a name="exercise-3---create-an-access-review-and-review-pim-auditing-features"></a>演習 3 - アクセス レビューを作成し、PIM 監査機能を確認する
+### 演習 3 - アクセス レビューを作成し、PIM 監査機能を確認する
 
-#### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+#### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:PIM で Azure AD ディレクトリロールのセキュリティアラートを構成する
 - タスク 2:PIM アラート、サマリ情報、詳細な監査情報の確認
 
-#### <a name="task-1-configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>タスク 1:PIM で Azure AD ディレクトリロールのセキュリティアラートを構成する
+#### タスク 1:PIM で Azure AD ディレクトリロールのセキュリティアラートを構成する
 
 このタスクでは、"古くなった" ロールの割り当てに関連するリスクを軽減します。 この作業を行うには、PIM アクセス レビューを作成して、割り当てられたロールが有効であることを確認します。 具体的には、グローバル閲覧者ロールを確認します。 
 
@@ -315,7 +315,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 19. **グローバル閲覧者**レビューを表すエントリを選択します。 **進捗状況**グラフが更新され、レビューが表示されたことを確認します。 
 
-#### <a name="task-2-review-pim-alerts-summary-information-and-detailed-audit-information"></a>タスク 2:PIM アラート、サマリ情報、および詳細な監査情報を確認します。 
+#### タスク 2:PIM アラート、サマリ情報、および詳細な監査情報を確認します。 
 
 このタスクでは、PIM アラート、サマリー情報、および詳細な監査情報を確認します。 
 
