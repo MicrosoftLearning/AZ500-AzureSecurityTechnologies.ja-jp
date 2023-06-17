@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-06-implement-directory-synchronization"></a>ラボ 06:ディレクトリ同期を導入する
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 06:ディレクトリ同期を導入する
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 オンプレミスの Active Directory Domain Services (AD DS) 環境を Azure Active Directory (Azure AD) テナントに統合する方法を示す概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
@@ -17,7 +17,7 @@ lab:
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
@@ -25,22 +25,22 @@ lab:
 - 演習 2:Azure Active Directory テナントを作成および構成する
 - 演習 3:Active Directory フォレストを Azure Active Directory テナントと同期する
 
-## <a name="implement-directory-synchronization"></a>ディレクトリ同期を導入する
+## ディレクトリ同期を導入する
 
 ![image](https://user-images.githubusercontent.com/91347931/157525374-8f740f14-c2db-47b3-98f8-7feb9bc122b5.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-### <a name="exercise-1-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>演習 1:Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+### 演習 1:Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
 
-### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure VM のデプロイで利用可能な DNS 名を特定する
 - タスク 2:ARM テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
 
-#### <a name="task-1-identify-an-available-dns-name-for-an-azure-vm-deployment"></a>タスク 1:Azure VM のデプロイで利用可能な DNS 名を特定する
+#### タスク 1:Azure VM のデプロイで利用可能な DNS 名を特定する
 
 このタスクでは、Azure VM デプロイの DNS 名を識別します。 
 
@@ -68,13 +68,13 @@ lab:
 
 7. Cloud Shell を閉じます。
 
-#### <a name="task-2-use-an-arm-template-to-deploy-an-azure-vm-hosting-an-active-directory-domain-controller"></a>タスク 2:ARM テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+#### タスク 2:ARM テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
 
 このタスクでは、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイします
 
 1. 同じブラウザー ウィンドウで別のブラウザー タブを開き、 **https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain** に移動します。
 
-2. **[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、および DC を作成する]** ページで、**[Azure に配置する]** をクリックします。 これにより、ブラウザーが Azure portal の **[新しい AD フォレストで Azure VM を作成する]** ブレードに自動的にリダイレクトされます。
+2. **[新しい AD フォレストで Azure VM を作成する]** ページで、 **[Azure にデプロイ]** をクリックします。 これにより、ブラウザーが Azure portal の **[新しい AD フォレストで Azure VM を作成する]** ブレードに自動的にリダイレクトされます。 
 
 3. **[新しい AD フォレストで Azure VM を作成する]** ブレードで、**[パラメーターの編集]** をクリックします。
 
@@ -87,7 +87,7 @@ lab:
    |サブスクリプション|Azure サブスクリプションの名前|
    |Resource group|**[新規作成]** をクリックし、「**AZ500LAB06**」という名前を入力します|
    |リージョン|前のタスクで特定した Azure リージョン|
-   |管理ユーザー名|**学生**|
+   |管理ユーザー名|**Student**|
    |管理パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    |ドメイン名|**adatum.com**|
    |DNS プレフィックス|前のタスクで識別した DNS ホスト名|
@@ -100,9 +100,9 @@ lab:
 > 結果:この演習を完了した後、Azure Resource Manager テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM のデプロイを開始しました。
 
 
-### <a name="exercise-2-create-and-configure-an-azure-active-directory-tenant"></a>演習 2:Azure Active Directory テナントを作成および構成する 
+### 演習 2:Azure Active Directory テナントを作成および構成する 
 
-### <a name="estimated-timing-20-minutes"></a>推定時間:20 分
+### 推定時間:20 分
 
 この演習では、次のタスクを実行します。
 
@@ -110,7 +110,7 @@ lab:
 - タスク 2:新しい Azure AD テナントにカスタム DNS 名を追加する
 - タスク 3:グローバル管理者の役割を持つ Azure AD ユーザーを作成する
 
-#### <a name="task-1-create-an-azure-active-directory-ad-tenant"></a>タスク 1:Azure Active Directory (AD) テナントを作成する
+#### タスク 1:Azure Active Directory (AD) テナントを作成する
 
 このタスクでは、このラボで使用する新しい Azure AD テナントを作成します。 
 
@@ -136,7 +136,7 @@ lab:
 
     >**注**:新しいテナントが作成されるのを待ちます。 **通知** アイコンを使用して、デプロイ ステータスを監視します。 
 
-#### <a name="task-2-add-a-custom-dns-name-to-the-new-azure-ad-tenant"></a>タスク 2:新しい Azure AD テナントにカスタム DNS 名を追加する
+#### タスク 2:新しい Azure AD テナントにカスタム DNS 名を追加する
 
 このタスクでは、新しい Azure AD テナントにカスタム DNS 名を追加します。 
 
@@ -156,13 +156,13 @@ lab:
 
     >**注**:**adatum.com** DNS ドメイン名を所有していないため、検証プロセスを完了できません。 これにより **adatum.com** AD DS ドメインと Azure AD テナントとの同期が妨げになるわけではありません。 この目的のために、前のタスクで特定した Azure AD テナントの最初の DNS 名 (**onmicrosoft.com** サフィックスで終わる名前) を使用します。 ただし、その結果、AD DS ドメインの DNS ドメイン名と Azure AD テナントの DNS 名は異なることを覚えておいてください。 つまり、AD DS ドメインにサインインするときと Azure AD テナントにサインインするときに、Adatum ユーザーは異なる名前を使用する必要があります。
 
-#### <a name="task-3-create-an-azure-ad-user-with-the-global-administrator-role"></a>タスク 3:グローバル管理者の役割を持つ Azure AD ユーザーを作成する
+#### タスク 3:グローバル管理者の役割を持つ Azure AD ユーザーを作成する
 
 このタスクでは、新しい Azure AD ユーザーを追加し、グローバル管理者の役割に割り当てます。 
 
 1. **[AdatumSync]** Azure AD テナント ブレードの **[管理]** セクションで、**[ユーザー]** をクリックします。
 
-2. **[ユーザー \| すべてのユーザー]** ブレードで、 **[+ 新しいユーザー]** をクリックします。 
+2. **[ユーザー | すべてのユーザー]** ブレードで、 **[+ 新しいユーザー]** 、 **[新しいユーザーの作成]** を順にクリックします。
 
 3. **[新しいユーザー]** ブレードで、**[ユーザーの作成]** オプションが選択されていることを確認し、次の設定を指定し (その他の設定はすべて既定値のままにします)、**[作成]** をクリックします。
 
@@ -192,9 +192,9 @@ lab:
 > **結果**: この演習を完了した結果、Azure AD テナントが作成され、新しい Azure AD テナントにカスタム DNS 名が追加され、グローバル管理者ロールを持つ Azure AD ユーザーが作成されます。
 
 
-### <a name="exercise-3-synchronize-active-directory-forest-with-an-azure-active-directory-tenant"></a>演習 3:Active Directory フォレストを Azure Active Directory テナントと同期する
+### 演習 3:Active Directory フォレストを Azure Active Directory テナントと同期する
 
-### <a name="estimated-timing-20-minutes"></a>推定時間:20 分
+### 推定時間:20 分
 
 この演習では、次のタスクを実行します。
 
@@ -202,7 +202,7 @@ lab:
 - タスク 2:Azure AD Connect をインストールします。
 - タスク 3:ディレクトリ同期を確認する
 
-#### <a name="task-1-prepare-ad-ds-for-directory-synchronization"></a>タスク 1:ディレクトリ同期用の AD DS を準備する
+#### タスク 1:ディレクトリ同期用の AD DS を準備する
 
 このタスクでは、AD DS ドメイン コントローラーを実行している Azure VM に接続し、ディレクトリ同期アカウントを作成します。 
 
@@ -253,7 +253,7 @@ lab:
    |[パスワード] と [パスワードの確認入力]|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    |その他のパスワード オプション|**パスワードを無期限にする**|
 
-#### <a name="task-2-install-azure-ad-connect"></a>タスク 2:Azure AD Connect をインストールします。
+#### タスク 2:Azure AD Connect をインストールします。
 
 このタスクでは、仮想マシンに AD Connect をインストールします。 
 
@@ -309,7 +309,7 @@ lab:
 21. **[構成が完了しました]** ページの情報を確認し、**[終了]** をクリックして **[Microsoft Azure Active Directory Connect]** ウィンドウを閉じます。
 
 
-#### <a name="task-3-verify-directory-synchronization"></a>タスク 3:ディレクトリ同期を確認する
+#### タスク 3:ディレクトリ同期を確認する
 
 このタスクでは、ディレクトリ同期が機能していることを確認します。 
 
@@ -317,7 +317,7 @@ lab:
 
 2. **[ユーザー \| すべてのユーザー (プレビュー)]** ブレードで、ユーザー オブジェクトのリストに **aduser1** アカウントが含まれていることを確認してください。 
 
->**注**: **aduser1** ユーザー アカウントが表示されるまで、数分待ってから **[更新]** を選択する必要がある場合があります。
+   >**注**: **aduser1** ユーザー アカウントが表示されるまで、数分待ってから **[更新]** を選択する必要がある場合があります。
 
 3. **aduser1** アカウントを選択し、**[プロファイル > ID]** セクションで、**[ソース]** 属性が **Windows Server AD** に設定されていることを確認してください。
 
@@ -337,7 +337,7 @@ lab:
     Start-ADSyncSyncCycle -PolicyType Delta
     ```
 
-9. **[aduser1 \| プロファイル]** ブレードが表示されている Microsoft Edge ウィンドウに切り替え、ページを更新して、 **[部署]** プロパティが **[売上]** に設定されていることを確認します。
+9. **[aduser1]** ブレードが表示されている Microsoft Edge ウィンドウに切り替え、ページを更新して、[部署] プロパティが [売上] に設定されていることを確認します。
 
     >**注**: **[部署]** 属性が設定されていない場合は、もう 1 分待ってからページを再度更新する必要がある場合があります。
 

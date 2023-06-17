@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure Data and Applications
 ---
 
-# <a name="lab-10-key-vault-implementing-secure-data-by-setting-up-always-encrypted"></a>ラボ 10:Key Vault (Always Encrypted を設定して、セキュアなデータを実装する)
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 10:Key Vault (Always Encrypted を設定して、セキュアなデータを実装する)
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure SQL データベースの Always Encrypted 機能のサポートを利用する概念実証アプリケーションの作成を依頼されました。 このシナリオで使用されるすべてのシークレットとキーは、Key Vault に格納する必要があります。 アプリケーションは、セキュリティの状態を強化するために、Azure Active Directory (Azure AD) に登録する必要があります。 これらの目的を達成するには、概念実証に以下を含める必要があります。
 
@@ -18,7 +18,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 この概念実証の構築に関連する Azure のセキュリティの側面に焦点を当て続けるために、自動化された ARM テンプレートの展開から開始し、Visual Studio 2019 と SQL Server Management Studio 2018 を使用して仮想マシンをセットアップします。
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
@@ -27,27 +27,27 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 - 演習 3:Azure SQL データベースとデータ駆動型アプリケーションを構成する
 - 演習 4:Azure SQL データベースの暗号化における Azure Key Vault の使用方法を示す
 
-## <a name="key-vault-diagram"></a>Key Vault の図
+## Key Vault の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157532938-c724cc40-f64f-4d69-9e91-d75344c5e0a2.png)
 
-## <a name="instructions"></a>手順
+## Instructions
 
-## <a name="lab-files"></a>ラボ ファイル：
+## ラボ ファイル：
 
 - **\\Allfiles\\Labs\\10\\az-500-10_azuredeploy.json**
 
 - **\\Allfiles\\Labs\\10\\program.cs**
 
-### <a name="total-lab-time-estimate-60-minutes"></a>予想合計ラボ時間：60 分
+### 予想合計ラボ時間：60 分
 
-### <a name="exercise-1-deploy-the-base-infrastructure-from-an-arm-template"></a>演習 1:ARM テンプレートから基本インフラストラクチャをデプロイする
+### 演習 1:ARM テンプレートから基本インフラストラクチャをデプロイする
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure VM と Azure SQL データベースをデプロイする
 
-#### <a name="task-1-deploy-an-azure-vm-and-an-azure-sql-database"></a>タスク 1:Azure VM と Azure SQL データベースをデプロイする
+#### タスク 1:Azure VM と Azure SQL データベースをデプロイする
 
 このタスクでは、Azure VM をデプロイします。これにより、デプロイの一部として Visual Studio 2019 と SQL Server Management Studio 2018 が自動的にインストールされます。 
 
@@ -70,7 +70,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
    |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
    |リソース グループ|**[新規作成]** をクリックして、「**AZ500LAB10**」という名前を入力します|
    |場所|**米国東部**|
-   |管理ユーザー名|**学生**|
+   |管理ユーザー名|**Student**|
    |管理パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    
     >**注**:仮想マシンへのログオンに使用される管理資格情報を変更できますが、変更する必要はありません。
@@ -83,7 +83,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:ARM テンプレートのデプロイが完了するのを待たずに、次の演習に進んでください。 デプロイには約 **20～25 分間**かかります。 
 
-### <a name="exercise-2-configure-the-key-vault-resource-with-a-key-and-a-secret"></a>演習 2:キーとシークレットを使用して Key Vault のリソースを構成する
+### 演習 2:キーとシークレットを使用して Key Vault のリソースを構成する
 
 >**注**:このラボのすべてのリソースに対して、**東部 (米国)** リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
@@ -93,7 +93,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 - タスク 2:Key Vault にキーを追加する
 - タスク 3:Key Vault にシークレットを追加する
 
-#### <a name="task-1-create-and-configure-a-key-vault"></a>タスク 1:Key Vault を作成して構成する
+#### タスク 1:Key Vault を作成して構成する
 
 このタスクでは、Azure Key Vault リソースを作成します。 Azure Key Vault のアクセス許可も構成します。
 
@@ -128,7 +128,8 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     |設定|値|
     |----|----|
     |テンプレートから構成する (オプション)|**キー、シークレット、および証明書の管理**|
-    |キーのアクセス許可|**[すべて選択]** をクリックすると、アクセス許可が **12 個選択されます** ( **[ポリシーのローテーション操作]** のアクセス許可が**オフになっている**ことを確認します) |
+    |キーのアクセス許可|**[すべて選択]** をクリックすると、合計 **9 個**の権限が選択されます|
+    |キーのアクセス許可/暗号化操作|**[サイン]** をクリックすると、合計 **1 個**の権限が選択されます|
     |シークレットのアクセス許可|**[すべて選択]** をクリックすると、合計 **7 個の選択済み**権限が選択されます|
     |証明書のアクセス許可|**[すべて選択]** をクリックすると、合計 **15 個の選択済み**権限が選択されます|
     |プリンシパルの選択|**[選択なし]** をクリックし、 **[プリンシパル]** ブレードでご自分のユーザー アカウントを選択して、 **[次へ]** をクリックします|
@@ -137,7 +138,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     
     >**注**: 以前の [確認と作成] 操作は、[アプリケーション]、[メール]、[キーのアクセス許可]、[シークレットのアクセス許可]、[証明書のアクセス許可] のリストが表示された [アクセス ポリシー] ページに戻ります。
       
-#### <a name="task-2-add-a-key-to-key-vault"></a>タスク 2:Key Vault へのキーの追加
+#### タスク 2:Key Vault へのキーの追加
 
 このタスクでは、Key Vault にキーを追加し、キーに関する情報を表示します。 
 
@@ -178,7 +179,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     >**注**:キー識別子を使用して、任意のキーを参照できます。 最新バージョンを入手するには、`https://<key_vault_name>.vault.azure.net/keys/MyLabKey` を参照します。または、次で特定のバージョンを取得します: `https://<key_vault_name>.vault.azure.net/keys/MyLabKey/<key_version>`
 
 
-#### <a name="task-3-add-a-secret-to-key-vault"></a>タスク 3:Key Vault にシークレットを追加する
+#### タスク 3:Key Vault にシークレットを追加する
 
 1. Cloud Shell ペインに切り替えます。
 
@@ -213,7 +214,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     >**注**:シークレットの最新バージョンを入手するには、`https://<key_vault_name>.vault.azure.net/secrets/<secret_name>` を参照します。特定のバージョンを入手するには、`https://<key_vault_name>.vault.azure.net/secrets/<secret_name>/<secret_version>` を参照します
 
 
-### <a name="exercise-3-configure-an-azure-sql-database-and-a-data-driven-application"></a>演習 3:Azure SQL データベースとデータ駆動型アプリケーションを構成する
+### 演習 3:Azure SQL データベースとデータ駆動型アプリケーションを構成する
 
 この演習では、次のタスクを実行します。
 
@@ -224,7 +225,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 - タスク 5:SQL Database でテーブルを作成し、暗号化するデータ列を選択する
 
 
-#### <a name="task-1-enable-a-client-application-to-access-the-azure-sql-database-service"></a>タスク 1:クライアント アプリケーションを有効にして Azure SQL データベース サービスにアクセスできるようにする。 
+#### タスク 1:クライアント アプリケーションを有効にして Azure SQL データベース サービスにアクセスできるようにする。 
 
 このタスクでは、クライアント アプリケーションを有効にして Azure SQL データベース サービスにアクセスできるようにします。 これは、必要な認証を設定し、アプリケーションの認証に必要なアプリケーション ID とシークレットを取得することにより行われます。
 
@@ -267,7 +268,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     >**注**:ブレードから移動する*前*に、必ず値をコピーしてください。 コピーすると、クリア テキスト値を取得することができなくなります。
 
 
-#### <a name="task-2-create-a-policy-allowing-the-application-access-to-the-key-vault"></a>タスク 2:アプリケーションからキー コンテナーへのアクセスを許可するポリシーを作成する。
+#### タスク 2:アプリケーションからキー コンテナーへのアクセスを許可するポリシーを作成する。
 
 このタスクでは、新しく登録されたアプリに、Key Vault に格納されているシークレットにアクセスするためのアクセス許可を付与します。
 
@@ -296,7 +297,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 6. [Cloud Shell] ペインを閉じます。 
 
 
-#### <a name="task-3-retrieve-sql-azure-database-adonet-connection-string"></a>タスク 3:SQL Azure データベースの ADO.NET 接続文字列を取得する 
+#### タスク 3:SQL Azure データベースの ADO.NET 接続文字列を取得する 
 
 演習 1 の ARM テンプレートのデプロイでは、Azure SQL Server インスタンスと、**medical** という名前の Azure SQL データベースをプロビジョニングしました。 空のデータベース リソースを新しいテーブル構造で更新し、暗号化するデータ列を選択する
 
@@ -310,11 +311,11 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:このインターフェイスには、ADO.NET、JDBC、ODBC、PHP、および Go の接続文字列が含まれています。 
    
-4. **ADO.NET 接続文字列**を記録します。 この情報は後で必要になります。
+4. **ADO.NET (SQL 認証)** 接続文字列の値を記録します。 この情報は後で必要になります。
 
     >**注**:接続文字列を使用する場合は、`{your_password}` プレースホルダーを、演習 1 のデプロイで構成したパスワードに置き換えてください。
 
-#### <a name="task-4-log-on-to-the-azure-vm-running-visual-studio-2019-and-sql-management-studio-2018"></a>タスク 4:Visual Studio 2019 および SQL Management Studio 2018 を実行している Azure VM にログオンします
+#### タスク 4:Visual Studio 2019 および SQL Management Studio 2018 を実行している Azure VM にログオンします
 
 このタスクでは、演習 1 で開始した Azure VM にログオンします。 この Azure VM は、Visual Studio 2019 と SQL Server Management Studio 2018 をホストします。
 
@@ -324,7 +325,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 2. 表示されている仮想マシンの一覧で、**az500-10-vm1**のエントリを選択します。 **az500-10-vm1** ウィンドウの **[要点]** ウィンドウで、**[パブリック IP アドレス]** を記録します。 これは後で使用します。 
 
-#### <a name="task-5-create-a-table-in-the-sql-database-and-select-data-columns-for-encryption"></a>タスク 5:SQL Database でテーブルを作成し、暗号化するデータ列を選択する
+#### タスク 5:SQL Database でテーブルを作成し、暗号化するデータ列を選択する
 
 このタスクでは、SQL Server Management Studio を使用して SQL データベースに接続し、テーブルを作成します。 次に、Azure Key Vault から自動生成されたキーを使用して 2 つのデータ列を暗号化します。 
 
@@ -332,7 +333,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:サーバー名を記録します。 このタスクの後半でサーバー名が必要になります。
 
-2. **[ファイアウォール設定]** ウィンドウで、**[規則名]** まで下にスクロールし、次の設定を指定します。 
+2. **[ファイアウォール設定]** ブレードで [規則名] まで下にスクロールし、 **[+ ファイアウォール規則の追加]** をクリックし、次の設定を指定します。 
 
     |設定|値|
     |---|---|
@@ -342,7 +343,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     |終了 IP|az500-10-vm1 のパブリック IP アドレス
 終了IP|
 
-3. **[保存]** と **[OK]** をクリックして変更を保存し、確認ウィンドウを閉じます。 
+3. **[保存]** をクリックして変更を保存し、確認ウィンドウを閉じます。 
 
     >**注**:これにより、サーバーファイアウォールの設定が変更され、このラボでデプロイした Azure VM のパブリック IP アドレスから医療用データベースに接続できるようになります。
 
@@ -416,13 +417,13 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     >**注**: **[Always Encrypted のキー]** サブノードには、**[列マスター キー]** と **[列暗号化キー]** サブフォルダーが含まれています。
 
 
-### <a name="exercise-4-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>演習 4:Azure SQL データベースの暗号化における Azure Key Vault の使用方法を示す
+### 演習 4:Azure SQL データベースの暗号化における Azure Key Vault の使用方法を示す
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:データ駆動型アプリケーションを実行して、Azure SQL データベースの暗号化における Azure Key Vault の使用法を示す
 
-#### <a name="task-1-run-a-data-driven-application-to-demonstrate-the-use-of-azure-key-vault-in-encrypting-the-azure-sql-database"></a>タスク 1:データ駆動型アプリケーションを実行して、Azure SQL データベースの暗号化における Azure Key Vault の使用法を示す
+#### タスク 1:データ駆動型アプリケーションを実行して、Azure SQL データベースの暗号化における Azure Key Vault の使用法を示す
 
 Visual Studio を使用して暗号化列にデータを読み込むコンソール アプリケーションを作成し、Key Vault のキーにアクセスする接続文字列を使用してそのデータに安全にアクセスします。
 
@@ -460,7 +461,7 @@ Visual Studio を使用して暗号化列にデータを読み込むコンソー
 
 10. RDP セッションに戻り、Visual Studio コンソールの **[ソリューション エクスプローラー]** ウィンドウで **[Program.cs]** をクリックし、その内容をクリップボードにコピーしたコードに置き換えます。
 
-11. Visual Studio ウィンドウにある **Program.cs** ペインの 15 行目で、`<connection string noted earlier>` プレースホルダーを、このラボで前に記録した Azure SQL データベース **ADO.NET** の接続文字列に置き換えます。 接続文字列で、`{your_password}` プレースホルダーを `Pa55w.rd1234` に置き換えます。 ラボ コンピューターに文字列を保存した場合は、RDP セッションを終了して ADO 文字列をコピーしてから、Azure 仮想マシンに戻って貼り付ける必要がある場合があります。
+11. Visual Studio ウィンドウにある **Program.cs** ペインの 15 行目で、`<connection string noted earlier>` プレースホルダーを、このラボで前に記録した Azure SQL データベース **ADO.NET** の接続文字列に置き換えます。 接続文字列で、`{your_password}` のプレースホルダーを、演習 1 のデプロイで指定したパスワードに置き換えます。 ラボ コンピューターに文字列を保存した場合は、RDP セッションを終了して ADO 文字列をコピーしてから、Azure 仮想マシンに戻って貼り付ける必要がある場合があります。
 
 12. Visual Studio ウィンドウにある **Program.cs** ペインの 16 行目で、`<client id noted earlier>` プレースホルダーを、このラボで前に記録した、登録済みアプリの**アプリケーション (クライアント) ID** の値に置き換えます。 
 
@@ -496,7 +497,7 @@ Visual Studio を使用して暗号化列にデータを読み込むコンソー
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、 Cloud Shell を開きます。 
 
-2. [Cloud Shell] ペインの左上のドロップダウン メニューで **[PowerShell]** を選択し、メッセージが表示されたら **[確認]** をクリックします。
+2. [Cloud Shell] ペインの左上のドロップダウン メニューで、必要に応じて **[PowerShell]** を選択し、メッセージが表示されたら **[確認]** をクリックします。
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   

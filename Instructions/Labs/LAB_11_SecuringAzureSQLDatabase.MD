@@ -4,10 +4,10 @@ lab:
   module: Module 03 - Secure data and applications
 ---
 
-# <a name="lab-11-securing-azure-sql-database"></a>ラボ 11:Azure SQL データベースのセキュリティ保護
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 11:Azure SQL データベースのセキュリティ保護
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure SQL データベースのセキュリティ機能を確認するように依頼されました。 具体的には、次のことに関心があります。
 
@@ -17,25 +17,25 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
 - 演習 1:SQL Database のセキュリティ機能を実装する
 
-## <a name="securing-azure-sql-database-diagram"></a>Azure SQL Database のセキュリティ保護の図
+## Azure SQL Database のセキュリティ保護の図
 
 ![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
-## <a name="lab-files"></a>ラボ ファイル：
+## ラボ ファイル：
 
 - **\\Allfiles\\Labs\\11\\azuredeploy.json**
 
-### <a name="exercise-1-implement-sql-database-security-features"></a>演習 1:SQL Database のセキュリティ機能を実装する
+### 演習 1:SQL Database のセキュリティ機能を実装する
 
-### <a name="estimated-timing-30-minutes"></a>推定時間:30 分
+### 推定時間:30 分
 
 この演習では、次のタスクを実行します。
 
@@ -44,7 +44,7 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 - タスク 3:データ分類を構成する
 - タスク 4:監査の構成
 
-#### <a name="task-1-deploy-an-azure-sql-database"></a>タスク 1:Azure SQL データベースをデプロイする
+#### タスク 1:Azure SQL データベースをデプロイする
 
 このタスクでは、テンプレートを使用してラボ インフラストラクチャを展開します。 
 
@@ -74,7 +74,7 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
     >**注**: デプロイが完了するまで待ちます。 
 
-#### <a name="task-2-configure-advanced-data-protection"></a>タスク 2:高度なデータ保護の構成
+#### タスク 2:高度なデータ保護の構成
 
 1. Azure portal の、Azure portal ページの上部にある **[ソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
@@ -82,24 +82,22 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
 3. **[AZ500LAB11]** ブレードで、新しく作成された SQL サーバーを表すエントリをクリックします。
 
-4. [SQL サーバー] ブレードの **[セキュリティ]** セクションで、 **[Microsoft Defender for Cloud]** をクリックします。 **[はじめに]** ページの一番下までスクロールし、 **[アップグレード]** を選択します。 **[エージェントのインストール]** タブで、 **[エージェントのインストール]** を選択します。
-
-5. [SQL サーバー] ブレードの **[セキュリティ]** セクションで、 **[Microsoft Defender for Cloud]** をクリックし、 **[Microsoft Defender for SQL を有効にする]** を選択します。
+4. [SQL サーバー] ブレードの **[セキュリティ]** セクションで、 **[Microsoft Defender for Cloud]** をクリックし、 **[Microsoft Defender for SQL を有効にする]** を選択します。
 
       >**注**:Azure Defender for SQL が正常に有効になったことを示す通知が表示されるまで待ちます。
 
-6. [SQL サーバー] ブレードの **[セキュリティ]** セクションの **[Microsoft Defender for Cloud]** ページにある **[Microsoft Defender for SQL:Enabled at the server-level (Configure)]\(Microsoft Defender for SQL: サーバーレベルで有効化 (構成)\)** パラメーターで、 **[(構成)]** をクリックします。   
+5. [SQL サーバー] ブレードの **[セキュリティ]** セクションの **[Microsoft Defender for Cloud]** ページにある **[Microsoft Defender for SQL: サブスクリプションレベルで有効化 (構成)]** パラメーターで、 **[(構成)]** をクリックします。  
 
       >**注**: **[(構成)]** が表示されない場合は、ブラウザーを更新してください。
     
-7. **[サーバー設定]** ブレードで、価格と試用期間、 **[脆弱性評価設定]** 、および **[高度な脅威保護設定]** に関する情報を確認します。
+6. **[サーバー設定]** ブレードで、価格と試用期間、 **[脆弱性評価設定]** 、および **[高度な脅威保護設定]** に関する情報を確認します。
 
-8. **[Microsoft Defender for Cloud]** ブレードに戻り、 **[推奨事項]** と **[セキュリティ アラート]** を確認します。
+7. **[Microsoft Defender for Cloud]** ブレードに戻り、 **[推奨事項]** と **[セキュリティ アラート]** を確認します。
 
       >**注**:推奨事項が **[Microsoft Defender for Cloud]** ブレードに表示されるまでに、10 分から 15 分かかる場合があります。 完了を待たずに、次のタスクに進み、残りのすべてのタスクを完了してから、このブレードに戻ることも可能です。
 
 
-#### <a name="task-3-configure-data-classification"></a>タスク 3:データ分類を構成する
+#### タスク 3:データ分類を構成する
 
 このタスクでは、GPDR とデータ保護のコンプライアンスに関する SQL Database 内の情報を検出し、分類します。
 
@@ -129,7 +127,7 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
 9. **[データの検出と分類]** ブレードの **[概要]** タブに戻り、最新の分類情報を考慮して更新されていることを確認してください。 
 
-#### <a name="task-4--configure-auditing"></a>タスク 4:監査の構成 
+#### タスク 4:監査の構成 
 
 このタスクでは、まずサーバー レベルの監査を構成し、次にデータベース レベルの監査を構成します。 
 
@@ -184,7 +182,7 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
 1. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
-2. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
+2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   
