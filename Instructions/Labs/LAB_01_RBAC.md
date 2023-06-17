@@ -4,10 +4,10 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
-# <a name="lab-01-role-based-access-control"></a>ラボ 01:ロールベースのアクセス制御
-# <a name="student-lab-manual"></a>受講生用ラボ マニュアル
+# ラボ 01:ロールベースのアクセス制御
+# 受講生用ラボ マニュアル
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure ユーザーとグループの作成方法を示す概念実証を作成するように依頼されました。 また、ロールベースのアクセス制御を使用してグループにロールを割り当てる方法も説明します。 具体的には、次の操作が必要です。
 
@@ -18,7 +18,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-## <a name="lab-objectives"></a>ラボの目的
+## ラボの目的
 
 このラボでは、次の演習を行います。
 
@@ -27,22 +27,22 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 - 演習 3:ユーザーのディラン・ウィリアムズをメンバーにしてサービス デスク グループを作成します (Azure CLI)。 
 - 演習 4:仮想マシン共同作成者ロールをサービス デスク グループに割り当てます。
 
-## <a name="role-based-access-control-architecture-diagram"></a>ロールベースのアクセス制御アーキテクチャの図
+## ロールベースのアクセス制御アーキテクチャの図
 
 ![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
 
-## <a name="instructions"></a>手順
+## 手順
 
-### <a name="exercise-1-create-the-senior-admins-group-with-the-user-account-joseph-price-as-its-member"></a>演習 1:ユーザー アカウント Joseph Price をメンバーとして使用して、上級管理者グループを作成します。 
+### 演習 1:ユーザー アカウント Joseph Price をメンバーとして使用して、上級管理者グループを作成します。 
 
-#### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+#### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure portal を使用して、Joseph Price のユーザー アカウントを作成します。
 - タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
 
-#### <a name="task-1-use-the-azure-portal-to-create-a-user-account-for-joseph-price"></a>タスク 1:Azure portal を使用して、Joseph Price のユーザー アカウントを作成する 
+#### タスク 1:Azure portal を使用して、Joseph Price のユーザー アカウントを作成する 
 
 このタスクでは、Joseph Price のユーザー アカウントを作成します。 
 
@@ -69,9 +69,9 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 8. **[ユーザー \| すべてのユーザー]** ブレードを更新し、新しいユーザーが Azure AD テナントに作成されたことを確認します。
 
-#### <a name="task2-use-the-azure-portal-to-create-a-senior-admins-group-and-add-the-user-account-of-joseph-price-to-the-group"></a>タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
+#### タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
 
-このタスクでは、*上級管理者*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
+このタスクでは、*Senior Admins*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
 
 1. Azure portal で、Azure Active Directory テナントを表示しているブレードに戻ります。 
 
@@ -82,7 +82,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
    |設定|値|
    |---|---|
    |グループの種類|**Security**|
-   |グループ名|**上級管理者**|
+   |グループ名|**Senior Admins**|
    |メンバーシップの種類|**割り当て済み**|
     
 4. **[所有者が選択されていません]** リンクをクリックし、**[所有者を追加]** ブレードで **[Joseph Price]** を選択して、**[選択]** をクリックします。
@@ -93,16 +93,16 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 > 結果:Azure portal を使用してユーザーとグループを作成し、ユーザーをグループに割り当てました。 
 
-### <a name="exercise-2-create-a-junior-admins-group-containing-the-user-account-of-isabel-garcia-as-its-member"></a>演習 2:メンバーとして、イザベル・ガルシアのユーザー アカウントを含むジュニア管理者グループを作成します。
+### 演習 2:メンバーとして、イザベル・ガルシアのユーザー アカウントを含むジュニア管理者グループを作成します。
 
-#### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+#### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:PowerShell を使用して、Isabel Garcia のユーザー アカウントを作成します。
 - タスク 2:PowerShell を使用してジュニア管理者グループを作成し、Isabel Garcia のユーザー アカウントをグループに追加します。 
 
-#### <a name="task-1-use-powershell-to-create-a-user-account-for-isabel-garcia"></a>タスク 1:PowerShell を使用して、Isabel Garcia のユーザー アカウントを作成します。
+#### タスク 1:PowerShell を使用して、Isabel Garcia のユーザー アカウントを作成します。
 
 このタスクでは、PowerShell を使用して Isabel Garcia のユーザー アカウントを作成します。
 
@@ -147,7 +147,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     Get-AzureADUser 
     ```
 
-#### <a name="task2-use-powershell-to-create-the-junior-admins-group-and-add-the-user-account-of-isabel-garcia-to-the-group"></a>タスク 2:PowerShell を使用してジュニア管理者グループを作成し、Isabel Garcia のユーザー アカウントをグループに追加します。
+#### タスク 2:PowerShell を使用してジュニア管理者グループを作成し、Isabel Garcia のユーザー アカウントをグループに追加します。
 
 このタスクでは、ジュニア管理者グループを作成し、PowerShell を使用してグループに Isabel Garcia のユーザー アカウントを追加します。
 
@@ -184,16 +184,16 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 > 結果:PowerShell を使用してユーザーとグループ アカウントを作成し、ユーザー アカウントをグループ アカウントに追加しました。 
 
 
-### <a name="exercise-3-create-a-service-desk-group-containing-the-user-account-of-dylan-williams-as-its-member"></a>演習 3:ディラン・ウィリアムズのユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
+### 演習 3:Dylan Williams のユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
 
-#### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+#### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure CLI を使用して、Dylan Williams のユーザー アカウントを作成します。
 - タスク 2:Azure CLI を使用してサービス デスク グループを作成し、グループに Dylan のユーザー アカウントを追加します。 
 
-#### <a name="task-1-use-azure-cli-to-create-a-user-account-for-dylan-williams"></a>タスク 1:Azure CLI を使用して、Dylan Williams のユーザー アカウントを作成します。
+#### タスク 1:Azure CLI を使用して、Dylan Williams のユーザー アカウントを作成します。
 
 このタスクでは、Dylan Williams のユーザー アカウントを作成します。
 
@@ -217,7 +217,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     az ad user list --output table
     ```
 
-#### <a name="task-2-use-azure-cli-to-create-the-service-desk-group-and-add-the-user-account-of-dylan-to-the-group"></a>タスク 2:Azure CLI を使用してサービス デスク グループを作成し、グループに Dylan のユーザー アカウントを追加します。 
+#### タスク 2:Azure CLI を使用してサービス デスク グループを作成し、グループに Dylan のユーザー アカウントを追加します。 
 
 このタスクでは、サービス デスク グループを作成し、グループに Dylan を割り当てます。 
 
@@ -262,16 +262,16 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 > 結果:Azure CLI を使用して、ユーザー アカウントとグループ アカウントを作成し、そのユーザー アカウントをグループに追加しました。 
 
 
-### <a name="exercise-4-assign-the-virtual-machine-contributor-role-to-the-service-desk-group"></a>演習 4:仮想マシン共同作成者ロールをサービス デスク グループに割り当てます。
+### 演習 4:仮想マシン共同作成者ロールをサービス デスク グループに割り当てます。
 
-#### <a name="estimated-timing-10-minutes"></a>推定時間:10 分
+#### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:リソース グループを作成します。 
 - タスク 2:リソース グループに Service Desk Virtual Machine Contributor のアクセス許可を割り当てます。  
 
-#### <a name="task-1-create-a-resource-group"></a>タスク 1: リソース グループを作成する
+#### タスク 1: リソース グループを作成する
 
 1. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
@@ -290,7 +290,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 4. **[リソース グループ]** ブレードに戻り、ページを更新して、新しいリソース グループがリソース グループの一覧に表示されることを確認します。
 
 
-#### <a name="task-2-assign-the-service-desk-virtual-machine-contributor-permissions"></a>タスク 2:Service Desk Virtual Machine Contributor のアクセス許可を割り当てます。 
+#### タスク 2:Service Desk Virtual Machine Contributor のアクセス許可を割り当てます。 
 
 1. **[リソース グループ]** ブレードで、**AZ500LAB01** リソース グループのエントリをクリックします。
 
