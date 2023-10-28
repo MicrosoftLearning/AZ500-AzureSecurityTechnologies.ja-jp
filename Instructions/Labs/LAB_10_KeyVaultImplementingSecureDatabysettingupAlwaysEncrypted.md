@@ -16,7 +16,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 >**注**:このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-この概念実証の構築に関連する Azure のセキュリティの側面に焦点を当て続けるために、自動化された ARM テンプレートの展開から開始し、Visual Studio 2019 と SQL Server Management Studio 2018 を使用して仮想マシンをセットアップします。
+この概念実証の構築に関連する Azure のセキュリティの側面に焦点を当て続けるために、自動化された ARM テンプレートのデプロイから開始し、Visual Studio 2019 と SQL Server Management Studio 19 を使用して仮想マシンをセットアップします。
 
 ## ラボの目的
 
@@ -49,7 +49,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 #### タスク 1:Azure VM と Azure SQL データベースをデプロイする
 
-このタスクでは、Azure VM をデプロイします。これにより、デプロイの一部として Visual Studio 2019 と SQL Server Management Studio 2018 が自動的にインストールされます。 
+このタスクでは、Azure VM をデプロイします。これにより、デプロイの一部として Visual Studio 2019 と SQL Server Management Studio 19 が自動的にインストールされます。 
 
 1. Azure portal **`https://portal.azure.com/`** にサインインします。
 
@@ -70,7 +70,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
    |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
    |リソース グループ|**[新規作成]** をクリックして、「**AZ500LAB10**」という名前を入力します|
    |場所|**米国東部**|
-   |管理ユーザー名|**Student**|
+   |管理ユーザー名|**学生**|
    |管理パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    
     >**注**:仮想マシンへのログオンに使用される管理資格情報を変更できますが、変更する必要はありません。
@@ -221,7 +221,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 - タスク 1:クライアント アプリケーションを有効にして Azure SQL データベース サービスにアクセスできるようにする。
 - タスク 2:アプリケーションからキー コンテナーへのアクセスを許可するポリシーを作成する。
 - タスク 3:SQL Azure データベースの ADO.NET 接続文字列を取得する 
-- タスク 4:Visual Studio 2019 および SQL Management Studio 2018 を実行している Azure VM にログオンします
+- タスク 4: Visual Studio 2019 および SQL Management Studio 19 を実行している Azure VM にログオンする
 - タスク 5:SQL Database でテーブルを作成し、暗号化するデータ列を選択する
 
 
@@ -315,9 +315,9 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:接続文字列を使用する場合は、`{your_password}` プレースホルダーを、演習 1 のデプロイで構成したパスワードに置き換えてください。
 
-#### タスク 4:Visual Studio 2019 および SQL Management Studio 2018 を実行している Azure VM にログオンします
+#### タスク 4: Visual Studio 2019 および SQL Management Studio 19 を実行している Azure VM にログオンする
 
-このタスクでは、演習 1 で開始した Azure VM にログオンします。 この Azure VM は、Visual Studio 2019 と SQL Server Management Studio 2018 をホストします。
+このタスクでは、演習 1 で開始した Azure VM にログオンします。 この Azure VM は、Visual Studio 2019 と SQL Server Management Studio 19 をホストします。
 
     >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
@@ -360,7 +360,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:このラボの残りの手順は、**az500-10-vm1** Azure VM へのリモート デスクトップ セッション内で実行されます。 
 
-6. **[スタート]** をクリックし、**[スタート]** メニューの **[Microsoft SQL Server ツール 18]** フォルダーを展開して、**[Micosoft SQL Server Management Studio]** メニュー項目をクリックします。
+6. **[スタート]** をクリックし、 **[スタート]** メニューの **[Microsoft SQL Server ツール 19]** フォルダーを展開して、 **[Micosoft SQL Server Management Studio]** メニュー項目をクリックします。
 
 7. **[サーバーに接続]** ダイアログ ボックスで、次の設定を指定します。 
 
