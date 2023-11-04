@@ -50,9 +50,9 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
     >**注**:このラボで使用している Azure サブスクリプションの所有者または共同作成者のロールと、そのサブスクリプションに関連付けられている Azure AD テナントのグローバル管理者の役割を持つアカウントを使用して、Azure portal にサインインします。
 
-2. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントを検索する]** テキスト ボックスで、「**Azure Active Directory**」と入力し、**Enter** キーを押します。
+2. Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**Microsoft Entra ID**」と入力し、**Enter** キーを押します。
 
-3. Azure Active Directory テナントの **[概要]** ブレードの **[管理]** セクションで、**[ユーザー]** を選択し、次に **[+ 新しいユーザー]** を選択します。
+3. Microsoft Entra ID テナントの **[概要]** ブレードの **[管理]** セクションで、 **[ユーザー]** を選択し、次に **[+ 新しいユーザー]** を選択します。
 
 4. **[新しいユーザー]** ブレードで、**[ユーザーの作成]** オプションが選択されていることを確認し、次の設定を指定します。
 
@@ -73,7 +73,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 このタスクでは、*Senior Admins*グループを作成し、Joseph Price のユーザー アカウントをグループに追加して、グループ所有者として構成します。
 
-1. Azure portal で、Azure Active Directory テナントを表示しているブレードに戻ります。 
+1. Azure portal で、Microsoft Entra ID テナントを表示しているブレードに戻ります。 
 
 2. **[管理]** セクションで、**[グループ]** をクリックし、**[+ 新しいグループ]** を選択します。
  
@@ -123,7 +123,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して Azure Active Directory に接続します。
+5. Cloud Shell ペイン内の PowerShell セッションで、次を実行して Microsoft Entra ID に接続します。
 
     ```powershell
     Connect-AzureAD
