@@ -132,7 +132,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 7. **[割り当ての種類]** の設定を確認し、**[割り当て]** をクリックします。
 
-8. 左側のナビゲーション パネルで、 **[割り当て]** をクリックします。 **[対象となる割り当て]** タブの **[セキュリティ管理者]** で、**aaduser2** の割り当ての **[更新]** を選択します。 **[永続的に有資格]** 、 **[保存]** の順に選択します。
+8. 左側のナビゲーション パネルで、**[割り当て]** をクリックします。 **[対象となる割り当て]** タブの **[セキュリティ管理者]** で、**aaduser2** の割り当ての **[更新]** を選択します。 **[永続的に有資格]** 、 **[保存]** の順に選択します。
 
     >**注**:これで、ユーザー aaduser2 は、永久的にセキュリティ管理者ロールの資格を持つようになりました。
     
@@ -151,7 +151,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 1. InPrivate ブラウザー ウィンドウを開きます。
 
-2. InPrivate ブラウザー ウィンドウで、 **`https://portal.azure.com/`** にある Azure portal に移動し、**aaduser2** ユーザー アカウントを使用してサインインします。
+2. InPrivate ブラウザー ウィンドウで、**`https://portal.azure.com/`** にある Azure portal に移動し、**aaduser2** ユーザー アカウントを使用してサインインします。
 
     >**注**:サインインするには、このラボで前に記録した Azure AD テナントの DNS ドメイン名を含む、**aaduser2** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、aaduser2@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Azure AD テナント名を表すプレースホルダーです。 
 
@@ -216,7 +216,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 10. Azure portal から **aaduser2** としてサインアウトします。
 
-11. InPrivate ブラウザーで、 **`https://portal.azure.com/`** にある Azure portal に **aaduser3** としてサインインします。
+11. InPrivate ブラウザーで、**`https://portal.azure.com/`** にある Azure portal に **aaduser3** としてサインインします。
 
     >**注**:いずれかのユーザー アカウントを使用した認証で問題が発生した場合は、自身のユーザー アカウントを使用してAzure AD テナントにサインインし、パスワードをリセットするか、サインイン オプションを再構成できます。
 
@@ -226,13 +226,13 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 14. **[申請の承認 \| Azure AD ロール]** ブレードの **[ロールのアクティブ化の要求]** セクションで、**aaduser2** による **[グローバル閲覧者]** ロールへのロールのアクティブ化要求を表すエントリのチェックボックスをオンにします。
 
-15. **[Approve](承認)** をクリックします。 **[要求の承認]** ブレードの **[妥当性]** テキストボックスに、有効化の理由を入力し、開始時刻と終了時刻をメモして、**[確認]** をクリックします。 
+15. **[Approve]\(承認\)** をクリックします。 **[要求の承認]** ブレードの **[妥当性]** テキストボックスに、有効化の理由を入力し、開始時刻と終了時刻をメモして、**[確認]** をクリックします。 
 
     >**注**:リクエストを拒否することもできます。
 
 16. Azure portal から **aaduser3** としてサインアウトします。
 
-17. InPrivate ブラウザーで、 **`https://portal.azure.com/`** にある Azure portal に **aaduser2** としてサインインします
+17. InPrivate ブラウザーで、**`https://portal.azure.com/`** にある Azure portal に **aaduser2** としてサインインします
 
 18. Azure portal で、**Azure AD Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Azure AD Privileged Identity Management」と入力し、Enter キーを押します)。
 
