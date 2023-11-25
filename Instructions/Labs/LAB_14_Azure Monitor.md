@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 13 - Azure Monitor
+  title: 14 - Azure Monitor
   module: Module 04 - Manage security operations
 ---
 
-# ラボ 13:Azure Monitor
+# ラボ 14:Azure Monitor
 
 # 受講生用ラボ マニュアル
 
@@ -154,8 +154,7 @@ lab:
 
 2. **[監視設定]** ブレードで、 **[データ収集ルール]** をクリックします。
 
-  ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/d43e8f94-efb2-4255-9320-210c976fd45e)
-
+    ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/2184da69-12c2-476b-b2b2-b80620e822a6)
 
 3. **[データ収集ルールの作成]** ブレードの **[基本]** タブで、以下の設定を指定します。
   
@@ -172,13 +171,13 @@ lab:
     ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
 
 
-4. **[次へ:リソース]** というラベルのついたボタンをクリックして次に進みます。
+4. **[次へ: リソース >]** というラベルの付いたボタンをクリックして次に進みます。
 
 5. **[リソース]** タブで、**[+ リソースの追加]** を選択してから、**[データ収集エンドポイントの有効化]** をチェックします。
 
     ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/c8388619-c254-4c80-a1ff-dde2f35ed350)
 
-6. **[次へ:収集と配信]** というラベルの付いたボタンをクリックして次に進みます。
+6. **[次へ: 収集と配信 >]** というラベルの付いたボタンをクリックして次に進みます。
 
 7. **[+ データ ソースの追加]** をクリックしてから、**[データ ソースの追加]** ページで、**[データ ソースの種類]** ドロップダウン メニューを変更して **[パフォーマンス カウンター]** を表示します。 以下の既定の設定はそのままにします。
 
@@ -192,7 +191,7 @@ lab:
 
    ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
 
-8. **[次へ:移行先]** というラベルの付いたボタンをクリックして次に進みます。
+8. **[次へ: 移行先 >]** というラベルの付いたボタンをクリックして次に進みます。
   
 9. **[宛先の種類]** ドロップダウン メニューを変更して **[Azure Monitor ログ]** を表示します。 **[サブスクリプション]** ウィンドウで、"サブスクリプション" が表示されていることを確認してから、前に作成した Log Analytics ワークスペースを反映するように **[アカウントまたは名前空間]** ドロップダウン メニューを変更します。**
 
