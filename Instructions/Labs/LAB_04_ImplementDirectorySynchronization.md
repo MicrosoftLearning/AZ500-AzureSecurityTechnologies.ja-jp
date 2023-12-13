@@ -1,19 +1,19 @@
 ---
 lab:
-  title: 06 - ディレクトリ同期を導入する
+  title: 04 - ディレクトリ同期の実装
   module: Module 01 - Manage Identity and Access
 ---
 
-# ラボ 06:ディレクトリ同期を導入する
+# ラボ 04: ディレクトリ同期の実装
 # 受講生用ラボ マニュアル
 
 ## ラボのシナリオ
 
-オンプレミスの Microsoft Entra Doメイン Services 環境を Microsoft Entra テナントと統合する方法を示す概念実証を作成するように求められました。 具体的には、次のことを行います。
+オンプレミスの Microsoft Entra Domain Services 環境を Microsoft Entra テナントと統合する方法を示す概念実証を作成するように求められました。 具体的には、次のことを行います。
 
-- Microsoft Entra Do メイン Services do メイン コントローラーをホストする Azure VM をデプロイして、単一実行メイン Microsoft Entra Doメイン Services フォレストを実装する
-- Microsoft Entra DS インスタンスを作成して構成する
-- Microsoft Entra Doメイン Services フォレストを Microsoft Entra テナントと同期する
+- Microsoft Entra Domain Services ドメイン コントローラーをホストする Azure VM をデプロイして、単一ドメインの Microsoft Entra Domain Services フォレストを実装する
+- Microsoft Entra テナントを作成して構成する
+- Microsoft Entra Domain Services フォレストを Microsoft Entra テナントと同期する
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
@@ -21,7 +21,7 @@ lab:
 
 このラボでは、次の演習を行います。
 
-- 演習 1:Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+- 演習 1: Microsoft Entra ID ドメイン コントローラーをホストする Azure VM をデプロイする
 - 演習 2: Microsoft Entra テナントを作成して構成する
 - 演習 3: Microsoft Entra ID フォレストを Microsoft Entra テナントと同期する
 
@@ -31,14 +31,14 @@ lab:
 
 ## 手順
 
-### 演習 1:Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+### 演習 1: Microsoft Entra ID ドメイン コントローラーをホストする Azure VM をデプロイする
 
 ### 推定時間:10 分
 
 この演習では、次のタスクを実行します。
 
 - タスク 1:Azure VM のデプロイで利用可能な DNS 名を特定する
-- タスク 2:ARM テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+- タスク 2: ARM テンプレートを使用して、Microsoft Entra ID ドメイン コントローラーをホストする Azure VM をデプロイする
 
 #### タスク 1:Azure VM のデプロイで利用可能な DNS 名を特定する
 
@@ -68,9 +68,9 @@ lab:
 
 7. Cloud Shell を閉じます。
 
-#### タスク 2:ARM テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイする
+#### タスク 2: ARM テンプレートを使用して、Microsoft Entra ID ドメイン コントローラーをホストする Azure VM をデプロイする
 
-このタスクでは、Active Directory ドメイン コントローラーをホストする Azure VM をデプロイします
+このタスクでは、Microsoft Entra ID ドメイン コントローラーをホストする Azure VM をデプロイします
 
 1. 同じブラウザー ウィンドウで別のブラウザー タブを開き、 **https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain** に移動します。
 
@@ -88,7 +88,7 @@ lab:
    |Resource group|**[新規作成]** をクリックし、「**AZ500LAB06**」という名前を入力します|
    |リージョン|前のタスクで特定した Azure リージョン|
    |管理ユーザー名|**Student**|
-   |管理パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
+   |管理者パスワード|**ラボ 02 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
    |ドメイン名|**adatum.com**|
    |DNS プレフィックス|前のタスクで識別した DNS ホスト名|
    |VM サイズ|**Standard_D2s_v3**|
@@ -97,7 +97,7 @@ lab:
 
     >**注**:デプロイが完了するのを待たず、代わりに次の演習に進みます。 デプロイには約 15 分間かかります。 このラボの 3 番目の演習では、このタスクでデプロイされた仮想マシンを使用します。
 
-> 結果:この演習を完了した後、Azure Resource Manager テンプレートを使用して、Active Directory ドメイン コントローラーをホストする Azure VM のデプロイを開始しました。
+> 結果:この演習を完了すると、Azure Resource Manager テンプレートを使用して、Microsoft Entra ID ドメインコントローラーをホストする Azure VM のデプロイが開始されます。
 
 
 ### 演習 2: Microsoft Entra テナントを作成して構成する 
@@ -106,19 +106,19 @@ lab:
 
 この演習では、次のタスクを実行します。
 
-- タスク 3:Microsoft Entra テナントを作成します。
+- タスク 1: Microsoft Entra テナントを作成する
 - タスク 2: 新しい Microsoft Entra テナントにカスタム DNS 名を追加する
-- タスク 2: グローバル管理者ロールを持つユーザーを作成する
+- タスク 3: グローバル管理者ロールを持つ Microsoft Entra ID ユーザーを作成する
 
-#### タスク 3:Microsoft Entra テナントを作成します。
+#### タスク 1: Microsoft Entra テナントを作成する
 
-このタスクでは、このラボで使用する新しい Azure AD テナントを作成します。 
+このタスクでは、このラボで使用する新しい Microsoft Entra テナントを作成します。 
 
-1. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**Microsoft Sentinel**」と入力し、**Enter** キーを押します。
+1. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキストボックスに「**Microsoft Entra ID**」と入力し、**Enter** キーを押します。
 
-2. 現在の Azure AD テナントの **[概要]** を表示しているブレードで、 **[テナントの管理]** をクリックし、次の画面で **[+ 作成]** をクリックします。
+2. 現在の Microsoft Entra テナントの **[概要]** を表示しているブレードで、**[テナントの管理]** をクリックし、次の画面で **[+ 作成]** をクリックします。
 
-3. **[テナントの作成]** ウィンドウの **[基本]** タブで、**[Microsoft Entra ID]** オプションが選択されていることを確認し、**[次へ: 構成 **] を選択します。
+3. **[テナントの作成]** ウィンドウの **[基本]** タブで、**[Microsoft Entra ID]** オプションが選択されていることを確認し、**[次へ: 構成 >] ** を選択します。
 
 4. **[ディレクトリの作成]** ブレードの **[構成]** タブで、次の設定を指定します。
 
@@ -146,21 +146,21 @@ lab:
 
     >**注**:**AdatumSync** エントリが **Directory + subscription** のフィルター リストに表示されない場合は、ブラウザーの画面を更新する必要があります。
 
-3. **[AdatumSync \| Azure Active Directory]** ブレードの **[管理]** セクションで、 **[カスタム ドメイン名]** をクリックします。
+3. **[AdatumSync \| Microsoft Entra ID]** ブレードの **[管理]** セクションで、 **[カスタム ドメイン名]** をクリックします。
 
 4. **[AdatumSync \| カスタム ドメイン名]** ブレードで、 **[+ カスタム ドメインの追加]** をクリックします。
 
 5. **[カスタム ドメイン名]** ブレードの **[カスタム ドメイン名]** テキスト ボックスに「**adatum.com**」と入力し、**[ドメインの追加]** をクリックします。
 
-6. **adatum.com** ブレードで、Azure AD ドメイン名の検証を実行するために必要な情報を確認し、 **[削除]** を 2 回選択します。 
+6. **adatum.com** ブレードで、Microsoft Entra ドメイン名の検証を実行するために必要な情報を確認し、**[削除]** を 2 回選択します。 
 
-    >**注**:**adatum.com** DNS ドメイン名を所有していないため、検証プロセスを完了できません。 これにより、Adatum.com Microsoft Entra Doメイン Services doメイン を Microsoft Entra テナントと同期**** できなくなります。 この目的のために、前のタスクで特定した Azure AD テナントの最初の DNS 名 (**onmicrosoft.com** サフィックスで終わる名前) を使用します。 ただし、その結果、AD DS ドメインの DNS ドメイン名と Azure AD テナントの DNS 名は異なることを覚えておいてください。 つまり、AD DS ドメインにサインインするときと Azure AD テナントにサインインするときに、Adatum ユーザーは異なる名前を使用する必要があります。
+    >**注**:**adatum.com** DNS ドメイン名を所有していないため、検証プロセスを完了できません。 これは、**adatum.com** Microsoft Entra Domain Services ドメインと Microsoft Entra テナントの同期を妨げるものではありません。 この目的のために、前のタスクで特定した Microsoft Entra テナントの最初の DNS 名 (**onmicrosoft.com** サフィックスで終わる名前) を使用します。 ただし、その結果、Microsoft Entra Domain Services の DNS ドメイン名と Microsoft Entra テナントの DNS 名が異なることを覚えておいてください。 つまり、Microsoft Entra Domain Services ドメインにサインインするときと Microsoft Entra テナントにサインインするときに、Adatum ユーザーは異なる名前を使用する必要があります。
 
-#### タスク 3: グローバル 管理istrator ロールを持つ Microsoft Entra ID ユーザーを作成する
+#### タスク 3: グローバル管理者ロールを持つ Microsoft Entra ID ユーザーを作成する
 
-このタスクでは、新しい Azure AD ユーザーを追加し、グローバル管理者の役割に割り当てます。 
+このタスクでは、新しい Microsoft Entra ID ユーザーを追加し、グローバル管理者ロールに割り当てます。 
 
-1. **[AdatumSync]** Azure AD テナント ブレードの **[管理]** セクションで、**[ユーザー]** をクリックします。
+1. **AdatumSync** Microsoft Entra テナント ブレードの **[管理]** セクションで、**[ユーザー]** をクリックします。
 
 2. **[ユーザー | すべてのユーザー]** ブレードで、 **[+ 新しいユーザー]** 、 **[新しいユーザーの作成]** を順にクリックします。
 
@@ -180,17 +180,17 @@ lab:
 
 5. **[割り当て]** タブで、**[+ ロールの追加]** をクリックし、**[全体管理者]** を検索して選択した後、**[選択]** をクリックします。 **[Review + create]\(レビュー + 作成\)** をクリックし、 **[作成]** をクリックします。
    
-    >**注**:Azure AD Connect を導入するには、グローバル管理者の役割を持つ Azure AD ユーザーが必要です。
+    >**注**: Microsoft Entra Connect を導入するには、グローバル管理者ロールを持つ Azure AD ユーザーが必要です。
 
 6. InPrivate ブラウザー ウィンドウを開きます。
 
 7. **`https://portal.azure.com/`** にある Azure portal に移動し、**syncadmin** ユーザー アカウントを使用してサインインします。 プロンプトが表示されたら、このタスクで前に記録したパスワードを、複雑さの要件を満たす独自のパスワードに変更し、将来参照できるようにそれを記録します。 このパスワードは、後のタスクで入力を求められます。
 
-    >**注**:サインインするには、このタスクの前半で記録した Azure AD テナントの DNS ドメイン名を含む、**syncadmin** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、syncadmin@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Azure AD テナント名を表すプレースホルダーです。 
+    >**注**: サインインするには、このタスクの前半で記録した Microsoft Entra テナントの DNS ドメイン名を含む、**syncadmin** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、syncadmin@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Microsoft Entra テナント名を表すプレースホルダーです。 
 
 8. **syncadmin** としてサインアウトし、InPrivate ブラウザーの画面を閉じます。
 
-> **結果**: この演習を完了した結果、Azure AD テナントが作成され、新しい Azure AD テナントにカスタム DNS 名が追加され、グローバル管理者ロールを持つ Azure AD ユーザーが作成されます。
+> **結果**: この演習では、Microsoft Entra テナントを作成、新しい Microsoft Entra テナントにカスタム DNS 名を追加する方法を確認、グローバル管理者ロールを持つ Azure AD ユーザーを作成しました。
 
 
 ### 演習 3: Microsoft Entra ID フォレストを Microsoft Entra テナントと同期する
@@ -199,17 +199,17 @@ lab:
 
 この演習では、次のタスクを実行します。
 
-- タスク 1: ディレクトリ同期用に Microsoft Entra Doメイン Services を準備する
-- Microsoft Entra Connect をインストールする。
+- タスク 1: ディレクトリ同期用に Microsoft Entra Domain Service を準備する
+- タスク 2: Microsoft Entra Connect をインストールする
 - タスク 3:ディレクトリ同期を確認する
 
-#### タスク 1: ディレクトリ同期用に Microsoft Entra Doメイン Services を準備する
+#### タスク 1: ディレクトリ同期用に Microsoft Entra Domain Service を準備する
 
-このタスクでは、AD DS ドメイン コントローラーを実行している Azure VM に接続し、ディレクトリ同期アカウントを作成します。 
+このタスクでは、Microsoft Entra Domain Services ドメイン コントローラーを実行している Azure VM に接続し、ディレクトリ同期アカウントを作成します。 
 
    > このタスクを開始する前に、このラボの最初の演習で開始した Template deployment が正常に完了したことを確認します。
 
-1. Azure portal で、このラボの最初の演習で Azure VM をデプロイした Azure サブスクリプションに関連付けられている Azure AD テナントに **Directory + subscription** フィルターを設定します。
+1. Azure portal で、このラボの最初の演習で Azure VM をデプロイした Azure サブスクリプションに関連付けられている Microsoft Entra テナントに **ディレクトリ + サブスクリプション** フィルターを設定します。
 
 2. Azure portal の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、Azure portal ページの上部に「**Virtual Machines**」と入力し、**Enter** キーを押します。
 
@@ -222,7 +222,7 @@ lab:
    |設定|値|
    |---|---|
    |ユーザー名|**Student**|
-   |パスワード|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
+   |Password|**ラボ 02 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
 
     >**注**:リモート デスクトップ セッションと **サーバー マネージャー** が読み込まれるまで待ちます。  
 
@@ -230,13 +230,13 @@ lab:
 
     >**注**:**[ロード バランサーのパブリック IP アドレス]** が [RDP] ブレードの **[IP アドレス]** ドロップダウンで利用できない場合は、Azure portal で **[パブリック IP アドレス]** を検索し、**[adPublicIP]** を選んでその IP アドレスをメモします。 [スタート] ボタンをクリックし、「**MSTSC**」と入力し、**Enter** キーを押して、リモート デスクトップ クライアントを起動します。 **[コンピューター:]** テキスト ボックスにロード バランサーのパブリック IP アドレスを入力し、**[接続]** をクリックします。
 
-6. **サーバー マネージャー** で、**[ツール]** をクリックし、ドロップダウン メニューの **[Active Directory 管理センター]** をクリックします。
+6. **サーバー マネージャー**で **[ツール]** をクリックし、ドロップダウン メニューで **[Microsoft Entra ID 管理センター]** を選択します。
 
-7. **Active Directory 管理センター**で、 **[adatum (ローカル)]** をクリックし、 **[タスク]** ペインで、ドメイン名 **[adatum (ローカル)]** の下にある **[新規作成]** をクリックして、カスケード メニューで **[組織単位]** をクリックします。
+7. **Microsoft Entra 管理センター**で、**[adatum (ローカル)]** をクリックし、**[タスク]** ウィンドウでドメイン名 **[adatum (ローカル)]** の下にある **[新規作成]** をクリックし、カスケード メニューで **[組織単位]** を選択します。
 
 8. **[組織単位の作成]** ウィンドウの **[名前]** テキスト ボックスに「**ToSync**」と入力し、**[OK]** をクリックします。
 
-9. 新しく作成された **ToSync** 組織単位をダブルクリックして、Active Directory 管理センター コンソールの詳細ペインにその内容が表示されるようにします。 
+9. 新しく作成した **ToSync** 組織単位をダブルクリックすると、その内容が Microsoft Entra ID 管理センター コンソールの詳細ウィンドウに表示されます。 
 
 10. **[タスク]** ペインの **[ToSync]** セクションで、**[新規作成]** をクリックし、カスケード メニューの **[ユーザー]** をクリックします。
 
@@ -247,50 +247,50 @@ lab:
     |[名前]|**aduser1**|
     |[ユーザー UPN ログオン]|**aduser1**|
     |[ユーザー SAM アカウント名ログオン]|**aduser1**|
-    |[パスワード] と [パスワードの確認入力]|**ラボ 04 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
+    |[パスワード] と [パスワードの確認入力]|**ラボ 02 > 演習 1 > タスク 1 > 手順 9 で作成した個人用パスワードを使用してください。**|
     |その他のパスワード オプション|**パスワードを無期限にする**|
 
 
-#### Microsoft Entra Connect をインストールする。
+#### タスク 2: Microsoft Entra Connect をインストールする
 
-このタスクでは、仮想マシンに AD Connect をインストールします。 
+このタスクでは、仮想マシンに Microsoft Entra Connect をインストールします。 
 
 1. **adVM** へのリモート デスクトップ セッション内で、Microsoft Edge を使って Azure portal ( **https://portal.azure.com** ) に移動し、前の演習で作成した **syncadmin** ユーザー アカウントを使ってサインインします。 プロンプトが表示されたら、前の演習で記録した完全なユーザー プリンシパル名とパスワードを指定します。
 
-2. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**Microsoft Sentinel**」と入力し、**Enter** キーを押します。
+2. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキストボックスに「**Microsoft Entra ID**」と入力し、**Enter** キーを押します。
 
-3. Azure portal の **[AdatumSync \| 概要]** ブレードで、左側のナビゲーション パネルの **[管理]** の下にある **[Azure AD Connect]** をクリックします。
+3. Azure portal の **[AdatumSync \| の概要]** ブレードで、左側のナビゲーション パネルの **[管理]** の下にある **[Microsoft Entra Connect]** をクリックします。
 
-4. **[AAD Connect \| 概要]** ブレードで、左側のナビゲーション パネルの **[Connect 同期]** をクリックした後、**[Azure AD Connect のダウンロード]** リンクをクリックします。 **[Microsoft Azure Active Directory Connect]** ダウンロード ページにリダイレクトされます。
+4. **[Microsoft Entra Connect \| はじめに]** ブレードで、左側のナビゲーション パネルの **[Connect 同期]** をクリックして、**[Microsoft Entra Connect のダウンロード]** リンクをクリックします。 **[Microsoft Entra Connect]** ダウンロード ページにリダイレクトされます。
 
-5. **[Microsoft Azure Active Directory Connect]** ダウンロード ページで、**[ダウンロード]** をクリックします。
+5. **[Microsoft Entra Connect]** ダウンロード ページで、**[ダウンロード]** をクリックします。
 
-6. メッセージが表示されたら、**[実行]** をクリックして、**Microsoft Azure Active Directory Connect** ウィザードを開始します。
+6. メッセージが表示されたら、**[実行]** をクリックして、**Microsoft Entra Connect** ウィザードを開始します。
 
-7. **Microsoft Azure Active Directory Connect** ウィザードの **[Azure AD Connect へようこそ]** ページで、**[ライセンス条項とプライバシーに関する通知に同意する]** チェック ボックスをオンにし、**[続行]** をクリックします。
+7. **Microsoft Entra Connect** ウィザードの **[Microsoft Entra Connect へようこそ]** ページで、**[ライセンス条項とプライバシーに関する通知に同意する]** チェック ボックスをオンにし、**[続行]** をクリックします。
 
-8. **Microsoft Azure Active Directory Connect** ウィザードの **[簡単設定]** ページで、**[カスタマイズ]** オプションをクリックします。
+8. **Microsoft Entra Connect** ウィザードの **[簡単設定]** ページで、**[カスタマイズ]** オプションをクリックします。
 
 9. **[必須コンポーネントのインストール]** ページで、オプションの構成オプションをすべて解除したままにして、**[インストール]** をクリックします。
 
 10. **[ユーザー サインイン]** ページで、**[パスワード ハッシュ同期]** のみが有効になっていることを確認し、**[次へ]** をクリックします。
 
-11. **[Azure AD に接続]** ページで、前の演習で作成した **syncadmin** ユーザー アカウントの資格情報を使用して認証し、**[次へ]** をクリックします。 
+11. **[Microsoft Entra ID に接続]** ページで、前の演習で作成した **syncadmin** ユーザー アカウントの資格情報を使用して認証し、**[次へ]** をクリックします。 
 
 12. **[ディレクトリの接続]** ページで、**adatum.com** フォレスト エントリの右側にある **[ディレクトリの追加]** ボタンをクリックします。
 
-13. **[AD フォレスト アカウント]** ウィンドウで、**[新しい AD アカウントを作成]** オプションが選択されていることを確認し、次の資格情報を指定して、**[OK]** をクリックします。
+13. **[AD フォレスト アカウント]** ウィンドウで、**[新しい Microsoft Entra ID アカウントを作成]** オプションが選択されていることを確認し、次の資格情報を指定して、**[OK]** をクリックします。
 
     |設定|値|
     |---|---|
     |[ユーザー名]|**ADATUM\\Student**|
-    |パスワード|**ラボ 06 > 演習 1 > タスク 2 で作成した個人用パスワードを使用してください**|
+    |Password|**ラボ 06 > 演習 1 > タスク 2 で作成した個人用パスワードを使用してください**|
 
 14. **[ディレクトリの接続]** ページに戻り、**adatum.com** エントリが構成されたディレクトリとして表示されていることを確認し、**[次へ]** をクリックします。
 
-15. **[Azure AD サインインの構成]** ページで、**UPN サフィックスが検証済みのドメイン名と一致しない場合は、ユーザーがオンプレミスの資格情報を使用して Azure AD にサインインできないことを示す**警告を確認し、**[一部の UPN サフィックスが確認済みドメインに一致していなくても続行する]** チェック ボックスをオンにし、**[次へ]** をクリックします。
+15. **[Microsoft Entra ID サインイン情報の構成]** ページで、**UPN サフィックスが検証済みのドメイン名と一致しない場合、ユーザーがオンプレミスの資格情報を使用して Microsoft Entra ID にサインインできないことを示す**警告を確認し、**[一部の UPN サフィックスが確認済みドメインと一致していなくても続行する]** のチェックボックスをオンにし、**[次へ]** をクリックします。
 
-    >**注**:前述したように、カスタムの Azure AD DNS ドメイン **adatum.com** を確認できなかったため、これが予想されます。
+    >**注**: 前述したように、カスタムの Microsoft Entra ID ドメイン **adatum.com** を確認できなかったため、これは想定内です。
 
 16. **[ドメインと OU のフィルタリング]** ページで、**[選択したドメインと OU の同期]** オプションをクリックし、ドメイン名 **adatum.com** の横にあるチェックボックスをクリアします。 クリックして **adatum.com** を展開し、**ToSync** OU の横にあるチェックボックスのみを選択してから、**[次へ]** をクリックします。
 
@@ -304,7 +304,7 @@ lab:
 
     >**注**:インストールにはおよそ 2 分かかります。
 
-21. **[構成が完了しました]** ページの情報を確認し、**[終了]** をクリックして **[Microsoft Azure Active Directory Connect]** ウィンドウを閉じます。
+21. **[構成完了]** ページの情報を確認し、**[終了]** をクリックして **[Microsoft Entra Connect]** ウィンドウを閉じます。
 
 
 #### タスク 3:ディレクトリ同期を確認する
@@ -321,13 +321,13 @@ lab:
 
 4. **[aduser1]** ブレードの **[ジョブ情報]** セクションで、**[部署]** 属性が設定されていないことを確認します。
 
-5. **adVM** へのリモート デスクトップ セッション内で、**Active Directory 管理センター**に切り替え、**ToSync** OU のオブジェクトの一覧内の **[aduser1]** エントリを選択し、**[タスク]** ペインの **[aduser1]** セクションで、**[プロパティ]** を選択します。
+5. **adVM** へのリモート デスクトップ セッション内で、**[Microsoft Entra 管理センター]** に切り替え、**ToSync** OU のオブジェクトの一覧内の **[aduser1]** エントリを選択し、**[タスク]** ウインドウの **[aduser1]** セクションで、**[プロパティ]** を選択します。
 
 6. **[aduser1]** ウィンドウの **[組織]** セクションの **[部署]** テキスト ボックスに「**売上**」と入力し、**[OK]** をクリックします。
 
 7. **adVM ** へのリモート デスクトップ セッション内で、**Windows PowerShell** を起動します。
 
-8. **[管理者:Windows PowerShell]** コンソールから、次を実行して、Azure AD Connect の差分同期を開始します。
+8. **[管理者: Windows PowerShell]** コンソールから、次を実行して、Microsoft Entra Connect の差分同期を開始します。
 
     ```powershell
     Import-Module -Name 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'
@@ -339,12 +339,12 @@ lab:
 
     >**注**:**[部署]** 属性が設定されていないままの場合は、最大 3 分待ってからページを再度更新する必要がある場合があります。
 
-> **Result**:この演習を完了したら、ディレクトリ同期用の AD DS を準備し、Azure AD Connect をインストールし、ディレクトリ同期を検証しました。
+> **結果**: この演習を完了すると、Microsoft Entra Domain Services がディレクトリ同期用に準備され、Microsoft Entra Connect がインストールされ、ディレクトリ同期が確認されます。
 
 
 **リソースのクリーンアップ**
 
->**注**: Microsoft Entra ID 同期を無効にすることから始めます
+>**注**: 最初に、Microsoft Entra ID 同期を無効にします
 
 1. **adVM** へのリモート デスクトップ セッション内で、管理者として Windows PowerShell を起動します。
 
@@ -356,13 +356,13 @@ lab:
     Install-Module MsOnline -Force
     ```
 
-3. Windows PowerShell コンソールから、次のコマンドを実行して AdatumSync Azure AD テナントに接続します (メッセージが表示されたら、**syncadmin** の資格情報でサインインします)。
+3. Windows PowerShell コンソールから、次のコマンドを実行して AdatumSync Microsoft Entra テナントに接続します (メッセージが表示されたら、**syncadmin** の資格情報でサインインします)。
 
     ```powershell
     Connect-MsolService
     ```
 
-4. Windows PowerShell コンソールから、次のコマンドを実行して Azure AD Connect の同期を無効にします。
+4. Windows PowerShell コンソールから、次のコマンドを実行して Microsoft Entra Connect の同期を無効にします:
 
     ```powershell
     Set-MsolDirSyncEnabled -EnableDirSync $false -Force
@@ -378,7 +378,7 @@ lab:
     >**注**:次に、Azure リソースを削除します
 6. リモート デスクトップ セッションを終了します。
 
-7. Azure portal で、**Directory + Subscription** フィルターを、**adVM** Azure VM をデプロイした Azure サブスクリプションに関連付けられている Azure AD テナントに設定します。
+7. Azure portal で、**adVM** Azure VM をデプロイした Azure サブスクリプションに関連付けられている Microsoft Entra テナントに対し、**ディレクトリ + サブスクリプション** フィルターを設定します。
 
 8. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 
 
@@ -395,13 +395,13 @@ lab:
     
     >**注 2**:テナントの削除は非常に難しいプロセスであるため、誤ってまたは悪意を持って削除されることはありません。  つまり、このラボの一部としてテナントを削除しても、うまくいかないことがよくあります。  ここにはテナントを削除する手順がありますが、このラボを完了したと考える必要はありません。 現実の世界でテナントを削除する必要がある場合は、DOCS.Microsoft.com に役立つ記事があります。
 
-12. Azure portal に戻り、**Directory + Subscription** フィルターを使用して **AdatumSync** Azure Active Directory テナントに切り替えます。
+12. Azure portal に戻り、**ディレクトリ + サブスクリプション** フィルターを使用して **AdatumSync** Microsoft Entra テナントに切り替えます。
 
 13. Azure portal で、 **[ユーザー - すべてのユーザー]** ブレードに移動し、**syncadmin** ユーザー アカウントを表すエントリをクリックし、 **[syncadmin - プロファイル]** ブレードで **[削除]** をクリックして、確認を求められたら、 **[はい]** をクリックします。
 
 14. 同じ一連の手順を繰り返して、**aduser1** ユーザー アカウントと**オンプレミスのディレクトリ同期サービス アカウント**を削除します。
 
-15. Azure AD テナントの **[AdatumSync - 概要]** ブレードに移動し、 **[テナントの管理]** をクリックして **AdatumSync** ディレクトリのチェック ボックスをオンにし、 **[削除]** をクリックして、 **[テナント 'AdatumSync' の削除]** ブレードで **[Azure リソースを削除する権限を取得]** のリンクをクリックし、Azure Active Directory の **[プロパティ]** ブレードで **[Azure リソースのアクセス管理]** を **[はい]** に設定して、 **[保存]** をクリックします。
+15. Microsoft Entra テナントの **[AdatumSync - 概要]** ブレードに移動し、**[テナントの管理]** をクリックして **AdatumSync** ディレクトリのチェック ボックスをオンにし、**[削除]** をクリックします。**[テナント 'AdatumSync' の削除]** ブレードで **[Azure リソースを削除する権限を取得]** のリンクをクリックし、Microsoft Entra の **[プロパティ]** ブレードで **[Azure リソースのアクセス管理]** を **[はい]** に設定して **[保存]** をクリックします。
 
     >**注**:削除中に **[すべてのユーザーを削除する]** のような警告記号が表示された場合は、作成したユーザーの削除に進みます。または、警告記号に **[Delete LinkedIn applications](LinkedIn アプリケーションの削除)** と表示された場合は、警告メッセージをクリックして LinkedIn アプリケーションの削除を確認します。テナントの削除を完了するには、すべての警告に対処する必要があります。
 
