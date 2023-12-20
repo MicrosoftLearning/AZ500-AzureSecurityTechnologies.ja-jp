@@ -29,7 +29,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 ## ロールベースのアクセス制御アーキテクチャの図
 
-![image](https://user-images.githubusercontent.com/91347931/157751243-5aa6e521-9bc1-40af-839b-4fd9927479d7.png)
+![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
 
 ## 手順
 
@@ -48,7 +48,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 1. ブラウザー セッションを開始し、Azure portal **`https://portal.azure.com/`** にサインインします。
 
-    >**注**:このラボで使用している Azure サブスクリプションの所有者または共同作成者のロールと、そのサブスクリプションに関連付けられている Azure AD テナントのグローバル管理者の役割を持つアカウントを使用して、Azure portal にサインインします。
+    >**注**: このラボで使用する Azure サブスクリプションの所有者または共同作成者のロールと、そのサブスクリプションに関連付けられている Microsoft Entra テナントのグローバル管理者のロールを持つアカウントを使用して、Azure portal にサインインします。
 
 2. Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**Microsoft Entra ID**」と入力し、**Enter** キーを押します。
 
@@ -129,7 +129,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     Connect-AzureAD
     ```
       
-6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Azure AD テナントの名前を識別します。 
+6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Microsoft Entra テナントの名前を識別します。 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
@@ -141,7 +141,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Azure AD ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
+8. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Microsoft Entra ID ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
 
     ```powershell
     Get-AzureADUser 
@@ -157,7 +157,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     New-AzureADGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
     ```
 
-2. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Azure AD テナント内のグループを一覧表示します (一覧には、上級管理者グループとジュニア管理者グループが含まれている必要があります)。
+2. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内のグループを一覧表示します (一覧には、Senior Admins と Junior Admins のグループが含まれている必要があります)。
 
     ```powershell
     Get-AzureADGroup
@@ -199,7 +199,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 1. Cloud Shell ペインの左上隅にあるドロップダウン メニューで、**[Bash]** を選択し、プロンプトが表示されたら、**[確認]** をクリックします。 
 
-2. Cloud Shell ペイン内の Bash セッションで次を実行して、Azure AD テナントの名前を確認します。
+2. Cloud Shell ペイン内の Bash セッションで次を実行して、Microsoft Entra テナントの名前を特定します。
 
     ```cli
     DOMAINNAME=$(az ad signed-in-user show --query 'userPrincipalName' | cut -d '@' -f 2 | sed 's/\"//')
@@ -211,7 +211,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
     az ad user create --display-name "Dylan Williams" --password "Pa55w.rd1234" --user-principal-name Dylan@$DOMAINNAME
     ```
       
-4. Cloud Shell ペイン内の Bash セッションで、次を実行して Azure AD ユーザー アカウントを一覧表示します (一覧には、Joseph、Isabel、および Dylan のユーザー アカウントが含まれます)
+4. Cloud Shell ペイン内の Bash セッションで、次を実行して  Microsoft Entra ID ユーザー アカウントを一覧表示します (一覧には、Joseph、Isabel、および Dylan のユーザー アカウントが含まれます)
     
     ```cli
     az ad user list --output table
