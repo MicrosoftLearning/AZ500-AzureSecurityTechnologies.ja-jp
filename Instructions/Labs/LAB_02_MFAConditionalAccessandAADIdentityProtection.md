@@ -1,10 +1,10 @@
 ---
 lab:
-  title: 04 - MFA および条件付きアクセス
+  title: 04 - MFA と条件付きアクセス
   module: Module 01 - Manage Identity and Access
 ---
 
-# ラボ 04: MFA および条件付きアクセス
+# ラボ 02: MFA と条件付きアクセス
 # 受講生用ラボ マニュアル
 
 ## ラボのシナリオ

@@ -1,24 +1,24 @@
 ---
 lab:
-  title: 05 - Azure AD Privileged Identity Management
+  title: 05 - Microsoft Entra Privileged Identity Management
   module: Module 01 - Manage Identity and Access
 ---
 
-# ラボ 05:Azure AD Privileged Identity Management
+# ラボ 05: Microsoft Entra Privileged Identity Management
 # 受講生用ラボ マニュアル
 
 ## ラボのシナリオ
 
-Azure Privileged Identity Management (PIM) を使用してジャストインタイム管理を有効にし、特権操作を実行できるユーザー数を制御する概念実証を作成するように依頼されました。 具体的な要件は次のとおりです。
+Microsoft Entra Privileged Identity Management (PIM) を使用してジャストインタイム管理を有効にし、特権操作を実行できるユーザー数を制御する概念実証を作成するように依頼されました。 具体的な要件は次のとおりです。
 
-- aaduser2 Azure AD ユーザーのセキュリティ管理者の役割への永続的な割り当てを作成します。 
-- aaduser2 Azure AD ユーザーが課金管理者の役割とグローバル閲覧者の役割の対象となるように構成します。
-- Aaduser3 Azure AD ユーザーの承認を要求するようにグローバル閲覧者の役割のアクティブ化を構成します。
+- aaduser2 Microsoft Entra ID ユーザーのセキュリティ管理者のロールへの永続的な割り当てを作成します。 
+- aaduser2 Microsoft Entra ID ユーザーが課金管理者の役割とグローバル閲覧者のロールの対象となるように構成します。
+- aaduser3 Microsoft Entra ID ユーザーの承認を要求するように、グローバル閲覧者ロールのアクティブ化を設定します。
 - グローバル閲覧者の役割のアクセス レビューを構成し、監査機能を確認します。
 
 > このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-> 先に進む前に、「ラボ 04: MFA、条件付きアクセス、および AAD ID 保護」を完了していることをご確認ください。 Azure AD テナント、AdatumLab500-04、および aaduser1、aaduser2、および aaduser3 ユーザー アカウントが必要です。
+> 進む前に、「ラボ 04: MFA、条件付きアクセス、Microsoft Entra Identity Protection」を完了していることを確認してください。 Microsoft Entra テナント、AdatumLab500-04、および aaduser1、aaduser2、および aaduser3 ユーザー アカウントが必要です。
 
 ## ラボの目的
 
@@ -28,9 +28,9 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 - 演習 2:承認の有無にかかわらず、PIM ロールをアクティブ化します。
 - 演習 3:アクセス レビューを作成し、PIM 監査機能を確認します。
 
-## Azure AD Privileged Identity Management の図
+## Microsoft Entra Privileged Identity Management の図
 
-![image](https://user-images.githubusercontent.com/91347931/157522920-264ce57e-5c55-4a9d-8f35-e046e1a1e219.png)
+![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/aef34a22-8ebd-4015-a04a-7ac3c357b862)
 
 ## Instructions
 
@@ -46,17 +46,17 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 #### タスク 1:ユーザーをロールの対象にする
 
-このタスクでは、ユーザーに Azure AD ディレクトリ ロールの資格を与えます。
+このタスクでは、ユーザーを Microsoft Entra ID ロールの対象にします。
 
 1. **`https://portal.azure.com/`** で Azure portal にサインインします。
 
-    >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 グローバル管理者ロールを持つユーザーとしてサインインしていることを確認します。
+    >**注**: **AdatumLab500-04** Microsoft Entra テナントにサインインしていることを確認します。 **ディレクトリ + サブスクリプション** フィルターを使用して、Microsoft Entra テナントを切り替えることができます。 グローバル管理者ロールを持つユーザーとしてサインインしていることを確認します。
     
     >**注**:それでも AdatumLab500-04 エントリが表示されない場合は、[ディレクトリの切り替え] リンクをクリックし、AdatumLab500-04 行を選択して、[切り替え] ボタンをクリックします。
 
 2. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで「**Azure AD Privileged Identity Management**」と入力し、**Enter** キーを押します。
 
-3. **[Privileged Identity Management]** ブレードの **[管理]** セクションで、 **[Azure AD ロール]** をクリックします。
+3. **[Privileged Identity Management]** ブレードの **[管理]** セクションで、**[Microsoft Entra ID ロール]** をクリックします。
 
 4. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[ロール]** をクリックします。
 
@@ -80,7 +80,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 #### タスク 2:有資格メンバーをアクティブ化して追加する承認を要求するようにロールを構成する
 
-1. Azure portal で、 **[Privileged Identity Management]** ブレードに戻り、 **[Azure AD ロール]** をクリックします。
+1. Azure portal で、**[Privileged Identity Management]** ブレードに戻り、**[Microsoft Entra ID ロール]** をクリックします。
 
 2. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[ロール]** をクリックします。
 
@@ -118,7 +118,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
  
 #### タスク 3:ユーザーに永続的なロールを割り当てます。
 
-1. Azure portal で、 **[Privileged Identity Management]** ブレードに戻り、 **[Azure AD ロール]** をクリックします。
+1. Azure portal で、**[Privileged Identity Management]** ブレードに戻り、**[Microsoft Entra ID ロール]** をクリックします。
 
 2. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[ロール]** をクリックします。
 
@@ -153,7 +153,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 2. InPrivate ブラウザー ウィンドウで、**`https://portal.azure.com/`** にある Azure portal に移動し、**aaduser2** ユーザー アカウントを使用してサインインします。
 
-    >**注**:サインインするには、このラボで前に記録した Azure AD テナントの DNS ドメイン名を含む、**aaduser2** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、aaduser2@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Azure AD テナント名を表すプレースホルダーです。 
+    >**注**: サインインするには、このラボで前に記録した Microsoft Entra ID テナントの DNS ドメイン名を含む、**aaduser1** ユーザー アカウントの完全修飾名を指定する必要があります。 このユーザー名の形式は、aaduser1@`<your_tenant_name>`.onmicrosoft.com です。`<your_tenant_name>` は、一意の Microsoft Entra テナント名を表すプレースホルダーです。 
 
 3. Azure portal で、Azure portal ページの上部にある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで「**Azure AD Privileged Identity Management**」と入力し、**Enter** キーを押します。
 
@@ -173,7 +173,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 9. **[Privileged Identity Management]** ブレードに戻り、 **[タスク]** セクションで **[自分のロール]** をクリックします。
 
-10. **[自分のロール \| Azure AD ロール]** ブレードで、**[アクティブな割り当て]** タブに切り替えます。**[課金管理者ロール]** が **[アクティブ化]** になっていることに注目してください。
+10. **[自分のロール \| Microsoft Entra ID ロール]** ブレードで、**[アクティブな割り当て]** タブに切り替えます。**[課金管理者]** ロールが **[アクティブ化]** になっていることに注目してください。
 
     >**注**:ロールがアクティブ化されると、 **[終了時刻]** (有効期間) の下の制限時間に達した時点で、自動的に非アクティブ化されます。
 
@@ -192,7 +192,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 2. **[Privileged Identity Management \| クイック スタート]** ブレードの **[タスク]** セクションで、 **[自分のロール]** をクリックします。
 
-3. **[自分のロール \| Azure AD ロール]** ブレードの **[資格のある割り当て]** の一覧で、 **[グローバル閲覧者]** ロールが表示された行で、 **[アクティブ化]** をクリックします。 
+3. **[自分のロール \| Microsoft Entra ID ロール]** ブレードの **[資格のある割り当て]** の一覧で、**[グローバル閲覧者]** ロールが表示されている行で、**[アクティブ化]** をクリックします。 
 
 4. **[アクティブ化 - グローバル閲覧者]** ブレードの **[理由]** テキスト ボックスに、アクティブ化の理由を示すテキストを入力し、**[アクティブ化]** をクリックします。
 
@@ -200,7 +200,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:特権ロール管理者として、いつでも要求を確認および取り消すことができます。 
 
-6. **[自分のロール \| Azure AD ロール]** ブレードで、 **[セキュリティ管理者]** のロールを見つけて、 **[アクティブ化]** をクリックします。 
+6. **[自分のロール \| Microsoft Entra ID ロール]** ブレードで、 **[セキュリティ管理者]** のロールを見つけて、**[アクティブ化]** をクリックします。 
 
 7. 必要な場合は、警告 **[追加検証が必要です。クリックして続行します]** をクリックし、指示に従って、本人確認を行います。
 
@@ -210,7 +210,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
     >**注**:自動承認プロセスが完了するはずです。
 
-9. **[自分のロール \| Azure AD ロール]** ブレードに戻り、 **[アクティブな割り当て]** タブをクリックすると、**アクティブな割り当て**の一覧には**セキュリティ管理者**が含まれますが、**グローバル閲覧者**ロールは含まれていないことがわかります。
+9. **[自分のロール \| Microsoft Entra ID ロール]** ブレードに戻り、**[アクティブな割り当て]** タブをクリックすると、**アクティブな割り当て**の一覧には**セキュリティ管理者**が含まれますが、**グローバル閲覧者**ロールは含まれていないことがわかります。
 
     >**注**:これでグローバル閲覧者ロールを承認します。
 
@@ -218,13 +218,13 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 11. InPrivate ブラウザーで、**`https://portal.azure.com/`** にある Azure portal に **aaduser3** としてサインインします。
 
-    >**注**:いずれかのユーザー アカウントを使用した認証で問題が発生した場合は、自身のユーザー アカウントを使用してAzure AD テナントにサインインし、パスワードをリセットするか、サインイン オプションを再構成できます。
+    >**注**: いずれかのユーザー アカウントを使用した認証で問題が発生した場合は、自身のユーザー アカウントを使用して Microsoft Entra テナントにサインインし、パスワードをリセットするか、サインイン オプションを再設定できます。
 
-12. Azure portal で、**Azure AD Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Azure AD Privileged Identity Management」と入力し、Enter キーを押します)。
+12. Azure portal で、**Microsoft Entra Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Microsoft Entra Privileged Identity Management」と入力し、Enter キーを押します)。
 
 13. **[Privileged Identity Management \| クイック スタート]** ブレードの **[タスク]** セクションで、 **[申請の承認]** をクリックします。
 
-14. **[申請の承認 \| Azure AD ロール]** ブレードの **[ロールのアクティブ化の要求]** セクションで、**aaduser2** による **[グローバル閲覧者]** ロールへのロールのアクティブ化要求を表すエントリのチェックボックスをオンにします。
+14. **[申請の承認 \| Microsoft Entra ID ロール]** ブレードの **[ロールのアクティブ化の要求]** セクションで、**aaduser2** による **[グローバル閲覧者]** ロールへのロールのアクティブ化要求を表すエントリのチェックボックスをオンにします。
 
 15. **[Approve]\(承認\)** をクリックします。 **[要求の承認]** ブレードの **[妥当性]** テキストボックスに、有効化の理由を入力し、開始時刻と終了時刻をメモして、**[確認]** をクリックします。 
 
@@ -234,11 +234,11 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 17. InPrivate ブラウザーで、**`https://portal.azure.com/`** にある Azure portal に **aaduser2** としてサインインします
 
-18. Azure portal で、**Azure AD Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Azure AD Privileged Identity Management」と入力し、Enter キーを押します)。
+18. Azure portal で、**Microsoft Entra Privileged Identity Management** に移動します (Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスで「Microsoft Entra Privileged Identity Management」と入力し、Enter キーを押します)。
 
 19. **[Privileged Identity Management \| クイック スタート]** ブレードの **[タスク]** セクションで、 **[自分のロール]** をクリックします。
 
-20. **[自分のロール \| Azure AD ロール]** ブレードで、 **[アクティブな割り当て]** タブをクリックし、グローバル閲覧者ロールがアクティブになっていることを確認します。
+20. **[自分のロール \| Microsoft Entra ID ロール]** ブレードで、**[アクティブな割り当て]** タブをクリックし、グローバル閲覧者ロールがアクティブになっていることを確認します。
 
     >**注**:更新されたアクティブな割り当ての一覧を表示するには、ページを更新する必要がある場合があります。
 
@@ -252,16 +252,16 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 この演習では、次のタスクを実行します。
 
-- タスク 1:PIM で Azure AD ディレクトリロールのセキュリティアラートを構成する
+- タスク 1: PIM の Microsoft Entra ID ロールのセキュリティ アラートを設定する
 - タスク 2:PIM アラート、サマリ情報、詳細な監査情報の確認
 
-#### タスク 1:PIM で Azure AD ディレクトリロールのセキュリティアラートを構成する
+#### タスク 1: PIM の Microsoft Entra ID ロールのセキュリティ アラートを設定する
 
 このタスクでは、"古くなった" ロールの割り当てに関連するリスクを軽減します。 この作業を行うには、PIM アクセス レビューを作成して、割り当てられたロールが有効であることを確認します。 具体的には、グローバル閲覧者ロールを確認します。 
 
 1. ご自分のアカウントを使用して Azure portal **`https://portal.azure.com/`** にサインインします。
 
-    >**注**:**AdatumLab500-04** Azure AD テナントにサインインしていることを確認します。 **Directory + subscription** フィルターを使用して、Azure AD テナント間で切り替えることができます。 グローバル管理者ロールを持つユーザーとしてサインインしていることを確認します。
+    >**注**: **AdatumLab500-04** Microsoft Entra テナントにサインインしていることを確認します。 **ディレクトリ + サブスクリプション** フィルターを使用して、Microsoft Entra テナントを切り替えることができます。 グローバル管理者ロールを持つユーザーとしてサインインしていることを確認します。
     
     >**注**:それでも AdatumLab500-04 エントリが表示されない場合は、[ディレクトリの切り替え] リンクをクリックし、AdatumLab500-04 行を選択して、[切り替え] ボタンをクリックします。
 
@@ -269,7 +269,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 3. **[Privileged Identity Management]** ブレードに移動します。 
 
-4. **[Privileged Identity Management \| クイック スタート]** ブレードの **[管理]** セクションで、 **[Azure AD ロール]** をクリックします。
+4. **[Privileged Identity Management \| クイック スタート]** ブレードの **[管理]** セクションで、 **[Microsoft Entra ロール]** をクリックします。
 
 5. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[アクセス レビュー]** をクリックします。
 
@@ -307,7 +307,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 16. **[理由]** テキスト ボックスに承認の根拠を入力し、**[承認]** をクリックして現在のロール メンバーシップを維持するか、**[拒否]** をクリックして、承認を取り消します。 
 
-17. **[Privileged Identity Management]** ブレードに戻り、 **[管理]** セクションで **[Azure AD ロール]** をクリックします。
+17. **[Privileged Identity Management]** ブレードに戻り、**[管理]** セクションで **[Microsoft Entra ID ロール]** をクリックします。
 
 18. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[アクセス レビュー]** をクリックします。
 
@@ -317,7 +317,7 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 このタスクでは、PIM アラート、サマリー情報、および詳細な監査情報を確認します。 
 
-1. **[Privileged Identity Management]** ブレードに戻り、 **[管理]** セクションで **[Azure AD ロール]** をクリックします。
+1. **[Privileged Identity Management]** ブレードに戻り、**[管理]** セクションで **[Microsoft Entra ID ロール]** をクリックします。
 
 2. **[AdatumLab500-04 \| クイック スタート]** ブレードの **[管理]** セクションで、 **[アラート]** をクリックし、 **[設定]** をクリックします。
 
@@ -339,9 +339,9 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 > 新規に作成し、使用しなくなったすべての Azure リソースを削除することを忘れないでください。 使用していないリソースを削除することで、予期しないコストが発生しなくなります。 
 
-1. Azure portal で、**Directory + Subscription** フィルターを、**az500-04-vm1** Azure VM をデプロイした Azure サブスクリプションに関連付けられている Azure AD テナントに設定します。
+1. Azure portal で、**ディレクトリ + サブスクリプション** フィルターを、**az500-04-vm1** Azure VM をデプロイした Azure サブスクリプションに関連付けられている Microsoft Entra テナントに設定します。
 
-    >**注**: メインの Azure AD テナント エントリが表示されない場合は、[ディレクトリの切り替え] リンクをクリックし、メインのテナントの行を選択して、[切り替え] ボタンをクリックします。
+    >**注**: メインの Microsoft Entra テナント エントリが表示されない場合は、[ディレクトリの切り替え] リンクをクリックし、メインのテナントの行を選択して、[切り替え] ボタンをクリックします。
 
 2. Azure portal から、Azure portal の右上にあるアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** をクリックします。
 
@@ -355,26 +355,26 @@ Azure Privileged Identity Management (PIM) を使用してジャストインタ�
 
 5. **[Cloud Shell]** ペインを閉じます。 
 
-6. Azure portal に戻り、**Directory + Subscription** フィルターを使用して **AdatumLab500-04** Azure Active Directory テナントに切り替えます。
+6. Azure portal に戻り、**ディレクトリ + サブスクリプション** フィルターを使用して **AdatumLab500-04** Microsoft Entra テナントに切り替えます。
 
-7. **[AdatumLab500-04 Azure Active Directory]** ブレードに戻り、 **[管理]** セクションで、 **[ライセンス]** をクリックします。
+7. **[AdatumLab500-04  Microsoft Entra]** ブレードに戻り、**[管理]** セクションで、**[ライセンス]** をクリックします。
 
-8. **[ライセンス** | 概要] ブレードで、 **[すべての製品]** をクリックし、 **[Azure Active Directory Premium P2]** のチェックボックスをオンにし、クリックして開きます。
+8. **[ライセンス** | 概要] ブレードで、**[すべての製品]** をクリックし、**[Microsoft Entra ID P2]** のチェックボックスをオンにし、クリックして開きます。
 
-    >**注**: ラボ 4 - 演習 2 - タスク 4 の「**Azure AD ユーザーに Azure AD Premium P2 ライセンスを割り当てる**」では、Premium ライセンスをユーザー **aaduser1、aaduser2、and aaduser3** に割り当てました。これらのライセンスはロール割り当て済みユーザーから削除する必要があります
+    >**注**: ラボ 4 - 演習 2 - タスク 4 の「**Microsoft Entra ID ユーザーに Microsoft Entra ID Premium P2 ライセンスを割り当てる**」では、Premium ライセンスをユーザー **aaduser1、aaduser2、and aaduser3** に割り当てる必要がありました。割り当て済みユーザーからこれらのライセンスを必ず削除してください
 
-9. **[Azure Active Directory Premium P2 - ライセンス ユーザー]** ブレードで、 **[Azure Active Directory Premium P2]** ライセンスを割り当てたユーザー アカウントのチェックボックスをオンにします。 上部のペインから **[ライセンスの削除]** をクリックし、確認を求められたら **[はい]** を選択します。
+9. **[Microsoft Entra ID P2 - ライセンスユーザー]** ブレードで、**Microsoft Entra ID P2** ライセンスを割り当てたユーザー アカウントのチェックボックスを選択します。 上部のペインから **[ライセンスの削除]** をクリックし、確認を求められたら **[はい]** を選択します。
 
 10. Azure portal で、**[ユーザー - すべてのユーザー]** ブレードに移動し、**[aaduser1]** ユーザー アカウントを表すエントリをクリックします。**[aaduser1 - プロファイル]** ブレードで **[削除]** をクリックし、確認を求められたら、**[はい]** を選択します。
 
 11. 同じ手順を繰り返して、作成した残りのユーザー アカウントを削除します。
 
-12. Azure AD テナントの **[AdatumLab500-04 - 概要]** ブレードに移動し、 **[テナントの管理]** を選択した後、次の画面で、 **[AdatumLab500-04]** の横にあるチェックボックスをオンにして、 **[削除]** を選択します。 **[テナント 'AdatumLab500-04' の削除]** ブレードで、 **[Azure リソースを削除する権限を取得する]** リンクを選択し、Azure Active Directory の **[プロパティ]** ブレードで、 **[Azure リソースのアクセス管理]** を **[はい]** に設定し、 **[保存]** を選択します。
+12. Microsoft Entra テナントの **[AdatumLab500-04 - 概要]** ブレードに移動し、**[テナントの管理]** を選択した後、次の画面で **[AdatumLab500-04]** の横にあるチェックボックスを選んで **[削除]** を選択します。 **[テナント 'AdatumLab500-04' の削除]** ブレードで、**[Azure リソースを削除する権限を取得する]** リンクを選択し、Microsoft Entra ID の **[プロパティ]** ブレードで、**[Azure リソースのアクセス管理]** を **[はい]** に設定し、**[保存]** を選択します。
 
 13. Azure portal からサインアウトし、サインインし直します。 
 
 14. **[ディレクトリ 'AdatumLab500-04' の削除]** ブレードに戻り、**[削除]** をクリックします。
 
-    >**注**:まだテナントを削除できず、エラー "**ライセンス ベースのすべてのサブスクリプションを削除します**" がスローされる場合は、そのテナントにリンクされているサブスクリプションが原因であることがあります。 ここでは、**無料の Premium P2 ライセンス**が検証エラーをスローしているおそれがあります。 グローバル管理者 ID を使って、M365 管理者 >> **[お使いの製品]** および**ビジネス ストア** ポータルから Premium P2 ライセンスの試用版サブスクリプションを削除すると、この問題が解決されます。 テナントの削除にはさらに時間がかかることにも注意してください。 サブスクリプションの終了日を確認し、試用期間が終了したら、Azure Active Directory に再度アクセスし、テナントの削除を試みます。    
+    >**注**:まだテナントを削除できず、エラー "**ライセンス ベースのすべてのサブスクリプションを削除します**" がスローされる場合は、そのテナントにリンクされているサブスクリプションが原因であることがあります。 ここでは、**無料の P2 ライセンス**が検証エラーを投げている可能性があります。 グローバル管理者 ID を使用して、M365 管理者 >> **[お使いの製品]** と**ビジネス ストア**ポータルから P2 ライセンスの試用版サブスクリプションを削除すると、この問題が解決されます。 テナントの削除にはさらに時間がかかることにも注意してください。 サブスクリプションの終了日を確認し、試用期間が終了したら、Microsoft Entra ID に再度アクセスし、テナントの削除を試みます。    
 
 > このタスクに関する追加情報については、[https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto) を参照してください
