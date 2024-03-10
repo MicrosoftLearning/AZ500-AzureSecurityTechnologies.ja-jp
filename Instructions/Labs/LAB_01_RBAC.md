@@ -152,33 +152,41 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 このタスクでは、ジュニア管理者グループを作成し、PowerShell を使用してグループに Isabel Garcia のユーザー アカウントを追加します。
 
 1. Cloud Shell ペイン内の同じ PowerShell セッションで次を実行して、ジュニア管理者という名前の新しいセキュリティ グループを作成します。
+   ```powershell
+   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
+   ```
+   
+   ```powershell
+   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
+    New-MgGroupMemeber -GroupId $group.Id -DirectoryObjectId $user.Id  
+   ```
+
+   ```powershell
+    New-MgGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+    ```
+
+3. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内のグループを一覧表示します (一覧には、Senior Admins と Junior Admins のグループが含まれている必要があります)。
+
+    ```powershell
+    Get-MgGroup
+    ```
+
+4. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントへの参照を取得します。
+
+    ```powershell
+    $user = Get-MgUser -Filter "MailNickName eq 'Isabel'"
+    ```
+
+5. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Isabel のユーザー アカウントをジュニア管理者グループに追加します。
     
     ```powershell
-    New-AzureADGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+    New-MgGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins" 
     ```
 
-2. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内のグループを一覧表示します (一覧には、Senior Admins と Junior Admins のグループが含まれている必要があります)。
+6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、ジュニア管理者グループに Isabel のユーザー アカウントが含まれていることを確認します。
 
     ```powershell
-    Get-AzureADGroup
-    ```
-
-3. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントへの参照を取得します。
-
-    ```powershell
-    $user = Get-AzureADUser -Filter "MailNickName eq 'Isabel'"
-    ```
-
-4. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Isabel のユーザー アカウントをジュニア管理者グループに追加します。
-    
-    ```powershell
-    Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins" 
-    ```
-
-5. Cloud Shell ペイン内の PowerShell セッションで次を実行して、ジュニア管理者グループに Isabel のユーザー アカウントが含まれていることを確認します。
-
-    ```powershell
-    Get-AzADGroupMember -GroupDisplayName "Junior Admins"
+    Get-MgGroupMember -GroupDisplayName "Junior Admins"
     ```
 
 > 結果:PowerShell を使用してユーザーとグループ アカウントを作成し、ユーザー アカウントをグループ アカウントに追加しました。 
