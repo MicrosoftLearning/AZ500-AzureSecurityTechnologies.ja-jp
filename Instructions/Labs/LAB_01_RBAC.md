@@ -126,25 +126,25 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 5. Cloud Shell ペイン内の PowerShell セッションで、次を実行して Microsoft Entra ID に接続します。
 
     ```powershell
-    Connect-AzureAD
+    Connect-MgGraph
     ```
       
 6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Microsoft Entra テナントの名前を識別します。 
 
     ```powershell
-    $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
+    $domainName = ((Get-MgOrganization).VerifiedDomains)[0].Name
     ```
 
 7. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントを作成します。 
 
     ```powershell
-    New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
+    New-MgUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
 8. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Microsoft Entra ID ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
 
     ```powershell
-    Get-AzureADUser 
+    Get-MgUser 
     ```
 
 #### タスク 2:PowerShell を使用してジュニア管理者グループを作成し、Isabel Garcia のユーザー アカウントをグループに追加します。
