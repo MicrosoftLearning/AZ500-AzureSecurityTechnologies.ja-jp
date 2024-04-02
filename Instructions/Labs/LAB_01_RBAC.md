@@ -130,7 +130,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 5. Cloud Shell ペイン内の PowerShell セッションで、次を実行して Microsoft Entra ID に接続します。
 
     ```powershell
-    Connect-MgGraph -Scopes "User.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
+    Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "AuditLog.Read.All", "RoleManagement.Read.Directory"
     ```
       
 6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Microsoft Entra テナントの名前を識別します。 
@@ -155,46 +155,42 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 このタスクでは、ジュニア管理者グループを作成し、PowerShell を使用してグループに Isabel Garcia のユーザー アカウントを追加します。
 
-1. Cloud Shell ペイン内の同じ PowerShell セッションで次を実行して、ジュニア管理者という名前の新しいセキュリティ グループを作成します。
-   ```powershell
-   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
-   ```
+1. Cloud Shell ペイン内の同じ PowerShell セッションで次を実行して、Junior Admins という名前の**新しいセキュリティ グループを作成**します。
    
    ```powershell
-   $group = Get-MgGroup -Filter "DisplayName eq 'Junior Admins'"
-    New-MgGroupMemeber -GroupId $group.Id -DirectoryObjectId $user.Id  
+   New-MgGroup -DisplayName "Junior Admins" -MailEnabled:$false -SecurityEnabled:$true -MailNickName JuniorAdmins
+   ```
+   
+2. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内の**グループを一覧表示**します (一覧には、Senior Admins グループと Junior Admins グループが表示されます)。
+   
+   ```powershell
+   Get-MgGroup
    ```
 
+3. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントへの**参照を取得**します。
+
    ```powershell
-    New-MgGroup -DisplayName 'Junior Admins' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+   $user =Get-MgUser -Filter "MailNickName eq 'Isabel'"
+   ```
+
+4. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Junior Admins グループへの**参照を取得**します。
+   ```powershell
+   $targetGroup = Get-MgGroup -ConsistencyLevel eventual -Search '"DisplayName:Junior Admins"'
+   ```
+
+5. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Junior Admins グループに **Isabel のユーザー アカウントを追加**します。
+   
+   ```powershell
+    New-MgGroupMember -DirectoryObjectId $user.id -GroupId $targetGroup.id
     ```
-
-3. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内のグループを一覧表示します (一覧には、Senior Admins と Junior Admins のグループが含まれている必要があります)。
-
+   
+5. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Junior Admins グループに Isabel のユーザー アカウントが含まれていることを**確認**します。
+   
     ```powershell
-    Get-MgGroup
+    Get-MgGroupMember -GroupId $targetGroup.id
     ```
-
-4. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントへの参照を取得します。
-
-    ```powershell
-    $user = Get-MgUser -Filter "MailNickName eq 'Isabel'"
-    ```
-
-5. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Isabel のユーザー アカウントをジュニア管理者グループに追加します。
-    
-    ```powershell
-    New-MgGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins" 
-    ```
-
-6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、ジュニア管理者グループに Isabel のユーザー アカウントが含まれていることを確認します。
-
-    ```powershell
-    Get-MgGroupMember -GroupDisplayName "Junior Admins"
-    ```
-
+ 
 > 結果:PowerShell を使用してユーザーとグループ アカウントを作成し、ユーザー アカウントをグループ アカウントに追加しました。 
-
 
 ### 演習 3:Dylan Williams のユーザー アカウントをメンバーとして含むサービスデスクグループを作成します。
 
