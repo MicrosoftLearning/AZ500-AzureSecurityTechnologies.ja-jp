@@ -105,11 +105,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 3. [Cloud Shell] ペイン内の PowerShell セッションで次のように実行して、リソース グループ **AZ500LAB10** に Azure Key Vault を作成します。 （タスク 1 でラボのリソース グループに別の名前を使用した場合は、このタスクでもその名前を使用してください）。 Key Vault 名は一意である必要があります。 選択した名前を覚えておいてください。 このラボ全体で必要になります。  
 
     ```powershell
-    $kvName = 'az500kv' + $(Get-Random)
-
-    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
-
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10-lod41132372' -Location $location -DisableRbacAuthorization
     ```
 
     >**注**:最後のコマンドの出力には、コンテナー名とコンテナーURIが表示されます。 コンテナー URI の形式は `https://<vault_name>.vault.azure.net/` です
