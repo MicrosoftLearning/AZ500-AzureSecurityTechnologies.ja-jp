@@ -109,7 +109,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
 
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location -DisableRbacAuthorization
     ```
 
     >**注**:最後のコマンドの出力には、コンテナー名とコンテナーURIが表示されます。 コンテナー URI の形式は `https://<vault_name>.vault.azure.net/` です
