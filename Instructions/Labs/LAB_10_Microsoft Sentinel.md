@@ -9,7 +9,7 @@ lab:
 
 ## ラボのシナリオ
 
-**注:**  **Azure Sentinel** は **Microsoft Sentinel** に名前が変更されました 
+**注:** **Azure Sentinel** は **Microsoft Sentinel** に名前が変更されました 
 
 あなたは、Microsoft Sentinel ベースの脅威検出と応答の概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
@@ -48,7 +48,7 @@ lab:
 - タスク 5:カスタム アラートを作成し、自動化された応答としてプレイブックを構成します。
 - タスク 6:インシデントを発生させ、関連付けられているアクションを確認する。
 
-#### タスク 1:Azure Sentinel をオンボードにする
+#### タスク 1:Microsoft Sentinel をオンボードする
 
 このタスクでは、Microsoft Sentinel にオンボードし、Log Analytics ワークスペースを接続します。 
 
@@ -64,7 +64,7 @@ lab:
 
 4. **[ワークスペースへの Microsoft Sentinel の追加]** ブレードで、Azure Monitor ラボで作成した Log Analytics ワークスペースを選択し、 **[追加]** をクリックします。
 
-    >**注**:Microsoft Sentinel には、ワークスペースに対して非常に具体的な要件があります。 たとえば、Microsoft Defender for Cloud によって作成されたワークスペースは使用できません。 詳細については、次を参照してください: [クイック スタート:Azure Sentinel をオンボードする](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard)
+    >**注**:Microsoft Sentinel には、ワークスペースに対して非常に具体的な要件があります。 たとえば、Microsoft Defender for Cloud によって作成されたワークスペースは使用できません。 詳細については、「[クイックスタート: Microsoft Sentinel をオンボードする](https://docs.microsoft.com/en-us/microsoft/sentinel/quickstart-onboard)」を参照してください
     
 #### タスク 2:Azure アクティビティ データ コネクタを使用するように Microsoft Sentinel を構成します。 
 
