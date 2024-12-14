@@ -11,7 +11,7 @@ lab:
 
 あなたは、Microsoft Defender for Cloud ベースの環境の概念実証を作成するよう依頼されました。 具体的には、次のことを行います。
 
-- 仮想マシンを監視するように Microsoft Defender for Cloud を構成します。
+- サーバー用の Microsoft Defender for Cloud 強化セキュリティ機能を設定して、仮想マシンを監視します。
 - 仮想マシンに関する Microsoft Defender for Cloud の推奨事項を確認します。
 - ゲスト構成と Just-In-Time VM アクセスの推奨事項を実装します。 
 - セキュア スコアを使用して、より安全なインフラストラクチャの作成に向けた進捗状況を判断する方法を確認します。
@@ -38,35 +38,23 @@ lab:
 - タスク 2:Microsoft Defender for Cloud の推奨事項を確認する
 - タスク 3:Just-In-Time VM アクセスを有効にするために Microsoft Defender for Cloud の推奨事項を実装する
 
-#### タスク 1:Microsoft Defender for Cloud を構成する
+#### タスク 1: サーバー用のMicrosoft Defender for Cloud 強化セキュリティ機能を設定する
 
-このタスクでは、Microsoft Defender for Cloud をオンボードして構成します。
+このタスクでは、サーバー用Microsoft Defender for Cloud 強化セキュリティ機能をオンボードして設定します。
 
-1. Azure portal **`https://portal.azure.com/`** にサインインします。
+1. ブラウザー セッションを開始し、[Azure サブスクリプション](https://azure.microsoft.com/en-us/free/?azure-portal=true)にサインインします。 が必要です。
 
-    >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
+2. Azure portal において、Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスに、「Microsoft Defender for Cloud」と入力し、Enter キーを押します。
 
-2. Azure portal の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、Azure portal ページの上部に「**Microsoft Defender for Cloud**」と入力し、**Enter** キーを押します。
+3. Microsoft Defender for Cloud の [管理] ブレードで、[環境設定] に移動します。 サブスクリプション セクションが表示されるまで環境設定フォルダーを展開し、サブスクリプションをクリックして詳細を表示します。
 
-3. 左ナビゲーション パネルで、 **[作業の開始]** をクリックします。 **[Microsoft Defender for Cloud \| 開始]** ブレードで、 **[アップグレード]** をクリックします。
-     
-4. **[Microsoft Defender for Cloud \| 開始]** ブレードの [エージェントのインストール] タブで下へスクロールして **[エージェントのインストール]** をクリックします。 
+4. [設定] ブレードの [Defender プラン] で、[クラウド ワークロード保護 (CWP)] を展開します。
+  
+5. クラウド ワークロード保護 (CWP) プランの一覧から [サーバー] を選択します。 ページの右側で、[状態] を [オフ] から [オン] に変更し、[保存] をクリックします。
+  
+6. Microsoft Defender for Servers プラン 2 の詳細を確認するには、[プランの変更] を選択します。
 
-5. **[Microsoft Defender for Cloud \| 開始]** ブレードの **[アップグレード]** タブで **[強化されたセキュリティ機能を含むワークスペースの選択]** セクションが表示されるまでスクロール ダウンし、お使いの Log Analytics ワークスペースを選択して **[Microsoft Defender プラン]** をオンにしてから大きな青の更新ボタンをクリックします。  
-
-    >**注**:Microsoft Defender プランの一部として使用できるすべての機能を確認します。 
-
-6. **[Microsoft Defender for Cloud]** に移動し、[管理] セクションの下にある左側のナビゲーション パネルで **[環境の設定]** をクリックします。
-
-7. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードで下へスクロールし、サブスクリプションが表示されるまで展開して、関連するサブスクリプションをクリックします。 
-
-8. **[設定 \| Defender プラン]** ブレードで **[すべてのプランを有効にする]** を選択し、必要に応じて **[保存]** をクリックします。
-
-9. **[Microsoft Defender for Cloud \| 環境の設定]** ブレードに戻り、サブスクリプションが表示されるまで展開して、前のラボで作成した Log Analytics ワークスペースを表すエントリをクリックします。
-
-10. **[設定 \| Defender プラン]** ブレードですべてのオプションが "オン" になっていることを確認します。 必要に応じて、 **[すべてのプランを有効にする]** をクリックし、 **[保存]** をクリックします。
-
-11. **[設定 \| Defender プラン]** ブレードから **[データ収集]** を選択します。 **[すべてのイベント]** 、 **[保存]** の順にクリックします。
+>**注**: クラウド ワークロード保護 (CWP) サーバー プランをオフからオンにすると、Microsoft Defender for Servers プラン 2 が有効になります。
 
 #### タスク 2:Microsoft Defender for Cloud の推奨事項を確認する
 
