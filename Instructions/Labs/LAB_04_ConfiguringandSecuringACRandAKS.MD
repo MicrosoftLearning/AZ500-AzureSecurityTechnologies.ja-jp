@@ -158,7 +158,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     |設定|値|
     |----|----|
-    |ネットワーク構成|**Azure CNI**|
+    |ネットワーク構成|**Azure CNI オーバーレイ**|
     |DNS 名プレフィックス|**既定値のままにします**|
 
     >**注**:AKS はプライベート クラスターとして設定できます。 これにより、API サーバーにプライベート IP が割り当てられるため、API サーバーとノード プール間のネットワーク トラフィックがプライベート ネットワーク上にのみ残ります。 詳細については、[Azure Kubernetes Service のプライベート クラスター の作成](https://docs.microsoft.com/en-us/azure/aks/private-clusters)に関するページを参照してください。
