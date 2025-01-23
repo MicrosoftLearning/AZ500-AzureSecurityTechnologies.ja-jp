@@ -14,13 +14,13 @@ lab:
 
 ## ラボの目的
 
-- サーバー用に Microsoft Defender for Cloud の強化されたセキュリティ機能を構成する
+- サーバー用の Microsoft Defender for Cloud セキュリティ強化機能を設定する
   
 - Microsoft Defender for Servers プラン 2 の強化されたセキュリティ機能を確認する
 
 ## 演習の手順
 
-### サーバー用に Microsoft Defender for Cloud の強化されたセキュリティ機能を構成する
+### サーバー用の Microsoft Defender for Cloud セキュリティ強化機能を設定する
 
 1. Azure portal において、Azure portal ページの上部にある [リソース、サービス、ドキュメントの検索] テキスト ボックスに、「**Microsoft Defender for Cloud**」と入力し、**Enter** キーを押します。
 
