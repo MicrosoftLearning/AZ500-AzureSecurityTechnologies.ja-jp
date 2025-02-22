@@ -106,42 +106,44 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 このタスクでは、PowerShell を使用して Isabel Garcia のユーザー アカウントを作成します。
 
-1. Azure portal の右上にある最初のアイコンをクリックして、Cloud Shell を開きます。 メッセージが表示されたら、**[PowerShell]** と **[ストレージの作成]** を選択します。
+1. Azure portal の右上隅にある **Cloud Shell アイコン**をクリックして、**Cloud Shell を開きます**。
 
-2. [Cloud Shell] ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
+2. **メッセージが表示されたら、ストレージ アカウントを作成して Cloud Shell を設定します**。 これは、Cloud Shell を**初めて起動する場合にのみ**必要です。
+
+3. Cloud Shell 画面の左上隅にあるドロップダウン メニューから **[PowerShell] が選択されていることを確認します**。
 
    >**注**: コピーしたテキストを Cloud Shell に貼り付けるには、ペイン ウィンドウ内で右クリックして、**[貼り付け]** を選択します。 または、**Shift + Insert** キーの組み合わせを使用できます。
 
-3. Cloud Shell ペイン内の PowerShell セッションで、次を実行してパスワード プロファイル オブジェクトを作成します。
+4. Cloud Shell ペイン内の PowerShell セッションで、次を実行してパスワード プロファイル オブジェクトを作成します。
 
     ```powershell
     $passwordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
     ```
 
-4. Cloud Shell ペイン内の PowerShell セッションで次を実行して、プロファイル オブジェクト内のパスワードの値を設定します。
+5. Cloud Shell ペイン内の PowerShell セッションで次を実行して、プロファイル オブジェクト内のパスワードの値を設定します。
     ```powershell
     $passwordProfile.Password = "Pa55w.rd1234"
     ```
 
-5. Cloud Shell ペイン内の PowerShell セッションで、次を実行して Microsoft Entra ID に接続します。
+6. Cloud Shell ペイン内の PowerShell セッションで、次を実行して Microsoft Entra ID に接続します。
 
     ```powershell
     Connect-AzureAD
     ```
       
-6. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Microsoft Entra テナントの名前を識別します。 
+7. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Microsoft Entra テナントの名前を識別します。 
 
     ```powershell
     $domainName = ((Get-AzureAdTenantDetail).VerifiedDomains)[0].Name
     ```
 
-7. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントを作成します。 
+8. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントを作成します。 
 
     ```powershell
     New-AzureADUser -DisplayName 'Isabel Garcia' -PasswordProfile $passwordProfile -UserPrincipalName "Isabel@$domainName" -AccountEnabled $true -MailNickName 'Isabel'
     ```
 
-8. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Microsoft Entra ID ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
+9. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Microsoft Entra ID ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
 
     ```powershell
     Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
@@ -296,7 +298,9 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 3. **[AZ500Lab01 \| アクセス制御 (IAM)]** ブレードで、 **[+ 追加]** をクリックし、ドロップダウン メニューで **[ロール割り当ての追加]** をクリックします。
 
-4. **[ロール割り当ての追加]** ブレードで、次の設定を指定し、各手順の後に **[次へ]** をクリックします。
+4. **[ロール割り当ての追加]** ブレードで、次のそれぞれの設定を完了してから、[次へ] をクリックします。
+
+   **注:** すべての手順を完了したら、**[次へ]** をクリックします。
 
    |設定|値|
    |---|---|
@@ -304,17 +308,17 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
    |アクセスの割り当て先 ([メンバー] ペインの下)|**ユーザー、グループ、またはサービス プリンシパル**|
    |選択 ([+ メンバーの選択])|**サービス デスク**|
 
-5. **[レビューと割り当て]** を 2 回クリックして、ロールの割り当てを作成します。
+6. **[レビューと割り当て]** を 2 回クリックして、ロールの割り当てを作成します。
 
-6. **[Access Control (IAM)]** ブレードで、**[ロールの割り当て]** を選択します。
+7. **[Access Control (IAM)]** ブレードで、**[ロールの割り当て]** を選択します。
 
-7. **[AZ500Lab01 \| アクセス制御 (IAM)]** ブレードの **[アクセス権の確認]** タブで、**[名前またはメール アドレスで検索]** テキスト ボックスに「**Dylan Williams**」と入力します。
+8. **[AZ500Lab01 \| アクセス制御 (IAM)]** ブレードの **[アクセス権の確認]** タブで、**[名前またはメール アドレスで検索]** テキスト ボックスに「**Dylan Williams**」と入力します。
 
-8. 検索結果の一覧で、Dylan Williams のユーザー アカウントを選択し、**[Dylan Williams の割り当て - AZ500Lab01]** ブレードで、新しく作成された割り当てを表示します。
+9. 検索結果の一覧で、Dylan Williams のユーザー アカウントを選択し、**[Dylan Williams の割り当て - AZ500Lab01]** ブレードで、新しく作成された割り当てを表示します。
 
-9. **[Dylan Williams の割り当て - AZ500Lab01]** ブレードを閉じます。
+10. **[Dylan Williams の割り当て - AZ500Lab01]** ブレードを閉じます。
 
-10. 最後の 2 つの同じ手順を繰り返して、**Joseph Price** のアクセス権を確認します。 
+11. 最後の 2 つの同じ手順を繰り返して、**Joseph Price** のアクセス権を確認します。 
 
 > 結果:RBAC 権限を割り当てて確認しました。 
 
