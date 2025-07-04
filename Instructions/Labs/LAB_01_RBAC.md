@@ -4,6 +4,7 @@ lab:
   module: Module 01 - Manage Identity and Access
 ---
 
+
 # ラボ 01:ロールベースのアクセス制御
 # 受講生用ラボ マニュアル
 
