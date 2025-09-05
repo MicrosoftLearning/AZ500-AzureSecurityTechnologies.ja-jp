@@ -26,7 +26,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 ## ACR と AKS の構成とセキュリティ保護の図
 
-![image](https://user-images.githubusercontent.com/91347931/157532250-1104a829-792a-4b6d-beff-fe976e2d5d4b.png)
+![このラボでのタスクのプロセス フローを示す図。](../media/configuring-and-securing-acr-and-aks-diagram.png)
 
 ## 指示
 
@@ -81,6 +81,11 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
+    > **注** Azure Container Registry リソース プロバイダーを登録します。 `az acr create` の実行中にエラーが発生した場合は、**Azure Container Registry** サービスがまだサブスクリプションに登録されていないことが原因である可能性があります。 これを修正するには、サービスを登録し、1 つのコマンドでレジストリを作成します。
+    
+    > ```sh
+    > az provider register --namespace Microsoft.ContainerRegistry
+    > ```
 
 7. [Cloud Shell] ウィンドウ内の Bash セッションで、次の手順を実行して、新しい ACR が作成されたことを確認します。
 
