@@ -25,9 +25,9 @@ Azure SQL データベースのセキュリティ機能を確認するように�
 
 ## Azure SQL Database のセキュリティ保護の図
 
-![image](https://user-images.githubusercontent.com/91347931/157533836-7250fa58-a109-4882-a55b-d3fa3baf34ab.png)
+![このラボでのタスクのプロセス フローを示す図。](../media/securing-azure-sql-database-diagram.png)
 
-## Instructions
+## 手順
 
 ## ラボ ファイル：
 
