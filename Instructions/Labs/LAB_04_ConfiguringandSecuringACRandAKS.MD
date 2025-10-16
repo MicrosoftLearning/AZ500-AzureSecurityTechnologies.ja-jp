@@ -76,18 +76,24 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
     az group list --query "[?name=='AZ500LAB09']" -o table
     ```
 
-6. [Cloud Shell] ウィンドウ内の Bash セッションで、次のコマンドを実行して新しい Azure Container Registry (ACR) インスタンスを作成します (ACR の名前はグローバルに一意である必要があります)。 
+6. Bash セッションで次のコマンドを実行して、ラボ環境で **Container Registery** を登録します。
+
+   ```sh
+   az provider register --namespace Microsoft.Kubernetes
+   az provider register --namespace Microsoft.KubernetesConfiguration
+   az provider register --namespace Microsoft.OperationsManagement
+   az provider register --namespace Microsoft.OperationalInsights
+   az provider register --namespace Microsoft.ContainerService
+   az provider register --namespace Microsoft.ContainerRegistry
+   ```
+
+7. [Cloud Shell] ウィンドウ内の Bash セッションで、次のコマンドを実行して新しい Azure Container Registry (ACR) インスタンスを作成します (ACR の名前はグローバルに一意である必要があります)。 
 
     ```sh
     az acr create --resource-group AZ500LAB09 --name az500$RANDOM$RANDOM --sku Basic
     ```
-    > **注** Azure Container Registry リソース プロバイダーを登録します。 `az acr create` の実行中にエラーが発生した場合は、**Azure Container Registry** サービスがまだサブスクリプションに登録されていないことが原因である可能性があります。 これを修正するには、サービスを登録し、1 つのコマンドでレジストリを作成します。
-    
-    > ```sh
-    > az provider register --namespace Microsoft.ContainerRegistry
-    > ```
 
-7. [Cloud Shell] ウィンドウ内の Bash セッションで、次の手順を実行して、新しい ACR が作成されたことを確認します。
+8. [Cloud Shell] ウィンドウ内の Bash セッションで、次の手順を実行して、新しい ACR が作成されたことを確認します。
 
     ```sh
     az acr list --resource-group AZ500LAB09
@@ -135,7 +141,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 このタスクでは、Azure Kubernetes Service を作成し、デプロイされたリソースを確認します。 
 
-1. Azure portal ページの上部の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**Kubernetes サービス** を入力し **Enter**  キーを押します。
+1. Azure portal ページの上部の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、[Kubernetes サービス] を入力し **Enter** キーを押します。
 
 2. **[Kubernetes サービス]** ブレードで、 **[+ 作成]** をクリックし、ドロップダウン メニューで **[+ Kubernetes クラスターを作成]** をクリックします
 
@@ -143,32 +149,45 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
     |設定|値|
     |----|----|
-    |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
-    |リソース グループ|**AZ500LAB09**|
-    |Kubernetes クラスター名|**MyKubernetesCluster**|
-    |リージョン|**(米国) 米国東部**|
-    |可用性ゾーン |**なし**|
-    |スケーリング方法|**[手動]**|
-    |ノード数|**1**|
+    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前を使用** |
+    | リソース グループ | **AZ500LAB09** |
+    | クラスターのプリセット構成 | **Dev/Test** |
+    | Kubernetes クラスター名 | +++MyKubernetesCluster+++ |
+    | リージョン | **(米国) 米国東部** |
+    | フリート マネージャー | **なし** |
+    | 可用性ゾーン | **なし** |
+    | AKS 価格レベル | **Free** |
+    | 長期的なサポートの有効化 | **Unchecked** |
+    | Kubernetes バージョン | *既定値を使用* |
+    | 自動アップグレード | 既定値を維持 |
+    | ノード セキュリティ チャネルの種類 | 既定値を維持** |
+    | 認証と承認 | **Kubernetes RBAC を使用したローカル アカウント** |
 
-4. **[次へ: ノード プール >]** をクリックし **[Kubernetes クラスターを作成]** ブレードの **[ノード プール]** タブで、次の設定を指定します (他の設定は既定値のままにします)。
+4. **[次へ]** をクリックし **[Kubernetes クラスターを作成]** ブレードの **[ノード プール]** タブで、次の設定を指定します (他の設定は既定値のままにします)。
 
-    |設定|値|
+    |設定|Value|
     |----|----|
-    |仮想ノードを有効にする|チェックボックスがオフ|
-    
-5. **[次へ: アクセス >]** をクリックし、 **[Kubernetes クラスターを作成]** ブレードの **[アクセス]** タブで、既定値を受け入れて、 **[次へ:ネットワーク >]** を選択します。 
+    | ノードの自動プロビジョニングの有効化 | **チェックボックスをオフにする** |
+    | 仮想ノードを有効にする | **チェックボックスをオフにする** |
+    | その他の値 | 既定値を維持** |
+
+5. **[次へ]** をクリックして、**[ネットワーク]** に移動します。 
+
+  >注 - VM サイズに**推奨事項**が使用可能であることを示すポップアップが表示されます。  **推奨事項を受け入れて**、次に進みます。
 
 6. **[Kubernetes クラスターの作成]** ブレードの **[ネットワーク]** タブで、次の設定を指定します (既定値を他のユーザーのままにします)。
 
-    |設定|値|
+    |設定|Value|
     |----|----|
-    |ネットワーク構成|**Azure CNI オーバーレイ**|
-    |DNS 名プレフィックス|**既定値のままにします**|
+    | プライベート クラスターの有効化 | **Unchecked** |
+    | 承認された IP 範囲の設定 | **Unchecked** |
+    | ネットワークの構成 | **Azure CNI オーバーレイ** |
+    | DNS 名プレフィックス | **既定値のままにします** |
+    | ネットワーク ポリシー | **なし** |
 
     >**注**:AKS はプライベート クラスターとして設定できます。 これにより、API サーバーにプライベート IP が割り当てられるため、API サーバーとノード プール間のネットワーク トラフィックがプライベート ネットワーク上にのみ残ります。 詳細については、[Azure Kubernetes Service のプライベート クラスター の作成](https://docs.microsoft.com/en-us/azure/aks/private-clusters)に関するページを参照してください。
 
-7. **[次へ: 統合 >]** をクリックし、 **[Kubernetes クラスターを作成]** ブレードの **[統合]** タブで、 **[コンテナーの監視]** を **[無効]** に設定します。 
+7. **[次へ]** をクリックし、**[Kubernetes クラスターを作成]** ページの **[統合]** タブで、**すべての値を既定のまま**にします。 
 
     >**注**:運用シナリオでは、監視を有効にします。 この場合、監視はラボでカバーされていないので無効になります。 
 

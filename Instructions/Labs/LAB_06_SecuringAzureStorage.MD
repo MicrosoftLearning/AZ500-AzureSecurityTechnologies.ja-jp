@@ -25,9 +25,9 @@ Azure ファイル共有のセキュリティ保護を実証するための概�
 
 ## サービス エンドポイントとストレージの保護の図
 
-![image](https://user-images.githubusercontent.com/91347931/157534883-29664a05-85d1-4c70-99a7-f16d2360755d.png)
+![ラボでのタスクのプロセス フローを示すダイアグラム。](../media/service-endpoints-and-securing-storage-diagram.png)
 
-## Instructions
+## 手順
 
 ### 演習 1:サービス エンドポイントとセキュリティ ストレージ
 
