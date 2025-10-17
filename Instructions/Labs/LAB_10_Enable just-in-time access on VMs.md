@@ -53,7 +53,7 @@ lab:
 
    - **[構成済み]** タブで、ポートを追加する VM を右クリックして、[編集] を選択します。
 
-   ![image](https://github.com/user-attachments/assets/aa4ded55-c5b1-4d40-b5a0-a4c33b9eb81b)
+   ![VM 構成画面の Just-In-Time アクセスのスクリーンショット。](../media/just-in-time-vm-access.png)
    
    - **[JIT VM アクセス構成]** では、既に保護されているポートの既存の設定を編集するか、新しいカスタム ポートを追加できます。
    - ポートの編集が終わったら、 **[保存]** を選択します。   
@@ -72,6 +72,6 @@ lab:
     
         - JIT が有効になっている場合は、**[アクセス権の要求]** を選択し、要求元の IP、時間の範囲、その VM 用に構成されているポートを指定して、アクセス要求を渡します。
     
-   ![image](https://github.com/user-attachments/assets/f5d0b67c-7731-4261-b0eb-a56c505dadd4)
+   ![JIT を使用した仮想マシンへの接続のスクリーンショット。](../media/vm-connection-for-vm1.png)
 
 > **結果**: VM で JIT を有効にする方法と、Microsoft Defender for Cloud で JIT が有効になっている VM へのアクセスを要求する方法について、さまざまな方法を確認しました。

@@ -27,9 +27,9 @@ Azure Firewall のインストールを求められました。 これは、組�
 
 ## Azure Firewall の図
 
-![image](https://user-images.githubusercontent.com/91347931/157529954-a1bc434b-2eca-41c1-b875-1f0c977d5e20.png)
+![このラボでのタスクのプロセス フローを示す図。](../media/azure-firewall-diagram.png)
 
-## Instructions
+## 手順
 
 ## ラボ ファイル：
 

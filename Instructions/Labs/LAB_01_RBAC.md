@@ -30,7 +30,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 ## ロールベースのアクセス制御アーキテクチャの図
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/506cde9c-5242-4438-a793-f88a5434a2b2)
+![このラボのシステム レイアウトとラボのプロセス フローを示すダイアグラム](../media/role-based-access-control-architecture-diagram.png)
 
 ## 手順
 
@@ -68,7 +68,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 
 7. **Create** をクリックしてください。
 
-8. **[ユーザー \| すべてのユーザー]** ブレードを更新し、新しいユーザーが Azure AD テナントに作成されたことを確認します。
+8. **[ユーザー | すべてのユーザー]** ブレードを更新し、新しいユーザーが Microsoft Entra テナントに作成されたことを確認します。
 
 #### タスク 2:Azure portal を使用してシニア管理者グループを作成し、Joseph Price のユーザー アカウントをグループに追加します。
 

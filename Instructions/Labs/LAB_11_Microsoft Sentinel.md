@@ -27,9 +27,9 @@ lab:
 
 ## Microsoft Sentinel の図
 
-![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/509aa70d-de11-4470-a289-877fbfecbc00)
+![このラボのタスクのプロセス フローのダイアグラム。](../media/microsoft-sentinel-diagram.png)
 
-## Instructions
+## 手順
 
 ## ラボ ファイル：
 

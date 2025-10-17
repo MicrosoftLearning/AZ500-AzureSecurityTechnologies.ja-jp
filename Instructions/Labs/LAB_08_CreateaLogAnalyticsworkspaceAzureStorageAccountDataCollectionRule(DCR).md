@@ -168,7 +168,7 @@ lab:
     |プラットフォームの種類|**Windows**|
     |データ収集エンドポイント|*空白のままにする*|
 
-    ![image](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/9b58c4ce-b7a8-4acf-8289-d95b270a6083)
+    ![[データ収集ルールの作成] の基本タブのスクリーンショット。](../media/crete-a-data-collection-rule-basics-tab.png)
 
 
 5. **[次へ: リソース >]** というラベルの付いたボタンをクリックして次に進みます。
@@ -191,7 +191,7 @@ lab:
     |ディスク|60|
     |ネットワーク|60|
 
-   ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/a24e44ad-1d10-4533-80e2-bae1b3f6564d)
+   ![[データ収集ルール] の [収集と配信] タブのスクリーンショット。](../media/crete-a-data-collection-rule-collectanddeliver-tab.png)
 
 11. **[次へ: 移行先 >]** というラベルの付いたボタンをクリックして次に進みます。
   
@@ -199,11 +199,11 @@ lab:
 
 13. ページ下部の **[データ ソースの追加]** をクリックします。
     
-    ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/964091e7-bbbc-4ca8-8383-bb2871a1e7f0)
+    ![[データ収集ルール] ページの [データ ソースの追加] ページのスクリーンショット。](../media/crete-a-data-collection-rule-add-datasource.png)
 
 14. **[Review + create](レビュー + 作成)** をクリックします。
 
-    ![画像](https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/assets/91347931/50dd8407-a106-4540-9e14-ae40a3c04830)
+    ![[データ収集ルール] ウィザードの [確認および作成] タブのスクリーンショット。](../media/crete-a-data-collection-rule-reviewcreate-tab.png)
 
 15. **Create** をクリックしてください。
 
