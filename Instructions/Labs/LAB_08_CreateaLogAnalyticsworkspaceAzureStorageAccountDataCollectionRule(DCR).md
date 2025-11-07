@@ -35,7 +35,7 @@ lab:
 
 #### タスク 1: Azure 仮想マシンをデプロイする
 
-1. Azure portal **`https://portal.azure.com/`** にサインインします。
+1. Azure portal**`https://portal.azure.com/`** にサインインします。
 
     >**注**:このラボで使用している Azure サブスクリプションで所有者ロールまたは共同作成者ロールを持つアカウントを使用して Azure portal にサインインします。
 
@@ -45,7 +45,7 @@ lab:
 
 4. **[作業の開始]** ウィンドウで、既定の設定をそのまま使用します。**開始するには、サブスクリプションを選択します。必要に応じて、セッション間でファイルを保持するためのストレージ アカウントをマウントできます。ストレージ アカウントは必須ではありません。**
 
-5. **[サブスクリプション]** ドロップダウン メニューから、お使いの **lodsubscription** を選びます。
+5. **[サブスクリプション]** ドロップダウン メニューから、お使いの**lodsubscription** を選びます。
 
 6. **[既存のプライベート仮想ネットワークを使用する]** をオフのままにして、**[適用]** をクリックします。
 
@@ -66,7 +66,7 @@ lab:
 5. [Cloud Shell] ペイン内の PowerShell セッションで、次の手順を実行して、新しい Azure 仮想マシンを作成します。 
 
     ```powershell
-    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_D2s_v3 
+    New-AzVm -ResourceGroupName "AZ500LAB131415" -Name "myVM" -Location 'EastUS' -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName   "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -PublicIpSku Standard -OpenPorts 80,3389 -Size Standard_D2_v4 
     ```
     
 6.  資格情報の入力を求められた場合:
@@ -106,12 +106,12 @@ lab:
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB131415**|
-    |名前|グローバルにユニークな任意の名前|
+    |Name|**lgawIgnite**|
     |リージョン|**米国東部**|
 
 4. **[Review + create](レビュー + 作成)** を選択します。
 
-5. **[Log Analytics ワークスペースの作成]** ブレードの **[確認および作成]** タブで、 **[作成]** を選択します。
+5. **[Log Analytics ワークスペースの作成]** ブレードの **[確認および作成]** タブで、**[作成]** を選択します。
 
 ### 演習 3:Azure ストレージ アカウントを作成する
 
@@ -133,12 +133,9 @@ lab:
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB131415**|
-    **インスタンスの詳細** |ストレージ アカウント名|文字と数字で構成される 3 ～ 24 文字の長さのグローバルに一意の名前| |リージョン|**(米国) EastUS**|
-    |プライマリ サービス|**Azure Blob Storage または Azure Data Lake Storage Gen 2**|
-    |パフォーマンス|**Standard (汎用 v2 アカウント)**|
-    |冗長性|**ローカル冗長ストレージ (LRS)**|
+    **インスタンスの詳細** |ストレージ アカウント名|**strgactignite**| |リージョン|**(米国) EastUS**| |プライマリ サービス|**Azure Blob Storage または Azure Data Lake Storage Gen 2**| |パフォーマンス|**Standard (汎用 v2 アカウント)**| |冗長性|**ローカル冗長ストレージ (LRS)**|
 
-5. **[ストレージ アカウントの作成]** ブレードの **[基本]** タブで、**[レビュー + 作成]** をクリックします。 検証プロセスが完了したら、 **[作成]** をクリックします。
+5. **[ストレージ アカウントの作成]** ブレードの **[基本]** タブで、**[レビュー + 作成]** をクリックします。 検証プロセスが完了したら、**[作成]** をクリックします。
 
     >**注**:ストレージ アカウントが作成されるのを待ちます。 これには 2 分ほどかかります。
 
@@ -162,11 +159,7 @@ lab:
   
     |設定|Value|
     |---|---|
-    **ルールの詳細** |ルール名|**DCR1**|
-    |サブスクリプション|このラボで使用している Azure サブスクリプションの名前| |リソース グループ|**AZ500LAB131415**|
-    |リージョン|**米国東部**|
-    |プラットフォームの種類|**Windows**|
-    |データ収集エンドポイント|*空白のままにする*|
+    **ルールの詳細** |ルール名|**DCR1**| |サブスクリプション|このラボで使用している Azure サブスクリプションの名前| |リソース グループ|**AZ500LAB131415**| |リージョン|**米国東部**| |プラットフォームの種類|**Windows**| |データ収集エンドポイント|*空白のままにする*|
 
     ![[データ収集ルールの作成] の基本タブのスクリーンショット。](../media/crete-a-data-collection-rule-basics-tab.png)
 
