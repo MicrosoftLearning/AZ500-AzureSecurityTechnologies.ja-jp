@@ -28,7 +28,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 ![このラボでのタスクのプロセス フローを示す図。](../media/configuring-and-securing-acr-and-aks-diagram.png)
 
-## 指示
+## 手順
 
 ## ラボ ファイル：
 
@@ -259,7 +259,7 @@ Azure Container Registry と Azure Kubernetes Service を使用して概念実�
 
 このタスクでは、マニフェスト ファイルをダウンロードし、YAML ファイルを編集し、変更をクラスターに適用します。 
 
-1. [Cloud Shell] ペイン内の Bash セッションで、 **[ファイルのアップロード/ダウンロード]** アイコンをクリックし、ドロップダウン メニューの **[アップロード]** をクリックして、 **[開く]** ダイアログ ボックスでラボ ファイルをダウンロードした場所に移動します。および **\\Allfiles\\Labs\\09\\nginxexternal.yaml** を選択し、 **[開く]** をクリックします。 次に、 **\\Allfiles\\Labs\\09\\nginxinternal.yaml** を選択し、 **[開く]** をクリックします。
+1. [Cloud Shell] ペイン内の Bash セッションで、**[ファイルのアップロード/ダウンロード]** アイコンをクリックし、ドロップダウン メニューの **[アップロード]** をクリックして、**[開く]** ダイアログ ボックスでラボ ファイルをダウンロードした場所に移動します。**\\Allfiles\\Labs\\09\\nginxexternal.yaml** を選択し、**[開く]** をクリックします。 次に、 **\\Allfiles\\Labs\\09\\nginxinternal.yaml** を選択し、 **[開く]** をクリックします。
 
 2. [Cloud Shell] ウィンドウ内の Bash セッションで、次のコマンドを実行して、Azure Container Registry インスタンスの名前を識別します。
 
