@@ -133,7 +133,7 @@ lab:
     |---|---|
     |サブスクリプション|このラボで使用している Azure サブスクリプションの名前|
     |リソース グループ|**AZ500LAB131415**|
-    **インスタンスの詳細** |ストレージ アカウント名|**strgactignite**|
+    **インスタンスの詳細** |ストレージ アカウント名|**strgactignite@lab.LabInstance.Id**|
     |リージョン|**(米国) EastUS**|
     |プライマリ サービス|**Azure Blob Storage または Azure Data Lake Storage Gen 2**|
     |パフォーマンス|**Standard (汎用 v2 アカウント)**|

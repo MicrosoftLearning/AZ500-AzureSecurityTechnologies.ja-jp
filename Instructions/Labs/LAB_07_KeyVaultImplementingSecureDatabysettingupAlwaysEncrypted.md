@@ -17,7 +17,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 >**注**:このラボのすべてのリソースについて、**米国東部**リージョンを使用しています。 これがクラスで使用するリージョンであることを講師に確認します。 
 
-この概念実証の構築に関連する Azure のセキュリティの側面に焦点を当て続けるために、自動化された ARM テンプレートのデプロイから開始し、Visual Studio 2019 と SQL Server Management Studio 19 を使用して仮想マシンをセットアップします。
+この概念実証の構築に関連する Azure のセキュリティの側面に焦点を当て続けるために、自動化された ARM テンプレートのデプロイから開始し、Visual Studio と SQL Server Management Studio を使用して仮想マシンをセットアップします。
 
 ## ラボの目的
 
@@ -50,7 +50,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 #### タスク 1:Azure VM と Azure SQL データベースをデプロイする
 
-このタスクでは、Azure VM をデプロイします。これにより、デプロイの一部として Visual Studio 2019 と SQL Server Management Studio 19 が自動的にインストールされます。 
+このタスクでは、Azure VM をデプロイします。これにより、デプロイの一部として Visual Studio と SQL Server Management Studio が自動的にインストールされます。 
 
 1. Azure portal **`https://portal.azure.com/`** にサインインします。
 
@@ -69,7 +69,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
    |設定|値|
    |---|---|
    |サブスクリプション|このラボで使用する Azure サブスクリプションの名前|
-   |リソース グループ|**[新規作成]** をクリックして、「**AZ500LAB10**」という名前を入力します|
+   |リソース グループ|**[新規作成]** をクリックして、「**AZ500Lab10-lod@lab.LabInstance.Id**」という名前を入力します|
    |場所|**米国東部**|
    |ユーザー名|**Student**|
    |パスワード|**ラボ 02 > 演習 2 > タスク 1 > 手順 3 で作成した自分の個人用パスワードを使ってください。**|
@@ -78,7 +78,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
     >**注**:Azure VM をプロビジョニングできる Azure リージョンを特定するには、[ **https://azure.microsoft.com/en-us/regions/offers/** ](https://azure.microsoft.com/en-us/regions/offers/) を参照してください
 
-8. **[確認と作成]** ボタンをクリックし、**[作成]** ボタンをクリックしてデプロイを確認します。 
+7. **[確認と作成]** ボタンをクリックし、**[作成]** ボタンをクリックしてデプロイを確認します。 
 
     >**注**:これにより、このラボに必要な Azure VM と Azure SQL データベースのデプロイが開始されます。 
 
@@ -95,6 +95,8 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 4. 正しいリソース グループが選択されていることを確認します。
 
 5. **管理者パスワード**を、前の手順で使用したのと同じパスワードに設定します。
+   
+6.  **[確認と作成]** ボタンをクリックし、**[作成]** ボタンをクリックしてデプロイを確認します。
 
 ### 演習 2:キーとシークレットを使用して Key Vault のリソースを構成する
 
@@ -114,14 +116,14 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 2. Cloud Shell ペインの左上隅にあるドロップダウン メニューで **[PowerShell]** が選択されていることを確認します。
 
-3. [Cloud Shell] ペイン内の PowerShell セッションで次のように実行して、リソース グループ **AZ500LAB10** に Azure Key Vault を作成します。 （タスク 1 でラボのリソース グループに別の名前を使用した場合は、このタスクでもその名前を使用してください）。 Key Vault 名は一意である必要があります。 選択した名前を覚えておいてください。 このラボ全体で必要になります。  
+3. [Cloud Shell] ペイン内の PowerShell セッションで次のように実行して、リソース グループ **AZ500Lab10-lod@lab.LabInstance.Id** に Azure キー コンテナーを作成します。（タスク 1 でラボのリソース グループに別の名前を使用した場合は、このタスクでもその名前を使用してください）。 Key Vault 名は一意である必要があります。 選択した名前を覚えておいてください。 このラボ全体で必要になります。  
 
     ```powershell
     $kvName = 'az500kv' + $(Get-Random)
 
-    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500LAB10').Location
+    $location = (Get-AzResourceGroup -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id').Location
 
-    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500LAB10' -Location $location -DisableRbacAuthorization
+    New-AzKeyVault -VaultName $kvName -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id' -Location $location -DisableRbacAuthorization
     ```
 
     >**注**:最後のコマンドの出力には、コンテナー名とコンテナーURIが表示されます。 コンテナー URI の形式は `https://<vault_name>.vault.azure.net/` です
@@ -130,7 +132,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 5. Azure portal ページの上部にある **[ソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**リソース グループ**」と入力し、**Enter** キーを押します。
 
-6. **[リソース グループ]** ウィンドウのリソース グループのリストで、**AZ500LAB10** (または以前にリソース グループに選択した他の名前) エントリをクリックします。
+6. **[リソース グループ]** ウィンドウのリソース グループのリストで、**AZ500Lab10-lod@lab.LabInstance.Id** (または以前にリソース グループに選択した他の名前) エントリをクリックします。
 
 7. リソース グループ ブレードで、新しく作成された Key Vault を表すエントリをクリックします。 
 
@@ -162,7 +164,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 3. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、ソフトウェアで保護されたキーを Key Vault に追加します。 
 
     ```powershell
-    $kv = Get-AzKeyVault -ResourceGroupName 'AZ500LAB10'
+    $kv = Get-AzKeyVault -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id'
 
     $key = Add-AZKeyVaultKey -VaultName $kv.VaultName -Name 'MyLabKey' -Destination 'Software'
     ```
@@ -296,7 +298,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
     ```
 4. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Key Vault 名を格納する変数を作成します。
     ```
-    $kvName = (Get-AzKeyVault -ResourceGroupName 'AZ500LAB10').VaultName
+    $kvName = (Get-AzKeyVault -ResourceGroupName 'AZ500Lab10-lod@lab.LabInstance.Id').VaultName
 
     $kvName
     ```
@@ -304,7 +306,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 5. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、前のタスクで登録したアプリケーションに Key Vault の権限を付与します。
 
     ```powershell
-    Set-AZKeyVaultAccessPolicy -VaultName $kvName -ResourceGroupName AZ500LAB10 -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AZKeyVaultAccessPolicy -VaultName $kvName -ResourceGroupName AZ500Lab10-lod@lab.LabInstance.Id -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
     ```
 
 6. [Cloud Shell] ペインを閉じます。 
@@ -318,7 +320,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 2. SQL データベースの一覧で、 **[medical(<randomsqlservername>)]** エントリをクリックします。
 
-    >**注**:データベースが見つからない場合は、演習1で開始したデプロイがまだ完了していない可能性があります。 これを検証するには、Azure リソース グループ "AZ500LAB10" (または他の選んだ名前) を参照し、[設定] ウィンドウから **[デプロイ]** を選択します。  
+    >**注**:データベースが見つからない場合は、演習1で開始したデプロイがまだ完了していない可能性があります。 これを検証するには、Azure リソース グループ "AZ500Lab10-lod@lab.LabInstance.Id" (または他の選んだ名前) を参照し、[設定] ペインから **[デプロイ]** を選択します。  
 
 3. SQL データベースのウィンドウの **[設定]** セクションで、**[接続文字列]** をクリックします。 
 
@@ -332,7 +334,7 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 このタスクでは、演習 1 で開始した Azure VM にログオンします。 この Azure VM は、Visual Studio 2019 と SQL Server Management Studio 19 をホストします。
 
-    >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "Az500Lab10" (or other name you chose) and selecting **Deployments** from the Settings pane.  
+    >**Note**: Before you proceed with this task, ensure that the deployment you initiated in the first exercise has completed successfully. You can validate this by navigating to the blade of the Azure resource group "AZ500Lab10-lod@lab.LabInstance.Id" (or other name you chose) and selecting **Deployments** from the Settings pane.  
 
 1. Azure portal ページの上部の **[リソース、サービス、ドキュメントの検索]** テキスト ボックスに「**仮想マシン**」と入力し、**Enter** キーを押します。
 
@@ -435,10 +437,10 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 この演習では、次のタスクを実行します。
 
-- タスク 1:Visual Studio 2022 をインストールする
+- タスク 1:Visual Studio 2026 をインストールする
 - タスク 2:データ駆動型アプリケーションを実行して、Azure SQL データベースの暗号化における Azure Key Vault の使用法を示す
 
-#### タスク 1:Visual Studio 2022 をインストールする
+#### タスク 1:Visual Studio 2026 をインストールする
 
 1. まだ切り替わっていない場合は、サーバー仮想マシンに切り替えます。
 
@@ -458,6 +460,8 @@ Azure SQL データベースの Always Encrypted 機能のサポートを利用�
 
 9. [続行] を選択して、インストールを開始します。
   - インストールにはおよそ 10 分かかります
+
+10. [ワークロード] 画面で **[.Net デスクトップ開発]** を選択します。
 
 #### タスク 2:データ駆動型アプリケーションを実行して、Azure SQL データベースの暗号化における Azure Key Vault の使用法を示す
 
@@ -538,7 +542,7 @@ Visual Studio を使用して暗号化列にデータを読み込むコンソー
 3. Cloud Shell ペイン内の PowerShell セッションで、次の手順を実行して、このラボで作成したリソース グループを削除します。
   
     ```powershell
-    Remove-AzResourceGroup -Name "AZ500LAB10" -Force -AsJob
+    Remove-AzResourceGroup -Name "AZ500Lab10-lod@lab.LabInstance.Id" -Force -AsJob
     ```
 
 4.  **[Cloud Shell]** ペインを閉じます。 
