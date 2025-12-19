@@ -28,13 +28,13 @@ lab:
 
    ![Microsoft Defender for Cloud の環境設定のスクリーンショット。](../media/defender-for-cloud-environment-settings.png)
    
-3. **[設定]** ブレードの **[Defender プラン]** で、**[クラウド ワークロード保護 (CWP)]** を展開します。
+3. **[設定]** ブレードの **[Defender プラン]** で、**[クラウド ワークロード保護 (CWPP)]** を展開します。
 
-4. **クラウド ワークロード保護 (CWP) プラン**の一覧から **[サーバー]** を選択します。 ページの右側で、**[状態]** を **[オフ]** から **[オン]** に変更し、**[保存]** をクリックします。
+4. **[クラウド ワークロード保護 (CWPP) プラン]** の一覧から **[サーバー]** を選択します。 ページの右側で、**[状態]** を **[オフ]** から **[オン]** に変更し、**[保存]** をクリックします。
 
 5. **Microsoft Defender for Servers プラン 2** の詳細を確認するには、**[プランの変更]** を選択します。
 
-   注: クラウド ワークロード保護 (CWP) サーバー プランをオフからオンにすると、Microsoft Defender for Servers プラン 2 が有効になります。
+   注:クラウド ワークロード保護 (CWPP) サーバー プランをオフからオンにすると、Microsoft Defender for Servers プラン 2 が有効になります。
  
    ![Microsoft Defender for Cloud のプラン選択ページのスクリーンショット。](../media/defender-for-cloud-plan-selection.png)
    

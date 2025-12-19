@@ -147,7 +147,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 9. Cloud Shell ペイン内の PowerShell セッションで次のコマンドを実行して、Microsoft Entra ID ユーザーを一覧表示します (Joseph と Isabel のアカウントが一覧に表示されます)。 
 
     ```powershell
-    Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "*43846135@LOD*"} 
+    Get-AzureADUser -All $true | Where-Object {$_.UserPrincipalName -like "Isabel-@lab.LabInstance.Id*"} 
     ```
 
 #### タスク 2:PowerShell を使用してジュニア管理者グループを作成し、Isabel Garcia のユーザー アカウントをグループに追加します。
@@ -157,7 +157,7 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 1. Cloud Shell ペイン内の同じ PowerShell セッションで次を実行して、Junior Admins という名前の**新しいセキュリティ グループを作成**します。
    
    ```powershell
-   New-AzureADGroup -DisplayName 'Junior Admins43846135' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
+   New-AzureADGroup -DisplayName 'Junior Admins@lab.LabInstance.Id' -MailEnabled $false -SecurityEnabled $true -MailNickName JuniorAdmins
    ```
    
 2. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Microsoft Entra テナント内の**グループを一覧表示**します (一覧には、Senior Admins グループと Junior Admins グループが表示されます)。
@@ -169,18 +169,18 @@ Azure ユーザーとグループの作成方法を示す概念実証を作成�
 3. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Isabel Garcia のユーザー アカウントへの**参照を取得**します。
 
    ```powershell
-   $user = Get-AzureADUser -Filter "UserPrincipalName eq 'Isabel-43846135@LODSPRODMCA.onmicrosoft.com'"
+   $user = Get-AzureADUser -Filter "UserPrincipalName eq 'Isabel-@lab.LabInstance.Id@LODSPRODMCA.onmicrosoft.com'"
    ```
 
-4. Cloud Shell 画面内の PowerShell セッションで、次のコマンドを実行して、Junior Admins43846135 グループに Isabel のユーザー アカウントを追加します。
+4. Cloud Shell ペイン内の PowerShell セッションで、次のコマンドを実行して、Junior Admins@lab.LabInstance.Id グループに Isabel のユーザー アカウントを追加します。
    ```powershell
-   Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins43846135"
+   Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGroupDisplayName "Junior Admins@lab.LabInstance.Id"
    ```
 
-5. Cloud Shell 画面内の PowerShell セッションで、次を実行して、Junior Admins43846135 グループに Isabel のユーザー アカウントが含まれていることを確認します。
+5. Cloud Shell ペイン内の PowerShell セッションで次を実行して、Junior Admins@lab.LabInstance.Id グループに Isabel のユーザー アカウントが含まれていることを確認します。
    
    ```powershell
-    Get-AzADGroupMember -GroupDisplayName "Junior Admins43846135"
+    Get-AzADGroupMember -GroupDisplayName "Junior Admins@lab.LabInstance.Id"
     ```
    
 > 結果:PowerShell を使用してユーザーとグループ アカウントを作成し、ユーザー アカウントをグループ アカウントに追加しました。 
