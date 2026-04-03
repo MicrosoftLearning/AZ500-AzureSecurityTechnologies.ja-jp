@@ -2,6 +2,13 @@
 lab:
   title: 05 - Azure SQL Database のセキュリティ保護
   module: Module 02 - Plan and implement security for Azure SQL Database and Azure SQL Managed Instance
+  description: このタスクでは、まずサーバー レベルの監査を構成し、次にデータベース レベルの監査を構成します。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure SQL Database
 ---
 
 # ラボ 05:Azure SQL データベースのセキュリティ保護
