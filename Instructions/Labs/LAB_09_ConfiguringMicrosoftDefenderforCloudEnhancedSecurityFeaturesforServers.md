@@ -2,6 +2,15 @@
 lab:
   title: 09 - サーバー用に Microsoft Defender for Cloud の強化されたセキュリティ機能を構成する
   module: Module 03 - Configure and manage threat protection by using Microsoft Defender for Cloud
+  description: 会社のクラウド インフラストラクチャをセキュリティで保護します。 Microsoft Defender for Cloud で Microsoft Defender for Servers を有効にして、Azure VM とハイブリッド サーバーの両方で高度な脅威に対する保護とセキュリティ監視を提供します。
+  duration: 28 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Virtual Machines
+    - Microsoft Defender
+    - Microsoft Defender for Cloud
 ---
 
 # ラボ 09: サーバー用に Microsoft Defender for Cloud の強化されたセキュリティ機能を構成する

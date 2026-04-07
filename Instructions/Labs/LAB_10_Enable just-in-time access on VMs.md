@@ -2,6 +2,10 @@
 lab:
   title: 10 - VM で Just-In-Time アクセスを有効にする
   module: Module 03 - Configure and manage threat protection by using Microsoft Defender for Cloud
+  description: 仮想マシンをデプロイし、Just-In-Time (JIT) アクセスを使って VM を管理します。
+  duration: 30 minutes
+  level: 300
+  islab: true
 ---
 
 # ラボ 10: VM で Just-In-Time アクセスを有効にする
@@ -64,7 +68,7 @@ lab:
    
 1. Azure portal で仮想マシンのページを開きます。
 
-2. 接続先の VM を選択し、 **[接続]** ページを開きます。
+2. 接続先の VM を選択し、**[接続]** ページを開きます。
 
    - Azure により、その VM で JIT が有効になっているかどうかが確認されます。
 
