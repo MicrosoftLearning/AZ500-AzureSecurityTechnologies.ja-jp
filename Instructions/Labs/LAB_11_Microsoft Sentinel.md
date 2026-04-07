@@ -2,6 +2,12 @@
 lab:
   title: 11 - Microsoft Sentinel
   module: Module 04 - Configure and manage security monitoring and automation solutions
+  description: このタスクでは、プレイブックを作成します。 セキュリティ プレイブックは、アラートに応答して Microsoft Sentinel によって呼び出すことができるタスクのコレクションです。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Microsoft Sentinel
 ---
 
 # ラボ 11: Microsoft Sentinel

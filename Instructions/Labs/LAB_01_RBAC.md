@@ -2,8 +2,11 @@
 lab:
   title: 01 - ロールベースのアクセス制御
   module: Module 01 - Manage Identity and Access
+  description: このタスクでは、Joseph Price のユーザー アカウントを作成します。
+  duration: 10 minutes
+  level: 400
+  islab: true
 ---
-
 
 # ラボ 01:ロールベースのアクセス制御
 # 受講生用ラボ マニュアル
