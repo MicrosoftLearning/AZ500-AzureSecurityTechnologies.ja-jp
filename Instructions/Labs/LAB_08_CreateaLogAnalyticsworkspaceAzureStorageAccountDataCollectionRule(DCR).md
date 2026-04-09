@@ -2,6 +2,13 @@
 lab:
   title: 08 - Log Analytics ワークスペース、Azure ストレージ アカウント、データ収集ルール (DCR) を作成する
   module: Module 03 - Configure and manage threat protection by using Microsoft Defender for Cloud
+  description: このタスクでは、データ収集ルールを作成します。  このルールは、Microsoft Defender for Cloud を使って脅威を管理します。
+  duration: 10 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Defender for Cloud
 ---
 
 # ラボ 08: Log Analytics ワークスペース、Azure ストレージ アカウント、データ収集ルール (DCR) を作成する
